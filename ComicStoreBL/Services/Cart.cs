@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ComicStoreBL.Services
 {
-    public class CartService
+    public class Cart
     {
-        private readonly List<Cart> cartCollection = new List<Cart>();
+        private readonly List<CartLine> cartCollection = new List<CartLine>();
 
         public void AddToCart(ComicBookBL book, int quantity)
         {
@@ -19,7 +19,7 @@ namespace ComicStoreBL.Services
 
             if (line == null)
             {
-                cartCollection.Add(new Cart
+                cartCollection.Add(new CartLine
                 {
                     ComicBookBL = book,
                     Quantity = quantity
@@ -47,7 +47,7 @@ namespace ComicStoreBL.Services
             cartCollection.Clear();
         }
 
-        public IEnumerable<Cart> GetAllProducts
+        public IEnumerable<CartLine> GetAllProducts
         {
             get { return cartCollection; }
         }

@@ -1,0 +1,14 @@
+﻿@model ComicStoreBL.Services.Cart
+
+<div class="navbar-right">
+    @Html.ActionLink("Order", "Index", "Cart",
+    new { returnUrl = Request.Url.PathAndQuery },
+    new { @class = "btn btn-default navbar-btn" })
+</div>
+
+<div class="navbar-text navbar-right">
+    <b>Your Card:</b>
+    @Model.GetAllProducts.Sum(x => x.Quantity) books,
+    @Model.GetTotalPrice().ToString("# USD")
+</div>
+

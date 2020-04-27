@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ComicStoreBL.Models
 {
-    public class Cart
+    public class CartLine
     {
         public ComicBookBL ComicBookBL { get; set; }
         public int Quantity { get; set; }

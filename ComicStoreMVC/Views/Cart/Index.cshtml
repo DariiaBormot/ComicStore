@@ -15,23 +15,32 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.CartService.GetAllProducts)
+        @foreach (var item in Model.Cart.GetAllProducts)
         {
-            <tr>
-                <td class="text-center">@item.Quantity</td>
-                <td class="text-left">@item.ComicBookBL.Name</td>
-                <td class="text-right">@item.ComicBookBL.Price.ToString("# usd")</td>
-                <td class="text-right">
-                    @((item.Quantity * item.ComicBookBL.Price).ToString("# usd"))
-                </td>
-            </tr>
+        <tr>
+            <td class="text-center">@item.Quantity</td>
+            <td class="text-left">@item.ComicBookBL.Name</td>
+            <td class="text-right">@item.ComicBookBL.Price.ToString("# USD")</td>
+            <td class="text-right">
+                @((item.Quantity * item.ComicBookBL.Price).ToString("# USD"))
+            </td>
+            <td>
+                @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                {
+                    @Html.Hidden("Id", item.ComicBookBL.Id)
+                    @Html.HiddenFor(x => x.ReturnUrl)
+                    <input class="btn btn-sm btn-warning" type="submit" value="Delete" />
+                }
+            </td>
+        </tr>
+
         }
     </tbody>
     <tfoot>
         <tr>
             <td colspan="3" class="text-right">Total:</td>
             <td class="text-right">
-                @Model.CartService.GetTotalPrice().ToString("# usd")
+                @Model.Cart.GetTotalPrice().ToString("# USD")
             </td>
         </tr>
     </tfoot>

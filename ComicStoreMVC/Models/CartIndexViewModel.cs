@@ -8,7 +8,7 @@ namespace ComicStoreMVC.Models
 {
     public class CartIndexViewModel
     {
-        public CartService CartService { get; set; }
+        public Cart Cart { get; set; }
         public string ReturnUrl { get; set; }
     }
 }

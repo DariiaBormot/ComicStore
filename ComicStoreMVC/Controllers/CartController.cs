@@ -18,51 +18,43 @@ namespace ComicStoreMVC.Controllers
             _bookService = bookService;
         }
 
-        public ViewResult Index(string returnUrl)
+        public ViewResult Index(Cart cart, string returnUrl)
         {
             return View(new CartIndexViewModel
             {
-                CartService = GetCartService(),
+                Cart = cart,
                 ReturnUrl = returnUrl
             });
         }
 
-        public RedirectToRouteResult AddToCart(int bookId, string returnUrl)
+        public RedirectToRouteResult AddToCart(Cart cart, int id, string returnUrl)
         {
-            var comicBooks = _bookService.GetById(bookId);
+            var comicBooks = _bookService.GetById(id);
 
             if (comicBooks != null)
             {
-                GetCartService().AddToCart(comicBooks, 1);
+                cart.AddToCart(comicBooks, 1);
             }
 
             return RedirectToAction("Index", new { returnUrl });
         }
 
-        public RedirectToRouteResult RemoveFromCart(int bookId, string returnUrl)
+        public RedirectToRouteResult RemoveFromCart(Cart cart, int id, string returnUrl)
         {
-            var comicBooks = _bookService.GetById(bookId);
+            var comicBooks = _bookService.GetById(id);
 
             if (comicBooks != null)
             {
-                GetCartService().RemoveFromCart(comicBooks);
+                cart.RemoveFromCart(comicBooks);
             }
 
             return RedirectToAction("Index", new { returnUrl });
         }
 
-
-        public CartService GetCartService()
+        public PartialViewResult Summary(Cart cart)
         {
-            var cartService = (CartService)Session["Cart"];
-
-            if (cartService == null)
-            {
-                cartService = new CartService();
-                Session["Cart"] = cartService;
-            }
-
-            return cartService;
+            return PartialView(cart);
         }
+
     }
 }

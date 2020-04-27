@@ -224,6 +224,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\CartModelBinder.cs" />
     <Compile Include="Migrations\202004231053425_InitialCreate.cs" />
     <Compile Include="Migrations\202004231053425_InitialCreate.designer.cs">
       <DependentUpon>202004231053425_InitialCreate.cs</DependentUpon>
@@ -321,6 +322,7 @@
     <Content Include="Views\ComicBooks\ComicBooksByCategory.cshtml" />
     <Content Include="Views\Navigation\MenuByCategorie.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\Summary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

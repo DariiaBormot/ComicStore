@@ -1,4 +1,6 @@
-﻿using ComicStoreMVC.App_Start;
+﻿using ComicStoreBL.Services;
+using ComicStoreMVC.App_Start;
+using ComicStoreMVC.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +20,7 @@ namespace ComicStoreMVC
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            ModelBinders.Binders.Add(typeof(Cart), new CartModelBinder());
             AutofacConfigMVC.ConfigureContainer();
         }
     }
