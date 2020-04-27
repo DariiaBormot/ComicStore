@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ComicStoreDAL.Entities.ComicBook">
+    <Position X="3.75" Y="1.5" Width="1.5" />
+    <AssociationLine Name="Category" Type="ComicStoreDAL.Entities.Category" FixedFromPoint="true">
+      <Path>
+        <Point X="3.75" Y="2.08" />
+        <Point X="2.25" Y="2.08" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.285" Y="0.068" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Publisher" Type="ComicStoreDAL.Entities.Publisher" FixedFromPoint="true">
+      <Path>
+        <Point X="3.75" Y="3.812" />
+        <Point X="2.25" Y="3.812" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.293" Y="0.052" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Orders" Type="ComicStoreDAL.Entities.Order">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.635" Y="0.052" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAQAgAgAACAAAAAQAAQAAABAAAAAAgAAACAA=</HashCode>
+      <FileName>Entities\ComicBook.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Category" />
+      <Property Name="Publisher" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Orders" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ComicStoreDAL.Entities.Order">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="User" Type="ComicStoreDAL.Entities.User">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.043" Y="0.21" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="ComicBooks" Type="ComicStoreDAL.Entities.ComicBook">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.302" Y="0.102" Height="0.182" Width="1.097" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>CAADAAAAAAACAAAAAAACAAgAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Order.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ComicBooks" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ComicStoreDAL.Entities.Publisher">
+    <Position X="0.75" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="ComicBooks" Type="ComicStoreDAL.Entities.ComicBook" FixedFromPoint="true">
+      <Path>
+        <Point X="2.25" Y="3.5" />
+        <Point X="3.75" Y="3.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.318" Y="0.085" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAACAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Publisher.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ComicBooks" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ComicStoreDAL.Entities.User">
+    <Position X="7" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Orders" Type="ComicStoreDAL.Entities.Order">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.765" Y="0.227" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAECAEAAACAAAAAAAAAAAAAAAAAIABAAAAAAAAAAAAg=</HashCode>
+      <FileName>Entities\User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Orders" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ComicStoreDAL.Entities.Category">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="ComicBooks" Type="ComicStoreDAL.Entities.ComicBook">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.235" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAACAAQAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Category.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ComicBooks" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

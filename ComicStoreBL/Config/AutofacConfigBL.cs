@@ -1,0 +1,21 @@
+﻿using Autofac;
+using ComicStoreDAL.Interfaces;
+using ComicStoreDAL.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ComicStoreBL.Config
+{
+    public class AutofacConfigBL : Module
+    {
+        protected override void Load(ContainerBuilder builder)
+        {
+
+            builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>));
+
+        }
+    }
+}

@@ -1,0 +1,16 @@
+﻿@using ComicStoreMVC.Models
+@model IEnumerable<CategoryViewModel>
+
+<ul>
+    @{
+        foreach (var item in Model)
+        {
+            <li>
+                @Html.ActionLink(item.Name, "ComicBooksByCategory", "ComicBooks", new { page = 1, category = item.Id },
+               new { @class = "btn btn-block btn-default btn-lg" })
+            </li>
+        }
+    }
+</ul>
+
+
