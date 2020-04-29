@@ -22,6 +22,8 @@ namespace ComicStoreMVC.App_Start
 
             CreateMap<UserBL, UserViewModel>().ReverseMap();
 
+            CreateMap<ShippingDetailsBL, ShippingDetailsViewModel>().ReverseMap();
+
         }
     }
 }

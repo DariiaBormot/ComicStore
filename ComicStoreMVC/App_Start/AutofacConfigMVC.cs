@@ -3,9 +3,11 @@ using Autofac.Integration.Mvc;
 using AutoMapper;
 using ComicStoreBL.Config;
 using ComicStoreBL.Interfaces;
+using ComicStoreBL.Models;
 using ComicStoreBL.Services;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -29,6 +31,14 @@ namespace ComicStoreMVC.App_Start
             builder.RegisterType<OrderService>().As<IOrderService>();
             builder.RegisterType<PublisherService>().As<IPublisherService>();
             builder.RegisterType<UserService>().As<IUserService>();
+
+            var emailSettings = new EmailSettingsBL
+            {
+                WriteAsFile = bool.Parse(ConfigurationManager
+                    .AppSettings["Email.WriteAsFile"] ?? "false")
+            };
+
+            builder.RegisterType<EmailOrderProcessorService>().As<IOrderProcessor>().WithParameter("settings", emailSettings);
 
             builder.RegisterModule<AutofacConfigBL>();
 

@@ -52,4 +52,10 @@ namespace ComicStoreBL.Services
             get { return cartCollection; }
         }
     }
+
+    public class CartLine
+    {
+        public ComicBookBL ComicBookBL { get; set; }
+        public int Quantity { get; set; }
+    }
 }

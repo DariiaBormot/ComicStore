@@ -11,19 +11,28 @@ namespace ComicStoreMVC.Controllers
 {
     public class NavigationController : Controller
     {
-        private ICategoryService _service;
-        private IMapper _mapper;
-        public NavigationController(ICategoryService service, IMapper mapper)
+        private readonly ICategoryService _categoryService;
+        private readonly IMapper _mapper;
+        private readonly IPublisherService _publisherService;
+        public NavigationController(ICategoryService service, IPublisherService publisher, IMapper mapper)
         {
-            _service = service;
+            _categoryService = service;
             _mapper = mapper;
+            _publisherService = publisher;
         }
 
         public PartialViewResult MenuByCategorie()
         {
-            var categoriesBL = _service.GetAll();
+            var categoriesBL = _categoryService.GetAll();
             var categoriesPL = _mapper.Map<IEnumerable<CategoryViewModel>>(categoriesBL);
             return PartialView(categoriesPL);
+        }
+
+        public PartialViewResult MenuByPublisher()
+        {
+            var publishersBL = _publisherService.GetAll();
+            var publishersPL = _mapper.Map<IEnumerable<PublisherViewModel>>(publishersBL);
+            return PartialView(publishersPL);
         }
     }
 }

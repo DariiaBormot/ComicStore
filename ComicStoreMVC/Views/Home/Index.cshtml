@@ -1,31 +1,61 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    Layout = null;
 }
+<head>
+    <meta charset="UTF-8">
+    <title>ComicStore</title>
+    <link rel="stylesheet" href="~/Content/homestyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<body>
+    <header>
+        <div class="header_logo"><p>The Comic Store</p></div>
+        <nav>
+            <div class="topnav" id="myTopnav">
+                @Html.ActionLink("HOME", "Index", "Home")
+                <a href="#">ABOUT</a>
+                @Html.ActionLink("STORE", "List", "ComicBooks")
+                <a href="#">CONTACT</a>
+                @Html.ActionLink("REGISTER", "Register", "Account")
+                @Html.ActionLink("LOGIN", "Login", "Account")
+                <a href="#" id="menu" class="icon">&#9776;</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="main__welcome">
+            <h1><span style="font-family: 'Bangers', cursive;">YOUR HERO FOR COMICS, </span></h1>
+            <P>
+                <h1><span style="font-family: 'Bangers', cursive;">GAMES, CARDS, COLLECTIBLES ...</span></h1>
+            </P>
+        </div>
+        <div class="container">
+            <div class="wrapper">
+                <div class="main__about">
+                    <div class="about__left">
+                        <img src="~/Assets/images/about.jpg" width="650" height="650" alt="">
+                    </div>
+                    <div class="about__right">
+                        <div class="right_container">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+                            <h2>HOW EVERYTHING STARTED</h2>
+                            <p>
+                                “Comic Store” is the embodiment of our idea of a high-quality,
+                                high-tech and reliable online store. The pursuit of excellence
+                                supports us from the very beginning and determines the direction of
+                                further development. We know that each product is important,
+                                and we try to make the entire purchase process as pleasant and
+                                convenient as possible. Let's get stared.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="~/Scripts/homescript.js"></script>
+</body>
+

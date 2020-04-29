@@ -55,9 +55,29 @@ namespace ComicStoreMVC.Controllers
             {
                 return PartialView(comicBooksPL.ToPagedList(pageNumber, pageSize));
             }
-
         }
 
+        public PartialViewResult ComicBooksByPublisher(int? publisher, int? page)
+        {
+            ViewBag.SelectedCategory = publisher;
+
+            int pageSize = 4;
+            int pageNumber = (page ?? 1);
+
+            var comicBooksBL = _service.GetAll();
+            var comicBooksPL = _mapper.Map<IEnumerable<ComicBookViewModel>>(comicBooksBL);
+
+
+            if (publisher != null)
+            {
+                var booksByPublisher = comicBooksPL.Where(x => x.PublisherId == publisher);
+                return PartialView(booksByPublisher.ToPagedList(pageNumber, pageSize));
+            }
+            else
+            {
+                return PartialView(comicBooksPL.ToPagedList(pageNumber, pageSize));
+            }
+        }
 
 
         public ActionResult Details(int id)
