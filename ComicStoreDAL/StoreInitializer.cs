@@ -98,7 +98,7 @@ namespace ComicStoreDAL
                 Quantity = 50,
                 CategoryId = 1,
                 PublisherId = 2,
-                Image = "~Assets/images/books/spidervercezero.png"
+                Image = "~/Assets/images/books/spidervercezero.png"
             };
 
             var book2 = new ComicBook
@@ -112,7 +112,7 @@ namespace ComicStoreDAL
                 Quantity = 100,
                 CategoryId = 2,
                 PublisherId = 1,
-                Image = "~Assets/images/books/wonder.png"
+                Image = "~/Assets/images/books/wonder.png"
             };
 
             var book3 = new ComicBook
@@ -124,7 +124,7 @@ namespace ComicStoreDAL
                 Quantity = 200,
                 CategoryId = 3,
                 PublisherId = 2,
-                Image = "~Assets/images/books/deadpoolcarn.png"
+                Image = "~/Assets/images/books/deadpoolcarn.png"
             };
 
             var book4 = new ComicBook
@@ -137,7 +137,7 @@ namespace ComicStoreDAL
                 Quantity = 150,
                 CategoryId = 1,
                 PublisherId = 1,
-                Image = "~Assets/images/books/harley.png"
+                Image = "~/Assets/images/books/harley.png"
             };
 
             var book5 = new ComicBook
@@ -150,7 +150,7 @@ namespace ComicStoreDAL
                 Quantity = 800,
                 CategoryId = 2,
                 PublisherId = 2,
-                Image = "~Assets/images/books/hulkink.png"
+                Image = "~/Assets/images/books/hulkink.png"
             };
 
             var book6 = new ComicBook
@@ -162,7 +162,7 @@ namespace ComicStoreDAL
                 Quantity = 200,
                 CategoryId = 3,
                 PublisherId = 3,
-                Image = "~Assets/images/books/hellboy.png"
+                Image = "~/Assets/images/books/hellboy.png"
             };
 
             var book7 = new ComicBook
@@ -175,7 +175,7 @@ namespace ComicStoreDAL
                 Quantity = 300,
                 CategoryId = 1,
                 PublisherId = 4,
-                Image = "~Assets/images/books/gravityfalls.png"
+                Image = "~/Assets/images/books/gravityfalls.png"
             };
 
             var book8 = new ComicBook
@@ -188,7 +188,7 @@ namespace ComicStoreDAL
                 Quantity = 400,
                 CategoryId = 2,
                 PublisherId = 1,
-                Image = "~Assets/images/books/superman.png"
+                Image = "~/Assets/images/books/superman.png"
             };
 
             var book9 = new ComicBook
@@ -202,7 +202,7 @@ namespace ComicStoreDAL
                 Quantity = 100,
                 CategoryId = 3,
                 PublisherId = 1,
-                Image = "~Assets/images/books/batman.png"
+                Image = "~/Assets/images/books/batman.png"
             };
 
             var book10 = new ComicBook
@@ -215,7 +215,7 @@ namespace ComicStoreDAL
                 Quantity = 200,
                 CategoryId = 1,
                 PublisherId = 2,
-                Image = "~Assets/images/books/ironman.png"
+                Image = "~/Assets/images/books/ironman.png"
             };
 
             context.ComicBooks.Add(book1);

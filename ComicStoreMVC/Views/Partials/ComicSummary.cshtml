@@ -1,20 +1,20 @@
 ﻿@model ComicStoreMVC.Models.ComicBookViewModel
 
-    <div class="well">
-        <h3>
-            <strong>@Model.Name</strong>
-            <span class="pull-right label label-primary">@Model.Price.ToString("# USD")</span>
-        </h3>
 
-        @using (Html.BeginForm("AddToCart", "Cart"))
-        {
-            <div class="pull-right">
-                @Html.HiddenFor(x => x.Id)
-                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                <input type="submit" class="btn btn-success" value="Add To Cart" />
-            </div>
-        }
-        <span class="lead">@Model.Description</span>
+<div class="col-lg-3">
+    <image src="@Url.Content(@Model.Image)" alt="" height="300" width="200" />
 
-    </div>
+    <h2>@Model.Name</h2>
 
+    <p>@Model.Price</p>
+
+    @using (Html.BeginForm("AddToCart", "Cart"))
+    {
+        <div class="pull-right">
+            @Html.HiddenFor(x => x.Id)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            <input type="submit" class="btn btn-success" value="Add To Cart" />
+        </div>
+    }
+
+</div>

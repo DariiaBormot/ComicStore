@@ -2,7 +2,6 @@
 @using PagedList.Mvc;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
-
 @{
     ViewBag.Title = "List";
 }
@@ -11,11 +10,14 @@
     Layout = "_MasterComicBook.cshtml";
 }
 
+<div class="row mt-5 mb-2">
 
-@foreach (var p in @Model)
-{
-    @Html.Partial("~/Views/Partials/ComicSummary.cshtml", p)
-}
+    @foreach (var item in @Model)
+    {
+        @Html.Partial("~/Views/Partials/ComicSummary.cshtml", item)
+
+    }
+</div>
 
 
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) from @Model.PageCount

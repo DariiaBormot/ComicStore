@@ -284,6 +284,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="wwwroot\css\bootstrap.min.css" />
+    <Content Include="wwwroot\css\StyleSheet1.css" />
+    <Content Include="wwwroot\js\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\homescript.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
