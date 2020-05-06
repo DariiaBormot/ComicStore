@@ -212,6 +212,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebAutomapperProfile.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\ComicBooksController.cs" />
@@ -338,8 +339,6 @@
     <Content Include="Views\ComicBooks\Details.cshtml" />
     <Content Include="Views\ComicBooks\Create.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\ComicBooks\Edit.cshtml" />
-    <Content Include="Views\ComicBooks\Delete.cshtml" />
     <Content Include="Views\Account\Delete.cshtml" />
     <Content Include="Views\ComicBooks\List.cshtml" />
     <Content Include="Views\ComicBooks\_MasterComicBook.cshtml" />
@@ -352,6 +351,10 @@
     <Content Include="Views\Cart\Completed.cshtml" />
     <Content Include="Views\Navigation\MenuByPublisher.cshtml" />
     <Content Include="Views\ComicBooks\ComicBooksList.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\ComicBooks.cshtml" />
+    <Content Include="Views\ComicBooks\Edit.cshtml" />
+    <Content Include="Views\ComicBooks\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

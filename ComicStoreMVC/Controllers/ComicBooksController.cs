@@ -71,7 +71,8 @@ namespace ComicStoreMVC.Controllers
             {
                 var comicBookBL = _mapper.Map<ComicBookBL>(newBook);
                 _service.Create(comicBookBL);
-                return RedirectToAction("Index");
+
+                return RedirectToAction("ComicBooks", "Admin");
             }
             else
             {
@@ -94,7 +95,8 @@ namespace ComicStoreMVC.Controllers
             {
                 var comicBookBL = _mapper.Map<ComicBookBL>(modelToUpdate);
                 _service.Update(comicBookBL);
-                return RedirectToAction("Index");
+                TempData["message"] = string.Format("changes were successfully saved");
+                return RedirectToAction("ComicBooks", "Admin");
             }
             else
             {
@@ -114,7 +116,7 @@ namespace ComicStoreMVC.Controllers
         {
 
             _service.Delete(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("ComicBooks", "Admin");
 
         }
     }

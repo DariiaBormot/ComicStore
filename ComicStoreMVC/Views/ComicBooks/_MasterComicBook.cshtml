@@ -1,5 +1,4 @@
 ﻿
-
 <!DOCTYPE html>
         <html>
         <head>
@@ -11,29 +10,31 @@
         </head>
         <body>
 
-
             <div class="navbar navbar-inverse" role="navigation">
 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
+                        <li></li>
+                        <li><a href="#"><span class=""></span></a></li>
                         <li> @Html.ActionLink("HOME", "Index", "Home") </li>
                         <li> @Html.ActionLink("STORE", "List", "ComicBooks")</li>
 
                     </ul>
+
                     @Html.Partial("_LoginPartial")
                 </div>
             </div>
 
-            <div class="row panel">
+                <div class="row panel">
 
-                <div id="categories" class="col-xs-3">
-                    @Html.Action("MenuByPublisher", "Navigation")
-                    @Html.Action("MenuByCategorie", "Navigation")
-                </div>
+                    <div id="categories" class="col-xs-3">
+                        @Html.Action("MenuByPublisher", "Navigation")
+                        @Html.Action("MenuByCategorie", "Navigation")
+                    </div>
 
-                <div class="col-xs-8">
-                    @RenderBody()
+                    <div class="col-xs-8">
+                        @RenderBody()
+                    </div>
                 </div>
-            </div>
         </body>
     </html>
