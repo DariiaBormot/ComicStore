@@ -1,8 +1,12 @@
 ﻿
 @model PagedList.IPagedList<ComicStoreMVC.Models.ComicBookViewModel>
 @using PagedList.Mvc;
+
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
+@{
+    Layout = "_MasterComicBook.cshtml";
+}
 
 @foreach (var p in @Model)
 {
@@ -12,5 +16,4 @@
 
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) from @Model.PageCount
 
-@Html.PagedListPager(Model, page => Url.Action("ComicBooksByPublisher", new { page }))
-
+@Html.PagedListPager(Model, page => Url.Action("ComicBooksList", new { page }))

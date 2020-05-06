@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList.Mvc;
 using PagedList;
+using ComicStoreDAL.Filters;
+using ComicStoreDAL.Repositories;
 
 namespace ComicStoreMVC.Controllers
 {
@@ -34,49 +36,17 @@ namespace ComicStoreMVC.Controllers
 
         }
 
-
-        public PartialViewResult ComicBooksByCategory(int? category, int? page)
+        public PartialViewResult ComicBooksList(int? page, string sort, int? publisherId, int? categoryId)
         {
-            ViewBag.SelectedCategory = category;
-
             int pageSize = 4;
             int pageNumber = (page ?? 1);
+            ViewBag.SelectedCategory = publisherId;
+            ViewBag.SelectedCategory = categoryId;
 
-            var comicBooksBL = _service.GetAll();
-            var comicBooksPL = _mapper.Map<IEnumerable<ComicBookViewModel>>(comicBooksBL);
+            var filteredBooksBL = _service.GetListByFilter(sort, publisherId, categoryId);
+            var filteredBooksPL = _mapper.Map<IEnumerable<ComicBookViewModel>>(filteredBooksBL);
 
-
-            if (category != null)
-            {
-                var booksByCategory = comicBooksPL.Where(x => x.CategoryId == category);
-                return PartialView(booksByCategory.ToPagedList(pageNumber, pageSize));
-            }
-            else
-            {
-                return PartialView(comicBooksPL.ToPagedList(pageNumber, pageSize));
-            }
-        }
-
-        public PartialViewResult ComicBooksByPublisher(int? publisher, int? page)
-        {
-            ViewBag.SelectedCategory = publisher;
-
-            int pageSize = 4;
-            int pageNumber = (page ?? 1);
-
-            var comicBooksBL = _service.GetAll();
-            var comicBooksPL = _mapper.Map<IEnumerable<ComicBookViewModel>>(comicBooksBL);
-
-
-            if (publisher != null)
-            {
-                var booksByPublisher = comicBooksPL.Where(x => x.PublisherId == publisher);
-                return PartialView(booksByPublisher.ToPagedList(pageNumber, pageSize));
-            }
-            else
-            {
-                return PartialView(comicBooksPL.ToPagedList(pageNumber, pageSize));
-            }
+            return PartialView(filteredBooksPL.ToPagedList(pageNumber, pageSize));
         }
 
 

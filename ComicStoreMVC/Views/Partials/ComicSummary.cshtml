@@ -1,20 +1,33 @@
 ﻿@model ComicStoreMVC.Models.ComicBookViewModel
 
+    <link href="~/Content/imageStyle.css" rel="stylesheet" />
 
-<div class="col-lg-3">
-    <image src="@Url.Content(@Model.Image)" alt="" height="300" width="200" />
+    <div class="col-lg-3">
 
-    <h2>@Model.Name</h2>
-
-    <p>@Model.Price</p>
-
-    @using (Html.BeginForm("AddToCart", "Cart"))
-    {
-        <div class="pull-right">
-            @Html.HiddenFor(x => x.Id)
-            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-            <input type="submit" class="btn btn-success" value="Add To Cart" />
+        <div height="310" width="210">
+            <div class="hovereffect">
+                <image src="@Url.Content(@Model.Image)" class="img-fluid " alt="smaple image" height="300" width="200" />
+            </div>
         </div>
-    }
 
-</div>
+        <div class="card-body text-center">
+            <h5>
+                <strong>
+                    <a href="#" class="text-dark"> @Model.Name </a>
+                </strong>
+            </h5>
+            <h4 class="font-weight-bold text-info">
+                <strong>@Model.Price USD</strong>
+            </h4>
+        </div>
+
+        @using (Html.BeginForm("AddToCart", "Cart"))
+        {
+            <div class="text-center">
+                @Html.HiddenFor(x => x.Id)
+                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                <input type="submit" class="btn btn-outline-secondary" value="Add To Cart" />
+            </div>
+        }
+
+    </div>

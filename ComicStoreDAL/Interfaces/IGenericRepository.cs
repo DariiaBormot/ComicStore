@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComicStoreDAL.Filters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,8 @@ namespace ComicStoreDAL.Interfaces
         void Update(TEntity item);
         void Delete(int id);
         TEntity GetById(int id);
+
+        TEntity GetEntityByFilter(IFilter<TEntity> specification);
+        IEnumerable<TEntity> GetListByFilter(IFilter<TEntity> specification);
     }
 }

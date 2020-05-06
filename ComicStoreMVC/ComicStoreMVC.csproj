@@ -220,6 +220,7 @@
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PublishersController.cs" />
+    <Compile Include="Models\ComickBookListViewModel.cs" />
     <Compile Include="Models\ShippingDetailsViewModel.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -278,6 +279,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\homestyle.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\imageStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -343,14 +345,13 @@
     <Content Include="Views\ComicBooks\_MasterComicBook.cshtml" />
     <Content Include="Views\Partials\ComicSummary.cshtml" />
     <Content Include="Views\Categories\List.cshtml" />
-    <Content Include="Views\ComicBooks\ComicBooksByCategory.cshtml" />
     <Content Include="Views\Navigation\MenuByCategorie.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\Summary.cshtml" />
     <Content Include="Views\Cart\Checkout.cshtml" />
     <Content Include="Views\Cart\Completed.cshtml" />
-    <Content Include="Views\ComicBooks\ComicBooksByPublisher.cshtml" />
     <Content Include="Views\Navigation\MenuByPublisher.cshtml" />
+    <Content Include="Views\ComicBooks\ComicBooksList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -372,6 +373,10 @@
     <ProjectReference Include="..\ComicStoreBL\ComicStoreBL.csproj">
       <Project>{9648F8F4-43A1-440C-AAEA-DE99A1BAB540}</Project>
       <Name>ComicStoreBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ComicStoreDAL\ComicStoreDAL.csproj">
+      <Project>{15B13593-0F82-4A3F-931A-F9E6912F51CA}</Project>
+      <Name>ComicStoreDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{81AD65A6-3A24-4C05-AF6D-D32938E05590}</Project>

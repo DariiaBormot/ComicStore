@@ -54,5 +54,6 @@ namespace ComicStoreBL.Services
         public abstract IEnumerable<BLModel> Map(IList<DALModel> entities);
         public abstract IEnumerable<DALModel> Map(IList<BLModel> models);
 
+        
     }
 }

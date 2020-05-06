@@ -1,4 +1,5 @@
 ﻿using ComicStoreDAL.Interfaces;
+using ComicStoreDAL.Filters;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -27,7 +28,12 @@ namespace ComicStoreDAL.Repositories
         public void Delete(int id)
         {
             var entityToDelete = dbSet.Find(id);
-            dbSet.Remove(entityToDelete);
+
+            if (entityToDelete != null)
+            {
+                dbSet.Remove(entityToDelete);
+            }
+
             _context.SaveChanges();
         }
 
@@ -46,5 +52,21 @@ namespace ComicStoreDAL.Repositories
             _context.Entry(item).State = EntityState.Modified;
             _context.SaveChanges();
         }
+
+        public TEntity GetEntityByFilter(IFilter<TEntity> specification)
+        {
+            return ApplyFilters(specification).FirstOrDefault();
+        }
+
+        public IEnumerable<TEntity> GetListByFilter(IFilter<TEntity> specification)
+        {
+            return ApplyFilters(specification).ToList();
+        }
+
+        private IQueryable<TEntity> ApplyFilters(IFilter<TEntity> specification)
+        {
+            return FilterEvaluator<TEntity>.GetQuery(_context.Set<TEntity>().AsQueryable(), specification);
+        }
+
     }
 }

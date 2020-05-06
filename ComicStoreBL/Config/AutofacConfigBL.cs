@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using ComicStoreDAL.Entities;
+using ComicStoreDAL.Filters;
 using ComicStoreDAL.Interfaces;
 using ComicStoreDAL.Repositories;
 using System;

@@ -13,15 +13,10 @@ namespace ComicStoreMVC.App_Start
         public WebAutomapperProfile()
         {
             CreateMap<CategoryBL, CategoryViewModel>().ReverseMap();
-
             CreateMap<ComicBookBL, ComicBookViewModel>().ReverseMap();
-
             CreateMap<OrderBL, OrderViewModel>().ReverseMap();
-
             CreateMap<PublisherBL, PublisherViewModel>().ReverseMap();
-
             CreateMap<UserBL, UserViewModel>().ReverseMap();
-
             CreateMap<ShippingDetailsBL, ShippingDetailsViewModel>().ReverseMap();
 
         }

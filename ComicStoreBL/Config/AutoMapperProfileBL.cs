@@ -14,13 +14,9 @@ namespace ComicStoreBL.Config
         public AutoMapperProfileBL()
         {
             CreateMap<CategoryBL, Category>().ReverseMap();
-
             CreateMap<ComicBookBL, ComicBook>().ReverseMap();
-
             CreateMap<OrderBL, Order>().ReverseMap();
-
             CreateMap<UserBL, User>().ReverseMap();
-
             CreateMap<PublisherBL, Publisher>().ReverseMap();
 
         }

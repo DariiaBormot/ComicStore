@@ -83,6 +83,10 @@
     <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Repositories\PublisherRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Filters\BaseFilter.cs" />
+    <Compile Include="Filters\FilterImplementation.cs" />
+    <Compile Include="Filters\IFilter.cs" />
+    <Compile Include="Filters\FilterEvaluator.cs" />
     <Compile Include="StoreInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
