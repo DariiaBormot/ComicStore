@@ -90,7 +90,7 @@ namespace ComicStoreDAL
 
             var book1 = new ComicBook
             {
-                Name = "SPIDER-VERSE: SPIDER-ZERO",
+                Name = "SPIDER-VERSE",
                 Description = "Miles Morales falls through a dimensional portal into a new multiversal adventure! Wait, wasn’t the Web of Life and " +
                 "Destiny destroyed? Maybe not, True Believer! But who spun this new web? And why? Whatever the answers, the entire Spider-Verse is " +
                 "in big trouble — and it’s time to come together once again! ",
@@ -103,7 +103,7 @@ namespace ComicStoreDAL
 
             var book2 = new ComicBook
             {
-                Name = "THE SURPRISING ORIGIN STORY OF WONDER WOMAN",
+                Name = "WONDER WOMAN",
                 Description = "Noted Psychologist Revealed as Author of Best-Selling ‘Wonder Woman,’” read the astonishing headline. In the summer of 1942, " +
                 "a press release from the New York offices of All-American Comics turned up at newspapers, magazines and radio stations all over the United States. " +
                 "The identity of Wonder Woman’s creator had been “at first kept secret,” it said, but the time had come to make a shocking announcement: " +
@@ -117,7 +117,7 @@ namespace ComicStoreDAL
 
             var book3 = new ComicBook
             {
-                Name = "ABSOLUTE CARNAGE VS. DEADPOOL",
+                Name = "DEADPOOL",
                 Description = "LET’S GET CRAZY! At long last, Deadpool is ready to get his head straight and checks himself into Ravencroft Institute. Unfortunately, " +
                 "there’s another new arrival: CARNAGE! But I don’t think he’s here for a group therapy session…Madness and mayhem abound in the can’t-miss showdown of the year!",
                 Price = 10,
@@ -129,7 +129,7 @@ namespace ComicStoreDAL
 
             var book4 = new ComicBook
             {
-                Name = "BIRDS OF PREY: HARLEY QUINN",
+                Name = "BIRDS OF PREY",
                 Description = "When Gotham's favorite sociopath inherits a building on the famous Coney Island boardwalk, she feels right at home in the (literal) freakshow. " +
                 "Unfortunately, the legion of bounty hunters after the price on her head seem to know it, too. Who else but Harley Quinn could handle all that Brooklyn's " +
                 "criminal underbelly has to offer-Russian spies, senior citizens, and rival roller derby teams included-and still have time for a double chili dog!",
@@ -155,7 +155,7 @@ namespace ComicStoreDAL
 
             var book6 = new ComicBook
             {
-                Name = "HELLBOY: SEED OF DESTRUCTION",
+                Name = "HELLBOY",
                 Description = "Dark Horse presents new editions of the entire Hellboy line with new covers, beginning with Seed of Destruction, the basis of director " +
                 "Guillermo del Toro's blockbuster films.",
                 Price = 12,
@@ -167,7 +167,7 @@ namespace ComicStoreDAL
 
             var book7 = new ComicBook
             {
-                Name = "GRAVITY FALLS: LOST LEGENDS",
+                Name = "GRAVITY FALLS",
                 Description = "Gravity Falls: Lost Legends is a graphic novel set within the universe of Gravity Falls. Written by series creator Alex Hirsch, " +
                 "it consists of three stories that take place during the final season, as well as a fourth taking place during Grunkle Stan's childhood. " +
                 "The comic was released on July 24, 2018.",
@@ -193,7 +193,7 @@ namespace ComicStoreDAL
 
             var book9 = new ComicBook
             {
-                Name = "BATMAN: THE LAST ARKHAM",
+                Name = "BATMAN",
                 Description = "Batman’s origin story, Two-Face’s rise, Robin’s reckoning — the list has been heavy so far on the bullet points of Batman continuity. " +
                 "The Last Arkham, the first and best Mr. Zsasz story, is different. This book is exactly the kind of story that you are unlikely to get in a superhero movie, " +
                 "because it works on the strength of the a serialized format: Batman isn’t saving the city, he’s solving one case. None of his friends die or change costumes, " +
@@ -207,7 +207,7 @@ namespace ComicStoreDAL
 
             var book10 = new ComicBook
             {
-                Name = "MAN IN THE IRON ARMOR",
+                Name = "IRON MAN",
                 Description = "Over the last decade-plus, Iron Man has shot through the ranks from C-list or fringe B-list hero in Marvel’s stable to a bonafide star thanks to Marvel " +
                 "Studios film output and the revitalized career of Robert Downey Jr. With Avengers: Endgame killing off the MCU Tony Stark, it seems comic books may follow suit, " +
                 "with an upcoming Iron Man 2020 project teasing his death in comic books as well. With that in mind, we're counting down the greatest Iron Man stories of all time.",
@@ -217,6 +217,84 @@ namespace ComicStoreDAL
                 PublisherId = 2,
                 Image = "~/Assets/images/books/ironman.png"
             };
+
+
+            var book11 = new ComicBook
+            {
+                Name = "BLACKWOOD #1",
+                Description = "From the multi-Eisner award-winning creator of Beasts of Burden and the artist of Archie and Slam comes this " +
+                "supernatural fantasy about a magical murder in a sorcery school. When four teenagers with haunted pasts enroll in Blackwood" +
+                " College--a school that trains students in the occult-their desire to enhance their supernatural abilities and bond with others " +
+                "is hampered by an undead deans curse, ghosts in their dorm, a mischievous two-headed mummy-chimp, a plague of mutant insects, and " +
+                "the discovery of an ancient evil that forces our heroes to undergo a crash course in the occult for the sake of the world. ",
+                Price = 5,
+                Quantity = 200,
+                CategoryId = 2,
+                PublisherId = 3,
+                Image = "~/Assets/images/books/blackwood.png"
+            };
+
+
+            var book12 = new ComicBook
+            {
+                Name = "STRANGER THINGS",
+                Description = "When Will Byers finds himself in the Upside Down, an impossible dark parody of his own world, he's understandably " +
+                "frightened. But that's nothing compared with the fear that takes hold when he realizes what's in that world with him! ",
+                Price = 6,
+                Quantity = 100,
+                CategoryId = 3,
+                PublisherId = 3,
+                Image = "~/Assets/images/books/strangerthings.png"
+            };
+
+            var book13 = new ComicBook
+            {
+                Name = "GIANT",
+                Description = "When Will Byers finds himself in the Upside Down, an impossible dark parody of his own world, he's understandably " +
+                "frightened. But that's nothing compared with the fear that takes hold when he realizes what's in that world with him! ",
+                Price = 6,
+                Quantity = 100,
+                CategoryId = 3,
+                PublisherId = 4,
+                Image = "~/Assets/images/books/giantdisney.png"
+            };
+
+            var book14 = new ComicBook
+            {
+                Name = "HAUNTED MANSION",
+                Description = "Welcome, foolish mortals, to the Haunted Mansion - enter if you dare! You might think that no one lives in this elegant house " +
+                "on the hill...but then where's that creepy organ music coming from? Are its iron gates meant to keep people out...or keep something in? ",
+                Price = 7,
+                Quantity = 500,
+                CategoryId = 1,
+                PublisherId = 4,
+                Image = "~/Assets/images/books/hantedmaison.png"
+            };
+
+            var book15 = new ComicBook
+            {
+                Name = "GRAVITY FALLS",
+                Description = "The book is presented as a series of stories told by Shmebulock, who was placed under a warlock's curse to say his own name, but every" +
+                " thousand years, is able to speak coherently in English.",
+                Price = 7,
+                Quantity = 200,
+                CategoryId = 2,
+                PublisherId = 4,
+                Image = "~/Assets/images/books/gravity.png"
+            };
+
+            var book16 = new ComicBook
+            {
+                Name = "STAR WARS",
+                Description = "A long time ago in a galaxy far, far away, the adventures of Luke Skywalker, Han Solo, Princess, Leia, Darth Vader and more continue! " +
+                "Set following the events of Episode IV",
+                Price = 7,
+                Quantity = 200,
+                CategoryId = 2,
+                PublisherId = 3,
+                Image = "~/Assets/images/books/starwars.png"
+            };
+
 
             context.ComicBooks.Add(book1);
             context.ComicBooks.Add(book2);
@@ -228,6 +306,13 @@ namespace ComicStoreDAL
             context.ComicBooks.Add(book8);
             context.ComicBooks.Add(book9);
             context.ComicBooks.Add(book10);
+            context.ComicBooks.Add(book11);
+            context.ComicBooks.Add(book12);
+            context.ComicBooks.Add(book13);
+            context.ComicBooks.Add(book14);
+            context.ComicBooks.Add(book15);
+            context.ComicBooks.Add(book16);
+
             context.SaveChanges();
 
             base.Seed(context);

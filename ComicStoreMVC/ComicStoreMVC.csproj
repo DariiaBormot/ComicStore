@@ -256,13 +256,19 @@
   <ItemGroup>
     <Content Include="Assets\images\about.jpg" />
     <Content Include="Assets\images\books\batman.png" />
+    <Content Include="Assets\images\books\blackwood.png" />
     <Content Include="Assets\images\books\deadpoolcarn.png" />
+    <Content Include="Assets\images\books\giantdisney.png" />
+    <Content Include="Assets\images\books\gravity.png" />
     <Content Include="Assets\images\books\gravityfalls.png" />
+    <Content Include="Assets\images\books\hantedmaison.png" />
     <Content Include="Assets\images\books\harley.png" />
     <Content Include="Assets\images\books\hellboy.png" />
     <Content Include="Assets\images\books\hulkink.png" />
     <Content Include="Assets\images\books\ironman.png" />
     <Content Include="Assets\images\books\spidervercezero.png" />
+    <Content Include="Assets\images\books\starwars.png" />
+    <Content Include="Assets\images\books\strangerthings.png" />
     <Content Include="Assets\images\books\superman.png" />
     <Content Include="Assets\images\books\wonder.png" />
     <Content Include="Assets\images\users\bruce.png" />
@@ -287,9 +293,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="wwwroot\css\bootstrap.min.css" />
-    <Content Include="wwwroot\css\StyleSheet1.css" />
-    <Content Include="wwwroot\js\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\homescript.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -355,9 +358,12 @@
     <Content Include="Views\Admin\ComicBooks.cshtml" />
     <Content Include="Views\ComicBooks\Edit.cshtml" />
     <Content Include="Views\ComicBooks\Delete.cshtml" />
+    <Content Include="Views\ComicBooks\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\js\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

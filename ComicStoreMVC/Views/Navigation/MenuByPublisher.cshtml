@@ -1,13 +1,14 @@
 ﻿@using ComicStoreMVC.Models
 @model IEnumerable<PublisherViewModel>
 
-<ul>
+<ul style="list-style: none;">
+
     @{
         foreach (var item in Model)
         {
             <li>
                 @Html.ActionLink(item.Name, "ComicBooksList", "ComicBooks", new { page = 1, publisherId = item.Id }, 
-               new { @class = "btn btn-block btn-default btn-lg" })
+               new { @class = "btn btn-block btn-link btn-lg" })
             </li>
         }
     }

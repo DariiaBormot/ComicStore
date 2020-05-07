@@ -19,7 +19,10 @@
     }
 </div>
 
-
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) from @Model.PageCount
 
 @Html.PagedListPager(Model, page => Url.Action("List", new { page }))
+
+@*class="row mt-5 mb-2*@
+
+

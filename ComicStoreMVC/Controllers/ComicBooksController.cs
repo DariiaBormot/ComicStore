@@ -27,7 +27,7 @@ namespace ComicStoreMVC.Controllers
 
         public ActionResult List(int? page)
         {
-            int pageSize = 4;
+            int pageSize = 8;
             int pageNumber = (page ?? 1);
 
             var comicBooksBL = _service.GetAll();
@@ -36,9 +36,22 @@ namespace ComicStoreMVC.Controllers
 
         }
 
+
+        public ActionResult Test(int? page)
+        {
+            int pageSize = 8;
+            int pageNumber = (page ?? 1);
+
+            var comicBooksBL = _service.GetAll();
+            var comicBooksPL = _mapper.Map<IEnumerable<ComicBookViewModel>>(comicBooksBL);
+            return View(comicBooksPL.ToPagedList(pageNumber, pageSize));
+
+        }
+
+
         public PartialViewResult ComicBooksList(int? page, string sort, int? publisherId, int? categoryId)
         {
-            int pageSize = 4;
+            int pageSize = 8;
             int pageNumber = (page ?? 1);
             ViewBag.SelectedCategory = publisherId;
             ViewBag.SelectedCategory = categoryId;
