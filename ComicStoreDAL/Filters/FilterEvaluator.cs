@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ComicStoreDAL.Filters
 {
-    public class FilterEvaluator<TEntity> where TEntity : class 
+    public class FilterEvaluator<TEntity> where TEntity : class
     {
         public static IQueryable<TEntity> GetQuery(IQueryable<TEntity> inputQuery, IFilter<TEntity> specification)
         {

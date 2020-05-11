@@ -222,6 +222,7 @@
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PublishersController.cs" />
     <Compile Include="Models\ComickBookListViewModel.cs" />
+    <Compile Include="Models\FilterModel.cs" />
     <Compile Include="Models\ShippingDetailsViewModel.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -293,6 +294,15 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="wwwroot\assets\img\dragoncartoon.png" />
+    <Content Include="wwwroot\assets\img\portfolio\cabin.png" />
+    <Content Include="wwwroot\assets\img\portfolio\cake.png" />
+    <Content Include="wwwroot\assets\img\portfolio\circus.png" />
+    <Content Include="wwwroot\assets\img\portfolio\game.png" />
+    <Content Include="wwwroot\assets\img\portfolio\safe.png" />
+    <Content Include="wwwroot\assets\img\portfolio\submarine.png" />
+    <Content Include="wwwroot\css\styles.css" />
+    <Content Include="wwwroot\js\scripts.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\homescript.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -362,8 +372,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="wwwroot\css\" />
-    <Folder Include="wwwroot\js\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

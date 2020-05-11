@@ -53,19 +53,19 @@ namespace ComicStoreDAL.Repositories
             _context.SaveChanges();
         }
 
-        public TEntity GetEntityByFilter(IFilter<TEntity> specification)
+        public TEntity GetEntityByFilter(IFilter<TEntity> expression)
         {
-            return ApplyFilters(specification).FirstOrDefault();
+            return ApplyFilters(expression).FirstOrDefault();
         }
 
-        public IEnumerable<TEntity> GetListByFilter(IFilter<TEntity> specification)
+        public IEnumerable<TEntity> GetListByFilter(IFilter<TEntity> expression)
         {
-            return ApplyFilters(specification).ToList();
+            return ApplyFilters(expression).ToList();
         }
 
-        private IQueryable<TEntity> ApplyFilters(IFilter<TEntity> specification)
+        private IQueryable<TEntity> ApplyFilters(IFilter<TEntity> expression)
         {
-            return FilterEvaluator<TEntity>.GetQuery(_context.Set<TEntity>().AsQueryable(), specification);
+            return FilterEvaluator<TEntity>.GetQuery(_context.Set<TEntity>().AsQueryable(), expression);
         }
 
     }

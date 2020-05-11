@@ -10,6 +10,6 @@ namespace ComicStoreBL.Interfaces
 {
     public interface IComicBookService : IGenericService<ComicBookBL>
     {
-        IEnumerable<ComicBookBL> GetListByFilter(string sort, int? publisherId, int? categoryId);
+        IEnumerable<ComicBookBL> GetListByFilter(FilterInputBL filter);
     }
 }

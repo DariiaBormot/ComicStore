@@ -70,6 +70,7 @@
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Publisher.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Filters\FilterInputDAL.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
     <Compile Include="Migrations\202004220918499_InitialCreate.cs" />
     <Compile Include="Migrations\202004220918499_InitialCreate.designer.cs">

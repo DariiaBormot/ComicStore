@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ComicStoreBL.Models;
 using ComicStoreDAL.Entities;
+using ComicStoreDAL.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace ComicStoreBL.Config
             CreateMap<OrderBL, Order>().ReverseMap();
             CreateMap<UserBL, User>().ReverseMap();
             CreateMap<PublisherBL, Publisher>().ReverseMap();
+            CreateMap<FilterInputBL, FilterInputDAL>().ReverseMap();
 
         }
     }

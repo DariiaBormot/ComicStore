@@ -49,18 +49,35 @@ namespace ComicStoreMVC.Controllers
         }
 
 
-        public PartialViewResult ComicBooksList(int? page, string sort, int? publisherId, int? categoryId)
+        public PartialViewResult ComicBooksList(FilterModel filter)
         {
             int pageSize = 8;
-            int pageNumber = (page ?? 1);
-            ViewBag.SelectedCategory = publisherId;
-            ViewBag.SelectedCategory = categoryId;
+            int pageNumber = (filter.Page ?? 1);
+            ViewBag.SelectedCategory = filter.PublisherId;
+            ViewBag.SelectedCategory = filter.CategoryId;
 
-            var filteredBooksBL = _service.GetListByFilter(sort, publisherId, categoryId);
+            var filterBL = _mapper.Map<FilterInputBL>(filter);
+
+            var filteredBooksBL = _service.GetListByFilter(filterBL);
             var filteredBooksPL = _mapper.Map<IEnumerable<ComicBookViewModel>>(filteredBooksBL);
+   
 
             return PartialView(filteredBooksPL.ToPagedList(pageNumber, pageSize));
         }
+
+
+        //public PartialViewResult ComicBooksList(int? page, string sort, int? publisherId, int? categoryId)
+        //{
+        //    int pageSize = 8;
+        //    int pageNumber = (page ?? 1);
+        //    ViewBag.SelectedCategory = publisherId;
+        //    ViewBag.SelectedCategory = categoryId;
+
+        //    var filteredBooksBL = _service.GetListByFilter(sort, publisherId, categoryId);
+        //    var filteredBooksPL = _mapper.Map<IEnumerable<ComicBookViewModel>>(filteredBooksBL);
+
+        //    return PartialView(filteredBooksPL.ToPagedList(pageNumber, pageSize));
+        //}
 
 
         public ActionResult Details(int id)

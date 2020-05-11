@@ -18,6 +18,7 @@ namespace ComicStoreMVC.App_Start
             CreateMap<PublisherBL, PublisherViewModel>().ReverseMap();
             CreateMap<UserBL, UserViewModel>().ReverseMap();
             CreateMap<ShippingDetailsBL, ShippingDetailsViewModel>().ReverseMap();
+            CreateMap<FilterInputBL, FilterModel>().ReverseMap();
 
         }
     }

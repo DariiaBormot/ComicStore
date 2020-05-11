@@ -9,18 +9,18 @@ namespace ComicStoreDAL.Filters
 {
     public class FilterImplementation : BaseFilter<ComicBook>
     {
-        public FilterImplementation(string sort, int? publisherId, int? categoryId)
+        public FilterImplementation(FilterInputDAL filter)
             : base(x =>
-            (!publisherId.HasValue || x.PublisherId == publisherId) &&
-            (!categoryId.HasValue || x.CategoryId == categoryId))
+            (!filter.PublisherId.HasValue || x.PublisherId == filter.PublisherId) &&
+            (!filter.CategoryId.HasValue || x.CategoryId == filter.CategoryId))
         {
             AddInclude(x => x.Category);
             AddInclude(x => x.Publisher);
             AddOrderBy(x => x.Name);
 
-            if (!string.IsNullOrEmpty(sort))
+            if (!string.IsNullOrEmpty(filter.Sort))
             {
-                switch (sort)
+                switch (filter.Sort)
                 {
                     case "priceAsc":
                         AddOrderBy(p => p.Price);

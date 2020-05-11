@@ -11,7 +11,7 @@ namespace ComicStoreDAL.Filters
     {
         public BaseFilter() { }
 
-        public BaseFilter(Expression<Func<T, bool>> criteria) 
+        public BaseFilter(Expression<Func<T, bool>> criteria)
         {
             Criteria = criteria;
         }

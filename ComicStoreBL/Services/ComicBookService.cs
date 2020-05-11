@@ -23,11 +23,13 @@ namespace ComicStoreBL.Services
             _repository = repository;
         }
 
-        public IEnumerable<ComicBookBL> GetListByFilter(string sort, int? publisherId, int? categoryId)
+        public IEnumerable<ComicBookBL> GetListByFilter(FilterInputBL filter)
         {
-            var filter = new FilterImplementation(sort, publisherId, categoryId);
+            var filterDAL = _mapper.Map<FilterInputDAL>(filter);
 
-            var bookListDAL = _repository.GetListByFilter(filter);
+            var filterImp = new FilterImplementation(filterDAL);
+
+            var bookListDAL = _repository.GetListByFilter(filterImp);
 
             var booksBL = _mapper.Map<IEnumerable<ComicBookBL>>(bookListDAL);
 

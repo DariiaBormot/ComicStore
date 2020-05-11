@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using ComicStoreBL.Models;
 using ComicStoreDAL.Entities;
 using ComicStoreDAL.Filters;
 using ComicStoreDAL.Interfaces;
@@ -17,6 +18,10 @@ namespace ComicStoreBL.Config
         {
 
             builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>));
+
+            //builder.RegisterType<FilterImplementation>()
+            //        .As<IFilter<ComicBook>>()
+            //        .WithParameter(new TypedParameter(typeof(FilterInputBL), "filter"));
 
         }
     }
