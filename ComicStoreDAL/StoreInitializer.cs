@@ -313,6 +313,7 @@ namespace ComicStoreDAL
             context.ComicBooks.Add(book15);
             context.ComicBooks.Add(book16);
 
+
             context.SaveChanges();
 
             base.Seed(context);

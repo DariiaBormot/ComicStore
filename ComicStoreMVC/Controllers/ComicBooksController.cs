@@ -53,8 +53,9 @@ namespace ComicStoreMVC.Controllers
         {
             int pageSize = 8;
             int pageNumber = (filter.Page ?? 1);
-            ViewBag.SelectedCategory = filter.PublisherId;
-            ViewBag.SelectedCategory = filter.CategoryId;
+            //ViewBag.SelectedCategory = filter.PublisherId;
+            //ViewBag.SelectedPublisher = filter.CategoryId;
+            //ViewBag.SelectedSearchString = filter.Search;
 
             var filterBL = _mapper.Map<FilterInputBL>(filter);
 

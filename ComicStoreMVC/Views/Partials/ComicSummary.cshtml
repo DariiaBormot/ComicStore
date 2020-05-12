@@ -2,30 +2,33 @@
 
 <link href="~/Content/imageStyle.css" rel="stylesheet" />
 
-<div class="col-md-3">
+
+<div class="col-md-3 row justify-content-md-center">
 
     <div height="300" width="200">
         <div class="hovereffect">
-            <image src="@Url.Content(@Model.Image)" class="img-fluid " alt="smaple image" height="300" width="200" />
+            <image src="@Url.Content(@Model.Image)" class="img-responsive" alt="smaple image" height="300" width="200" />
 
             <div class="overlay">
                 <h2>@Model.Price $</h2>
-                <a class="info" href="#">@Model.Name</a>
+                <h2>@Model.Name</h2>
+
+                @using (Html.BeginForm("AddToCart", "Cart"))
+                {
+                    <div>
+                        @Html.HiddenFor(x => x.Id)
+                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                        <input type="submit" class="btn btn-default btn-sm" value="Add To Cart" />
+                        <i class="glyphicon glyphicon-shopping-cart"></i>
+                    </div>
+                }
+ 
+
             </div>
+            <button type="button" class="btn btn-link"></button>
 
         </div>
     </div>
 
-
-    @using (Html.BeginForm("AddToCart", "Cart"))
-    {
-        <div @*class="text-center"*@>
-            @Html.HiddenFor(x => x.Id)
-            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-            <input type="submit" class="btn btn-default btn-sm" value="Add To Cart" />
-            <i class="glyphicon glyphicon-shopping-cart"></i>
-        </div>
-    }
-    <button type="button" class="btn btn-link"></button>
-
 </div>
+
