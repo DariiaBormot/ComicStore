@@ -25,16 +25,21 @@
                 </div>
             </div>
 
-                <div class="row panel">
 
-                    <div id="categories" class="col-xs-3">
-                        @Html.Action("MenuByPublisher", "Navigation")
-                        @Html.Action("MenuByCategorie", "Navigation")
-                    </div>
 
-                    <div class="col-xs-8">
-                        @RenderBody()
-                    </div>
+            <div class="row panel">
+
+                <div id="categories" class="col-xs-3">
+
+                    @*<input class="form-control" type="text" placeholder="Search" aria-label="Search">*@
+
+                    @Html.Action("MenuByPublisher", "Navigation")
+                    @Html.Action("MenuByCategorie", "Navigation")
                 </div>
+
+                <div class="col-xs-8">
+                    @RenderBody()
+                </div>
+            </div>
         </body>
     </html>

@@ -301,8 +301,16 @@
     <Content Include="wwwroot\assets\img\portfolio\game.png" />
     <Content Include="wwwroot\assets\img\portfolio\safe.png" />
     <Content Include="wwwroot\assets\img\portfolio\submarine.png" />
+    <Content Include="wwwroot\css\adminlte.min.css" />
+    <Content Include="wwwroot\css\all.min.css" />
     <Content Include="wwwroot\css\styles.css" />
+    <Content Include="wwwroot\js\adminlte.min.js" />
+    <Content Include="wwwroot\js\bootstrap.bundle.min.js" />
+    <Content Include="wwwroot\js\jquery.min.js" />
     <Content Include="wwwroot\js\scripts.js" />
+    <Content Include="wwwroot\webfonts\fa-brands-400.svg" />
+    <Content Include="wwwroot\webfonts\fa-regular-400.svg" />
+    <Content Include="wwwroot\webfonts\fa-solid-900.svg" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\homescript.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -369,6 +377,25 @@
     <Content Include="Views\ComicBooks\Edit.cshtml" />
     <Content Include="Views\ComicBooks\Delete.cshtml" />
     <Content Include="Views\ComicBooks\Test.cshtml" />
+    <Content Include="Views\Admin\_AdminMaster.cshtml" />
+    <Content Include="wwwroot\webfonts\fa-brands-400.eot" />
+    <Content Include="wwwroot\webfonts\fa-brands-400.ttf" />
+    <Content Include="wwwroot\webfonts\fa-brands-400.woff" />
+    <Content Include="wwwroot\webfonts\fa-brands-400.woff2" />
+    <Content Include="wwwroot\webfonts\fa-regular-400.eot" />
+    <Content Include="wwwroot\webfonts\fa-regular-400.ttf" />
+    <Content Include="wwwroot\webfonts\fa-regular-400.woff" />
+    <Content Include="wwwroot\webfonts\fa-regular-400.woff2" />
+    <Content Include="wwwroot\webfonts\fa-solid-900.eot" />
+    <Content Include="wwwroot\webfonts\fa-solid-900.ttf" />
+    <Content Include="wwwroot\webfonts\fa-solid-900.woff" />
+    <Content Include="wwwroot\webfonts\fa-solid-900.woff2" />
+    <Content Include="Views\Admin\Orders.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\ComicBooks\_MasterLayoutComicBooks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

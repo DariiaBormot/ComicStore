@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ComicStoreBL.Interfaces;
+using ComicStoreBL.Models;
 using ComicStoreMVC.Models;
 using System;
 using System.Collections.Generic;
@@ -24,78 +25,76 @@ namespace ComicStoreMVC.Controllers
             var ordersBL = _service.GetAll();
             var ordersPL = _mapper.Map<IEnumerable<OrderViewModel>>(ordersBL);
             return View(ordersPL);
+
         }
 
-        // GET: Orders/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var ordersBL = _service.GetById(id);
+            var ordersPL = _mapper.Map<OrderViewModel>(ordersBL);
+            return View(ordersPL);
         }
 
-        // GET: Orders/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Orders/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
+        [HttpPost]
+        public ActionResult Create(OrderViewModel newOrder)
+        {
+            if (ModelState.IsValid)
             {
-                return View();
+                var orderPL = _mapper.Map<OrderBL>(newOrder);
+                _service.Create(orderPL);
+
+                return RedirectToAction("Orders", "Admin");
             }
+            else
+            {
+                return View(newOrder);
+            }
+
         }
 
-        // GET: Orders/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Orders/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
+        [HttpPost]
+        public ActionResult Edit(int id, OrderViewModel orderToUpdate)
+        {
+            if (ModelState.IsValid)
             {
-                return View();
+                var orderPL = _mapper.Map<OrderBL>(orderToUpdate);
+                _service.Update(orderPL);
+                TempData["message"] = string.Format("changes were successfully saved");
+                return RedirectToAction("Orders", "Admin");
+            }
+            else
+            {
+                return View(orderToUpdate);
             }
         }
 
-        // GET: Orders/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Orders/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection fcNotUsed)
+        {
+
+            _service.Delete(id);
+            TempData["message"] = string.Format("successfully deleted");
+            return RedirectToAction("Orders", "Admin");
+
         }
+
     }
 }

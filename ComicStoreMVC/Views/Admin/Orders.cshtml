@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ComicStoreMVC.Models.OrderViewModel>
+
+@{
+    Layout = "~/Views/Admin/_AdminMaster.cshtml";
+}
+
+
+<table class="table table-striped table-condensed table-bordered">
+    <tr>
+        <th>
+            ID
+
+        </th>
+        <th>
+            Total Price
+
+        </th>
+        <th>
+            Order Date
+
+        </th>
+        <th>
+            Order Status
+
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderStatus)
+            </td>
+            <td>
+                @Html.ActionLink("Edit","Edit", "Orders", new { id = item.Id }, null) |
+                @Html.ActionLink("Details","Details", "Orders", new { id = item.Id }, null) |
+                @Html.ActionLink("Delete", "Delete", "Orders", new { id = item.Id }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="panel-footer">
+    @Html.ActionLink("Add new order", "Create", "Orders", null,
+        new { @class = "btn btn-default" })
+</div>
+
