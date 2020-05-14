@@ -6,7 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using ComicStoreDAL.Interfaces;
 using ComicStoreDAL.Repositories;
-
+using ComicStoreBL.Models;
+using AutoMapper;
+using ComicStoreDAL.Filters;
 
 namespace ComicStoreBL.Services
 {
@@ -47,6 +49,7 @@ namespace ComicStoreBL.Services
             var model = Map(item);
             _repositry.Update(model);
         }
+
 
         public abstract BLModel Map(DALModel entity);
         public abstract DALModel Map(BLModel blmodel);

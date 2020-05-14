@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ComicStoreBL.Services
 {
-    public class EmailOrderProcessorService : IOrderProcessor
+    public class EmailOrderProcessorService : IMailOrderProcessor
     {
         private readonly EmailSettingsBL emailSettings;
 
@@ -19,7 +19,7 @@ namespace ComicStoreBL.Services
             emailSettings = settings;
         }
 
-        public void ProcessOrder(Cart cart, ShippingDetailsBL shippingInfo)
+        public void SendEmail(Cart cart, OrderDetailsBL shippingInfo)
         {
             using (var smtpClient = new SmtpClient())
             {

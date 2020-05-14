@@ -10,7 +10,7 @@ namespace ComicStoreDAL
 {
     public class ComicStoreContext : DbContext 
     {
-        public ComicStoreContext() : base(@"Data Source=.\MSSQLSERVER1;Initial Catalog=ComicStoreDB;Integrated Security=True")
+        public ComicStoreContext() : base(@"Data Source=.\MSSQLSERVER1;Initial Catalog=ComicStore;Integrated Security=True")
         {
             Database.SetInitializer<ComicStoreContext>(new StoreInitializer());
         }
@@ -19,6 +19,7 @@ namespace ComicStoreDAL
         public DbSet<ComicBook> ComicBooks { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<OrderDetails> OrderDetails { get; set; }
+
     }
 }

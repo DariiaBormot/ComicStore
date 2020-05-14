@@ -15,10 +15,10 @@ namespace ComicStoreDAL.Entities
         public double Price { get; set; }
         public int Quantity { get; set; }
 
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
         public int CategoryId { get; set; }
-        public Publisher Publisher { get; set; }
+        public virtual Publisher Publisher { get; set; }
         public int PublisherId { get; set; }
-        public ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

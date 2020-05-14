@@ -50,7 +50,7 @@ namespace ComicStoreMVC.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        //[Display(Name = "Email")]
         [EmailAddress]
         public string Email { get; set; }
 

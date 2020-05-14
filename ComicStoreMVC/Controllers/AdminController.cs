@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ComicStoreBL.Interfaces;
 using ComicStoreMVC.Models;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace ComicStoreMVC.Controllers
 {
+    //[Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private readonly IComicBookService _booksService;
@@ -22,12 +24,14 @@ namespace ComicStoreMVC.Controllers
             _orderService = orderService;
         }
 
-        public ActionResult ComicBooks()
+        public ActionResult ComicBooks(int? page)
         {
+            int pageSize = 8;
+            int pageNumber = (page ?? 1);
+
             var comicBooksBL = _booksService.GetAll();
             var comicBooksPL = _mapper.Map<IEnumerable<ComicBookViewModel>>(comicBooksBL);
-
-            return View(comicBooksPL);
+            return View(comicBooksPL.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult Orders()

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ComicStoreDAL.Repositories
 {
-    public class UserRepository : GenericRepository<User>
+    public class OrderDetailsRepository : GenericRepository<OrderDetails>
     {
     }
 }

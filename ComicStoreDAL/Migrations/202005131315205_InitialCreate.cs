@@ -47,22 +47,26 @@
                         OrderStatus = c.Int(nullable: false),
                         UserId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
-                .Index(t => t.UserId);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Users",
+                "dbo.OrderDetails",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        FirstName = c.String(),
+                        Name = c.String(),
                         LastName = c.String(),
-                        Email = c.String(),
-                        Image = c.String(),
-                        Birthday = c.DateTime(nullable: false),
+                        Country = c.String(),
+                        City = c.String(),
+                        Street = c.String(),
+                        Appartment = c.Int(nullable: false),
+                        ZipCode = c.String(),
+                        PhoneNumber = c.Int(nullable: false),
+                        OrderId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Orders", t => t.OrderId, cascadeDelete: true)
+                .Index(t => t.OrderId);
             
             CreateTable(
                 "dbo.Publishers",
@@ -92,18 +96,18 @@
         public override void Down()
         {
             DropForeignKey("dbo.ComicBooks", "PublisherId", "dbo.Publishers");
-            DropForeignKey("dbo.Orders", "UserId", "dbo.Users");
+            DropForeignKey("dbo.OrderDetails", "OrderId", "dbo.Orders");
             DropForeignKey("dbo.OrderComicBooks", "ComicBook_Id", "dbo.ComicBooks");
             DropForeignKey("dbo.OrderComicBooks", "Order_Id", "dbo.Orders");
             DropForeignKey("dbo.ComicBooks", "CategoryId", "dbo.Categories");
             DropIndex("dbo.OrderComicBooks", new[] { "ComicBook_Id" });
             DropIndex("dbo.OrderComicBooks", new[] { "Order_Id" });
-            DropIndex("dbo.Orders", new[] { "UserId" });
+            DropIndex("dbo.OrderDetails", new[] { "OrderId" });
             DropIndex("dbo.ComicBooks", new[] { "PublisherId" });
             DropIndex("dbo.ComicBooks", new[] { "CategoryId" });
             DropTable("dbo.OrderComicBooks");
             DropTable("dbo.Publishers");
-            DropTable("dbo.Users");
+            DropTable("dbo.OrderDetails");
             DropTable("dbo.Orders");
             DropTable("dbo.ComicBooks");
             DropTable("dbo.Categories");

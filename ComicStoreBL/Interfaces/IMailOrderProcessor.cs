@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace ComicStoreBL.Interfaces
 {
-    public interface IOrderProcessor
+    public interface IMailOrderProcessor
     {
-        void ProcessOrder(Cart cart, ShippingDetailsBL shippingDetails);
+        void SendEmail(Cart cart, OrderDetailsBL shippingDetails);
     }
 }

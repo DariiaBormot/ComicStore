@@ -8,19 +8,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace ComicStoreMVC.Controllers
 {
     public class CartController : Controller
     {
         private readonly IComicBookService _bookService;
-        private readonly IOrderProcessor _orderProcessor;
+        private readonly IMailOrderProcessor _orderProcessor;
         private readonly IMapper _mapper;
-        public CartController(IComicBookService bookService, IOrderProcessor processor, IMapper mapper)
+        private readonly IOrderDetailsService _orderDetailsService;
+        private readonly IOrderService _orderService;
+
+        public CartController(IComicBookService bookService, IMailOrderProcessor processor, IMapper mapper, IOrderDetailsService orderDetailsService, IOrderService orderService)
         {
             _bookService = bookService;
             _orderProcessor = processor;
             _mapper = mapper;
+            _orderDetailsService = orderDetailsService;
+            _orderService = orderService;
         }
 
         public ViewResult Index(Cart cart, string returnUrl)
@@ -63,11 +69,11 @@ namespace ComicStoreMVC.Controllers
 
         public ViewResult Checkout()
         {
-            return View(new ShippingDetailsViewModel());
+            return View(new OrderDetailsViewModel());
         }
 
         [HttpPost]
-        public ViewResult Checkout(Cart cart, ShippingDetailsViewModel shippingDetails)
+        public ActionResult Checkout(Cart cart, OrderDetailsViewModel shippingDetails)
         {
             if (cart.GetAllProducts.Count() == 0)
             {
@@ -76,16 +82,38 @@ namespace ComicStoreMVC.Controllers
 
             if (ModelState.IsValid)
             {
-                var shippingBL = _mapper.Map<ShippingDetailsBL>(shippingDetails);
-                _orderProcessor.ProcessOrder(cart, shippingBL);
+                var userID = User.Identity.GetUserId();
+
+                var orderDetails = new List<OrderDetailsViewModel>() { shippingDetails };
+
+                var newOrder = new OrderViewModel()
+                {
+                    OrderDate = DateTime.Now,
+                    OrderStatus = Common.Enums.OrderStatus.Processing,
+                    TotalPrice = cart.GetTotalPrice(),
+                    UserId = userID,
+                    OrderDetails = orderDetails
+                };
+
+                var orderBL = _mapper.Map<OrderBL>(newOrder);
+
+                var orderDetailsBL = _mapper.Map<OrderDetailsBL>(shippingDetails);
+
+                _orderProcessor.SendEmail(cart, orderDetailsBL);
+
+                _orderService.Create(orderBL);
+
                 cart.EmptyCart();
+
                 return View("Completed");
+
             }
             else
             {
                 return View(shippingDetails);
             }
         }
+
 
         public ViewResult Completed()
         {

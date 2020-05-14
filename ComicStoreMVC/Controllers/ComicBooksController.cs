@@ -37,32 +37,15 @@ namespace ComicStoreMVC.Controllers
         }
 
 
-        public ActionResult Test(int? page)
-        {
-            int pageSize = 8;
-            int pageNumber = (page ?? 1);
-
-            var comicBooksBL = _service.GetAll();
-            var comicBooksPL = _mapper.Map<IEnumerable<ComicBookViewModel>>(comicBooksBL);
-            return View(comicBooksPL.ToPagedList(pageNumber, pageSize));
-
-        }
-
-
         public PartialViewResult ComicBooksList(FilterModel filter)
         {
             int pageSize = 8;
             int pageNumber = (filter.Page ?? 1);
-            //ViewBag.SelectedCategory = filter.PublisherId;
-            //ViewBag.SelectedPublisher = filter.CategoryId;
-            //ViewBag.SelectedSearchString = filter.Search;
 
             var filterBL = _mapper.Map<FilterInputBL>(filter);
-
             var filteredBooksBL = _service.GetListByFilter(filterBL);
             var filteredBooksPL = _mapper.Map<IEnumerable<ComicBookViewModel>>(filteredBooksBL);
    
-
             return PartialView(filteredBooksPL.ToPagedList(pageNumber, pageSize));
         }
 
@@ -74,13 +57,13 @@ namespace ComicStoreMVC.Controllers
             return View(comicPL);
         }
 
-
+        //[Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
         }
 
-
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Create(ComicBookViewModel newBook)
         {
@@ -98,13 +81,13 @@ namespace ComicStoreMVC.Controllers
 
         }
 
-
+        //[Authorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Edit(int id, ComicBookViewModel modelToUpdate)
         {
@@ -121,13 +104,13 @@ namespace ComicStoreMVC.Controllers
             }
         }
 
-
+        //[Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Delete(int id, FormCollection fcNotUsed)
         {

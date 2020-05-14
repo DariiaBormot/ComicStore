@@ -12,14 +12,15 @@ namespace ComicStoreDAL.Entities
         public Order()
         {
             ComicBooks = new List<ComicBook>();
+            OrderDetails = new List<OrderDetails>();
         }
         public int Id { get; set; }
         public double TotalPrice { get; set; }
         public DateTime OrderDate { get; set; }
         public OrderStatus OrderStatus { get; set; }
+        public string UserId { get; set; }
 
-        public int UserId { get; set; }
-        public User User { get; set; }
-        public ICollection<ComicBook> ComicBooks { get; set; }
+        public virtual ICollection<ComicBook> ComicBooks { get; set; }
+        public virtual ICollection<OrderDetails> OrderDetails { get; set; }
     }
 }

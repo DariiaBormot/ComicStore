@@ -34,13 +34,13 @@ namespace ComicStoreMVC.Controllers
             var ordersPL = _mapper.Map<OrderViewModel>(ordersBL);
             return View(ordersPL);
         }
-
+        //[Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
         }
 
-
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Create(OrderViewModel newOrder)
         {
@@ -57,13 +57,13 @@ namespace ComicStoreMVC.Controllers
             }
 
         }
-
+        //[Authorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Edit(int id, OrderViewModel orderToUpdate)
         {
@@ -79,13 +79,13 @@ namespace ComicStoreMVC.Controllers
                 return View(orderToUpdate);
             }
         }
-
+        //[Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Delete(int id, FormCollection fcNotUsed)
         {

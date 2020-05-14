@@ -9,17 +9,21 @@ namespace ComicStoreBL.Services
 {
     public class Cart
     {
-        private readonly List<CartLine> cartCollection = new List<CartLine>();
+        private readonly List<CartLine> CartCollection;
 
+        public Cart()
+        {
+            CartCollection = new List<CartLine>();
+        }
         public void AddToCart(ComicBookBL book, int quantity)
         {
-            var line = cartCollection
+            var line = CartCollection
                 .Where(g => g.ComicBookBL.Id == book.Id)
                 .FirstOrDefault();
 
             if (line == null)
             {
-                cartCollection.Add(new CartLine
+                CartCollection.Add(new CartLine
                 {
                     ComicBookBL = book,
                     Quantity = quantity
@@ -33,23 +37,23 @@ namespace ComicStoreBL.Services
 
         public void RemoveFromCart(ComicBookBL book)
         {
-            cartCollection.RemoveAll(x => x.ComicBookBL.Id == book.Id);
+            CartCollection.RemoveAll(x => x.ComicBookBL.Id == book.Id);
         }
 
         public double GetTotalPrice()
         {
 
-            return cartCollection.Sum(x => x.ComicBookBL.Price * x.Quantity);
+            return CartCollection.Sum(x => x.ComicBookBL.Price * x.Quantity);
 
         }
         public void EmptyCart()
         {
-            cartCollection.Clear();
+            CartCollection.Clear();
         }
 
         public IEnumerable<CartLine> GetAllProducts
         {
-            get { return cartCollection; }
+            get { return CartCollection; }
         }
     }
 

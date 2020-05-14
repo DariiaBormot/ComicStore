@@ -30,7 +30,7 @@ namespace ComicStoreMVC.App_Start
             builder.RegisterType<ComicBookService>().As<IComicBookService>();
             builder.RegisterType<OrderService>().As<IOrderService>();
             builder.RegisterType<PublisherService>().As<IPublisherService>();
-            builder.RegisterType<UserService>().As<IUserService>();
+            builder.RegisterType<OrderDetailsService>().As<IOrderDetailsService>();
 
             var emailSettings = new EmailSettingsBL
             {
@@ -38,7 +38,7 @@ namespace ComicStoreMVC.App_Start
                     .AppSettings["Email.WriteAsFile"] ?? "false")
             };
 
-            builder.RegisterType<EmailOrderProcessorService>().As<IOrderProcessor>().WithParameter("settings", emailSettings);
+            builder.RegisterType<EmailOrderProcessorService>().As<IMailOrderProcessor>().WithParameter("settings", emailSettings);
 
             builder.RegisterModule<AutofacConfigBL>();
 

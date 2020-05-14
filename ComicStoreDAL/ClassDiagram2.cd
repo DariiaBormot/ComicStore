@@ -42,23 +42,15 @@
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
-    <AssociationLine Name="User" Type="ComicStoreDAL.Entities.User">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.043" Y="0.21" />
-      </MemberNameLabel>
-    </AssociationLine>
     <AssociationLine Name="ComicBooks" Type="ComicStoreDAL.Entities.ComicBook">
       <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
         <Position X="0.302" Y="0.102" Height="0.182" Width="1.097" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>CAADAAAAAAACAAAAAAACAAgAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>CAACAAAAAAACAAAAgBACAAgAAAAAQAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\Order.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="User" />
-    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="ComicBooks" />
     </ShowAsCollectionAssociation>
@@ -83,24 +75,6 @@
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="ComicBooks" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="ComicStoreDAL.Entities.User">
-    <Position X="7" Y="3.25" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
-    <AssociationLine Name="Orders" Type="ComicStoreDAL.Entities.Order">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-0.765" Y="0.227" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <TypeIdentifier>
-      <HashCode>AAECAEAAACAAAAAAAAAAAAAAAAAIABAAAAAAAAAAAAg=</HashCode>
-      <FileName>Entities\User.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Orders" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ComicStoreDAL.Entities.Category">

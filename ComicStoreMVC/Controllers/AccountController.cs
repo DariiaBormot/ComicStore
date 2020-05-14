@@ -75,7 +75,23 @@ namespace ComicStoreMVC.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+
+            //try
+            //{
+            //    var userByEmail = await UserManager.FindByEmailAsync(model.Email);
+            //}
+            //catch (InvalidOperationException)
+            //{
+            //    // the user is not exist
+            //}
+
+
+
+            var user = await UserManager.FindByEmailAsync(model.Email);
+
+            var result = await SignInManager.PasswordSignInAsync(user.Name, model.Password, model.RememberMe, shouldLockout: false);
+
+
             switch (result)
             {
                 case SignInStatus.Success:
@@ -249,7 +265,7 @@ namespace ComicStoreMVC.Controllers
             {
                 return View(model);
             }
-            var user = await UserManager.FindByNameAsync(model.Email);
+            var user = await UserManager.FindByEmailAsync(model.Email);
             if (user == null)
             {
                 // Don't reveal that the user does not exist

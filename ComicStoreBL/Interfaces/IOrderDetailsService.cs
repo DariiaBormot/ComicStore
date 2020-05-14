@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ComicStoreBL.Interfaces
 {
-    public interface IUserService : IGenericService<UserBL>
+    public interface IOrderDetailsService : IGenericService<OrderDetailsBL>
     {
     }
 }

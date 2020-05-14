@@ -17,6 +17,6 @@ namespace ComicStoreDAL.Entities
         public string Description { get; set; }
         public string Image { get; set; }
 
-        public ICollection<ComicBook> ComicBooks { get; set; }
+        public virtual ICollection<ComicBook> ComicBooks { get; set; }
     }
 }
