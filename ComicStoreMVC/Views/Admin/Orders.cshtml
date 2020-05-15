@@ -23,30 +23,38 @@
             Order Status
 
         </th>
-        <th></th>
+        <th>
+            Get Order Details
+        </th>
+        <th>
+
+        </th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderStatus)
-            </td>
-            <td>
-                @Html.ActionLink("Edit","Edit", "Orders", new { id = item.Id }, null) |
-                @Html.ActionLink("Details","Details", "Orders", new { id = item.Id }, null) |
-                @Html.ActionLink("Delete", "Delete", "Orders", new { id = item.Id }, null)
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TotalPrice)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OrderDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OrderStatus)
+    </td>
+    <td>
+        @Html.ActionLink("Details", "GetOrderDetailsByOrderId", "Orders", new { id = item.Id }, null) 
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", "Orders", new { id = item.Id }, null) |
+        @Html.ActionLink("Details", "Details", "Orders", new { id = item.Id }, null) |
+        @Html.ActionLink("Delete", "Delete", "Orders", new { id = item.Id }, null)
+    </td>
+</tr>
     }
 
 </table>

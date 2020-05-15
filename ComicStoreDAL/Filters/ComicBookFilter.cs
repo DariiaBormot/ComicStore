@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ComicStoreDAL.Filters
 {
-    public class FilterImplementation : BaseFilter<ComicBook>
+    public class ComicBookFilter : BaseFilter<ComicBook>
     {
-        public FilterImplementation(FilterInputDAL filter)
+        public ComicBookFilter(FilterInputDAL filter)
             : base(x =>
             (string.IsNullOrEmpty(filter.Search) || x.Name.ToLower().Contains(filter.Search)) &&
             (!filter.PublisherId.HasValue || x.PublisherId == filter.PublisherId) &&
@@ -38,7 +38,7 @@ namespace ComicStoreDAL.Filters
 
         }
 
-        public FilterImplementation(int id) : base(x => x.Id == id)
+        public ComicBookFilter(int id) : base(x => x.Id == id)
         {
             AddInclude(x => x.Category);
             AddInclude(x => x.Publisher);

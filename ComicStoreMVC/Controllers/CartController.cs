@@ -17,15 +17,13 @@ namespace ComicStoreMVC.Controllers
         private readonly IComicBookService _bookService;
         private readonly IMailOrderProcessor _orderProcessor;
         private readonly IMapper _mapper;
-        private readonly IOrderDetailsService _orderDetailsService;
         private readonly IOrderService _orderService;
 
-        public CartController(IComicBookService bookService, IMailOrderProcessor processor, IMapper mapper, IOrderDetailsService orderDetailsService, IOrderService orderService)
+        public CartController(IComicBookService bookService, IMailOrderProcessor processor, IMapper mapper, IOrderService orderService)
         {
             _bookService = bookService;
             _orderProcessor = processor;
             _mapper = mapper;
-            _orderDetailsService = orderDetailsService;
             _orderService = orderService;
         }
 
@@ -69,39 +67,41 @@ namespace ComicStoreMVC.Controllers
 
         public ViewResult Checkout()
         {
-            return View(new OrderDetailsViewModel());
+            return View(new ShippingDetailsViewModel());
         }
 
         [HttpPost]
-        public ActionResult Checkout(Cart cart, OrderDetailsViewModel shippingDetails)
+        public ViewResult Checkout(Cart cart, ShippingDetailsViewModel shippingDetails)
         {
-            if (cart.GetAllProducts.Count() == 0)
+            if (cart.GetAllProducts().Count() == 0)
             {
                 ModelState.AddModelError("", "Your shopping cart is empty!");
             }
 
             if (ModelState.IsValid)
             {
+                var order = new OrderViewModel();
+                TryUpdateModel(order);
                 var userID = User.Identity.GetUserId();
 
-                var orderDetails = new List<OrderDetailsViewModel>() { shippingDetails };
-
-                var newOrder = new OrderViewModel()
+                try
                 {
-                    OrderDate = DateTime.Now,
-                    OrderStatus = Common.Enums.OrderStatus.Processing,
-                    TotalPrice = cart.GetTotalPrice(),
-                    UserId = userID,
-                    OrderDetails = orderDetails
-                };
+                    order.OrderDate = DateTime.Now;
+                    order.OrderStatus = Common.Enums.OrderStatus.Processing;
+                    order.TotalPrice = cart.GetTotalPrice();
+                    order.UserId = userID;
+                }
+                catch
+                {
+                    // Invalid - throw exeption
+                    return View(shippingDetails);
+                }
 
-                var orderBL = _mapper.Map<OrderBL>(newOrder);
-
-                var orderDetailsBL = _mapper.Map<OrderDetailsBL>(shippingDetails);
-
-                _orderProcessor.SendEmail(cart, orderDetailsBL);
-
-                _orderService.Create(orderBL);
+                var orderBL = _mapper.Map<OrderBL>(order);
+                var model = _orderService.CreateAndReturnItem(orderBL);
+                cart.CreateOrderDetails(model);
+                var shippingDet = _mapper.Map<ShippingDetailsBL>(shippingDetails);
+                _orderProcessor.SendEmail(cart, shippingDet);
 
                 cart.EmptyCart();
 
@@ -113,7 +113,6 @@ namespace ComicStoreMVC.Controllers
                 return View(shippingDetails);
             }
         }
-
 
         public ViewResult Completed()
         {

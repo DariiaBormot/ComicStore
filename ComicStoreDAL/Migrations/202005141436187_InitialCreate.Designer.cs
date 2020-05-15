@@ -13,7 +13,7 @@ namespace ComicStoreDAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202005131315205_InitialCreate"; }
+            get { return "202005141436187_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

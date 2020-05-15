@@ -11,17 +11,13 @@ namespace ComicStoreDAL.Entities
     public class OrderDetails
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string LastName { get; set; }
-        public string Country { get; set; }
-        public string City { get; set; }
-        public string Street { get; set; }
-        public int Appartment { get; set; }
-        public string ZipCode { get; set; }
-        public int PhoneNumber { get; set; }
+        public int ComicBookId { get; set; }
+        public int OrderId { get; set; }
+        public double BookPrice { get; set; }
+        public string BookName { get; set; }
 
         public virtual Order Order { get; set; }
-        public int OrderId { get; set; }
+        public virtual ComicBook ComicBook { get; set; }
 
     }
 }

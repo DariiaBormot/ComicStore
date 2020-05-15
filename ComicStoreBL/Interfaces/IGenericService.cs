@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComicStoreBL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,8 @@ namespace ComicStoreBL.Interfaces
         void Update(Model item);
         void Delete(int id);
         Model GetById(int id);
+        Model CreateAndReturnItem(Model item);
+        IEnumerable<Model> GetPagedItems(int pageSize, int pageIndex);
+
     }
 }

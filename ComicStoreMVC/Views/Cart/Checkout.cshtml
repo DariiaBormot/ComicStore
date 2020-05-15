@@ -1,4 +1,4 @@
-﻿@model ComicStoreMVC.Models.OrderDetailsViewModel
+﻿@model ComicStoreMVC.Models.ShippingDetailsViewModel
 
 @{
     ViewBag.Title = "Checkout";
@@ -34,7 +34,7 @@
     </div>
     <div class="form-group">
         <label>Appartment:</label>
-        @Html.TextBoxFor(x => x.Country, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.Appartment, new { @class = "form-control" })
     </div>
     <div class="form-group">
         <label>Zip/Postal Code:</label>
@@ -44,6 +44,7 @@
         <label>Phone number:</label>
         @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
     </div>
+
 
 
     <div class="text-center">

@@ -7,13 +7,13 @@ namespace ComicStoreDAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class UpdatedUserId : IMigrationMetadata
+    public sealed partial class UpdatedOrderDetails : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdatedUserId));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdatedOrderDetails));
         
         string IMigrationMetadata.Id
         {
-            get { return "202005140829353_UpdatedUserId"; }
+            get { return "202005151013125_UpdatedOrderDetails"; }
         }
         
         string IMigrationMetadata.Source

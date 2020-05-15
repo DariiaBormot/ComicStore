@@ -2,6 +2,7 @@
 using ComicStoreBL.Interfaces;
 using ComicStoreBL.Models;
 using ComicStoreDAL.Entities;
+using ComicStoreDAL.Filters;
 using ComicStoreDAL.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,11 @@ namespace ComicStoreBL.Services
     public class OrderService : GenericService<OrderBL, Order>, IOrderService
     {
         private readonly IMapper _mapper;
+
         public OrderService(IGenericRepository<Order> repository, IMapper mapper) : base(repository)
         {
             _mapper = mapper;
+
         }
         public override OrderBL Map(Order entity)
         {

@@ -16,40 +16,53 @@ namespace ComicStoreBL.Services
        where BLModel : class
        where DALModel : class
     {
-        private readonly IGenericRepository<DALModel> _repositry;
+        private readonly IGenericRepository<DALModel> _repository;
         public GenericService(IGenericRepository<DALModel> repository)
         {
-            _repositry = repository;
+            _repository = repository;
         }
 
         public void Create(BLModel item)
         {
             var model = Map(item);
-            _repositry.Create(model);
+            _repository.Create(model);
         }
 
         public void Delete(int id)
         {
-            _repositry.Delete(id);
+            _repository.Delete(id);
         }
 
         public IEnumerable<BLModel> GetAll()
         {
-            var listEntity = _repositry.GetAll().ToList();
+            var listEntity = _repository.GetAll().ToList();
             return Map(listEntity);
         }
 
         public BLModel GetById(int id)
         {
-            var model = _repositry.GetById(id);
+            var model = _repository.GetById(id);
             return Map(model);
         }
         public void Update(BLModel item)
         {
             var model = Map(item);
-            _repositry.Update(model);
+            _repository.Update(model);
         }
+        public IEnumerable<BLModel> GetPagedItems(int pageSize, int pageIndex)
+        {
+            var entities = _repository.GetPagedItems(pageSize, pageIndex).ToList();
+            var modelsBL = Map(entities);
+            return modelsBL;
 
+        }
+        public BLModel CreateAndReturnItem(BLModel item) 
+        {
+            var model = Map(item);
+            var modelDAL = _repository.CreateAndReturnItem(model);
+            var modelToReturn = Map(modelDAL);
+            return modelToReturn;
+        }
 
         public abstract BLModel Map(DALModel entity);
         public abstract DALModel Map(BLModel blmodel);

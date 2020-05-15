@@ -11,16 +11,21 @@ namespace ComicStoreBL.Models
     {
         public OrderBL()
         {
-            ComicBooks = new List<ComicBookBL>();
             OrderDetails = new List<OrderDetailsBL>();
         }
         public int Id { get; set; }
         public double TotalPrice { get; set; }
         public DateTime OrderDate { get; set; }
         public OrderStatus OrderStatus { get; set; }
-
+        public string Name { get; set; }
+        public string LastName { get; set; }
+        public string Country { get; set; }
+        public string City { get; set; }
+        public string Street { get; set; }
+        public string Appartment { get; set; }
+        public string ZipCode { get; set; }
+        public int PhoneNumber { get; set; }
         public string UserId { get; set; }
-        public IEnumerable<ComicBookBL> ComicBooks { get; set; }
         public IEnumerable<OrderDetailsBL> OrderDetails { get; set; }
     }
 }

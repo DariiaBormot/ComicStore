@@ -1,4 +1,8 @@
-﻿using ComicStoreBL.Models;
+﻿using AutoMapper;
+using ComicStoreBL.Models;
+using ComicStoreDAL.Entities;
+using ComicStoreDAL.Interfaces;
+using ComicStoreDAL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +14,11 @@ namespace ComicStoreBL.Services
     public class Cart
     {
         private readonly List<CartLine> CartCollection;
-
+        private readonly IGenericRepository<OrderDetails> _orderDetailsRepository;
         public Cart()
         {
             CartCollection = new List<CartLine>();
+            _orderDetailsRepository = new OrderDetailsRepository();
         }
         public void AddToCart(ComicBookBL book, int quantity)
         {
@@ -42,18 +47,37 @@ namespace ComicStoreBL.Services
 
         public double GetTotalPrice()
         {
-
             return CartCollection.Sum(x => x.ComicBookBL.Price * x.Quantity);
-
         }
         public void EmptyCart()
         {
             CartCollection.Clear();
         }
 
-        public IEnumerable<CartLine> GetAllProducts
+        public IEnumerable<CartLine> GetAllProducts()
         {
-            get { return CartCollection; }
+            return CartCollection;
+        }
+
+        public void CreateOrderDetails(OrderBL order)
+        {
+
+            var cartItems = GetAllProducts();
+
+            foreach (var item in cartItems)
+            {
+                var orderDetail = new OrderDetails
+                {
+                    ComicBookId = item.ComicBookBL.Id,
+                    BookPrice = item.ComicBookBL.Price,
+                    OrderId = order.Id,
+                    BookName = item.ComicBookBL.Name
+
+                };
+
+                _orderDetailsRepository.Create(orderDetail);
+
+            }
         }
     }
 

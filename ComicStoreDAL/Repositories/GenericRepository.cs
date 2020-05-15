@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace ComicStoreDAL.Repositories
 {
@@ -42,6 +43,12 @@ namespace ComicStoreDAL.Repositories
             return dbSet.AsNoTracking().ToList();
         }
 
+        public IEnumerable<TEntity> GetPagedItems(int pageSize, int pageIndex) 
+        {
+            var list = dbSet.Skip(pageSize * pageIndex).Take(pageSize).ToList();
+            return list;
+        }
+
         public TEntity GetById(int id)
         {
             return _context.Set<TEntity>().Find(id);
@@ -53,12 +60,20 @@ namespace ComicStoreDAL.Repositories
             _context.SaveChanges();
         }
 
-        public TEntity GetEntityByFilter(IFilter<TEntity> expression)
+        public TEntity CreateAndReturnItem(TEntity item)
         {
-            return ApplyFilters(expression).FirstOrDefault();
+            dbSet.Add(item);
+            _context.SaveChanges();
+            return item;
         }
 
-        public IEnumerable<TEntity> GetListByFilter(IFilter<TEntity> expression)
+        public IEnumerable<TEntity> GetWhere(Expression<Func<TEntity, bool>> predicate)
+        {
+            return dbSet.Where(predicate).ToList();
+        }
+
+
+        public IEnumerable<TEntity> GetByFilter(IFilter<TEntity> expression)
         {
             return ApplyFilters(expression).ToList();
         }

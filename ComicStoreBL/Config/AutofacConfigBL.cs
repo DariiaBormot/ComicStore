@@ -19,6 +19,7 @@ namespace ComicStoreBL.Config
 
             builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>));
 
+
             //builder.RegisterType<FilterImplementation>()
             //        .As<IFilter<ComicBook>>()
             //        .WithParameter(new TypedParameter(typeof(FilterInputBL), "filter"));

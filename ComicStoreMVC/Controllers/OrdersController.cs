@@ -2,6 +2,7 @@
 using ComicStoreBL.Interfaces;
 using ComicStoreBL.Models;
 using ComicStoreMVC.Models;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +15,12 @@ namespace ComicStoreMVC.Controllers
     {
         private readonly IOrderService _service;
         private readonly IMapper _mapper;
-        public OrdersController(IOrderService service, IMapper mapper)
+        private readonly IOrderDetailsService _orderDetailsService;
+        public OrdersController(IOrderService service, IMapper mapper, IOrderDetailsService orderDetailsService)
         {
             _service = service;
             _mapper = mapper;
+            _orderDetailsService = orderDetailsService;
         }
         // GET: Orders
         public ActionResult Index()
@@ -28,12 +31,33 @@ namespace ComicStoreMVC.Controllers
 
         }
 
+        public ActionResult GetOrderDetailsByOrderId(int? page, int? id)
+        {
+            int pageSize = 8;
+            int pageNumber = (page ?? 1);
+
+            var orderDetails = _orderDetailsService.GetOrderDetailsByOrderId(id);
+            var orderDetailsPL = _mapper.Map<IEnumerable<OrderDetailsViewModel>>(orderDetails);
+
+            return PartialView(orderDetailsPL.ToPagedList(pageNumber, pageSize));
+        }
+
+
+        public ActionResult GetOrdersByUserId(string id)
+        {
+
+
+            return View();
+        }
+
+
         public ActionResult Details(int id)
         {
             var ordersBL = _service.GetById(id);
             var ordersPL = _mapper.Map<OrderViewModel>(ordersBL);
             return View(ordersPL);
         }
+
         //[Authorize(Roles = "Admin")]
         public ActionResult Create()
         {

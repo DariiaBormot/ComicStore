@@ -9,5 +9,6 @@ namespace ComicStoreBL.Interfaces
 {
     public interface IOrderDetailsService : IGenericService<OrderDetailsBL>
     {
+        IEnumerable<OrderDetailsBL> GetOrderDetailsByOrderId(int? id);
     }
 }

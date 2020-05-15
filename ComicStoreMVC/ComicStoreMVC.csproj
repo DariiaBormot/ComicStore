@@ -224,6 +224,7 @@
     <Compile Include="Models\ComickBookListViewModel.cs" />
     <Compile Include="Models\FilterModel.cs" />
     <Compile Include="Models\OrderDetailsViewModel.cs" />
+    <Compile Include="Models\ShippingDetailsViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -394,6 +395,8 @@
     <Content Include="Views\Orders\Create.cshtml" />
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\GetOrderDetailsByOrderId.cshtml" />
+    <Content Include="Views\Admin\GetUsers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

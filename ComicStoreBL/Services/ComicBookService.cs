@@ -27,9 +27,9 @@ namespace ComicStoreBL.Services
         {
             var filterDAL = _mapper.Map<FilterInputDAL>(filter);
 
-            var filterImp = new FilterImplementation(filterDAL);
+            var filterImp = new ComicBookFilter(filterDAL);
 
-            var bookListDAL = _repository.GetListByFilter(filterImp);
+            var bookListDAL = _repository.GetByFilter(filterImp);
 
             var booksBL = _mapper.Map<IEnumerable<ComicBookBL>>(bookListDAL);
 

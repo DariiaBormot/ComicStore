@@ -122,6 +122,7 @@
     <Compile Include="Services\OrderDetailsService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\PublisherService.cs" />
+    <Compile Include="Models\ShippingDetailsBL.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

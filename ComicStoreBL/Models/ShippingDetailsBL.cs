@@ -1,18 +1,13 @@
-﻿using Common.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ComicStoreMVC.Models
+namespace ComicStoreBL.Models
 {
-    public class OrderViewModel
+    public class ShippingDetailsBL
     {
-        public int Id { get; set; }
-        public double TotalPrice { get; set; }
-        public DateTime OrderDate { get; set; }
-        public OrderStatus OrderStatus { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
         public string Country { get; set; }
@@ -21,6 +16,5 @@ namespace ComicStoreMVC.Models
         public string Appartment { get; set; }
         public string ZipCode { get; set; }
         public int PhoneNumber { get; set; }
-        public string UserId { get; set; }
     }
 }

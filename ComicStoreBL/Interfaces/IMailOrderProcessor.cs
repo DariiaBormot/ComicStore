@@ -10,6 +10,6 @@ namespace ComicStoreBL.Interfaces
 {
     public interface IMailOrderProcessor
     {
-        void SendEmail(Cart cart, OrderDetailsBL shippingDetails);
+        void SendEmail(Cart cart, ShippingDetailsBL shippingDetails);
     }
 }

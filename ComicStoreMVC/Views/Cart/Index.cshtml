@@ -15,7 +15,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Cart.GetAllProducts)
+        @foreach (var item in Model.Cart.GetAllProducts())
         {
         <tr>
             <td class="text-center">@item.Quantity</td>

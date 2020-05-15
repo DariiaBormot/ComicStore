@@ -16,12 +16,14 @@ namespace ComicStoreMVC.Controllers
         private readonly IComicBookService _booksService;
         private readonly IMapper _mapper;
         private readonly IOrderService _orderService;
+        private readonly ApplicationDbContext _context;
 
         public AdminController(IComicBookService service, IOrderService orderService, IMapper mapper)
         {
             _booksService = service;
             _mapper = mapper;
             _orderService = orderService;
+            _context = new ApplicationDbContext();
         }
 
         public ActionResult ComicBooks(int? page)
@@ -41,6 +43,14 @@ namespace ComicStoreMVC.Controllers
 
             return View(oordersPL);
         }
+
+        public ActionResult GetUsers()
+        {
+            var users = _context.Users.ToList();
+            return View(users);
+        }
+
+
 
     }
 }

@@ -74,14 +74,16 @@
     <Compile Include="Entities\OrderDetails.cs" />
     <Compile Include="Entities\Publisher.cs" />
     <Compile Include="Filters\FilterInputDAL.cs" />
+    <Compile Include="Interfaces\IComicStoreContext.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
-    <Compile Include="Migrations\202005131315205_InitialCreate.cs" />
-    <Compile Include="Migrations\202005131315205_InitialCreate.designer.cs">
-      <DependentUpon>202005131315205_InitialCreate.cs</DependentUpon>
+    <Compile Include="Interfaces\IOrderRepository.cs" />
+    <Compile Include="Migrations\202005141436187_InitialCreate.cs" />
+    <Compile Include="Migrations\202005141436187_InitialCreate.designer.cs">
+      <DependentUpon>202005141436187_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202005140829353_UpdatedUserId.cs" />
-    <Compile Include="Migrations\202005140829353_UpdatedUserId.designer.cs">
-      <DependentUpon>202005140829353_UpdatedUserId.cs</DependentUpon>
+    <Compile Include="Migrations\202005151013125_UpdatedOrderDetails.cs" />
+    <Compile Include="Migrations\202005151013125_UpdatedOrderDetails.designer.cs">
+      <DependentUpon>202005151013125_UpdatedOrderDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,7 +94,7 @@
     <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Repositories\PublisherRepository.cs" />
     <Compile Include="Filters\BaseFilter.cs" />
-    <Compile Include="Filters\FilterImplementation.cs" />
+    <Compile Include="Filters\ComicBookFilter.cs" />
     <Compile Include="Filters\IFilter.cs" />
     <Compile Include="Filters\FilterEvaluator.cs" />
     <Compile Include="StoreInitializer.cs" />
@@ -109,11 +111,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005131315205_InitialCreate.resx">
-      <DependentUpon>202005131315205_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005141436187_InitialCreate.resx">
+      <DependentUpon>202005141436187_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005140829353_UpdatedUserId.resx">
-      <DependentUpon>202005140829353_UpdatedUserId.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005151013125_UpdatedOrderDetails.resx">
+      <DependentUpon>202005151013125_UpdatedOrderDetails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

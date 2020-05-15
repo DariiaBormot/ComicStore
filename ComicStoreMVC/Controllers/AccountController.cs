@@ -73,20 +73,6 @@ namespace ComicStoreMVC.Controllers
                 return View(model);
             }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-
-            //try
-            //{
-            //    var userByEmail = await UserManager.FindByEmailAsync(model.Email);
-            //}
-            //catch (InvalidOperationException)
-            //{
-            //    // the user is not exist
-            //}
-
-
-
             var user = await UserManager.FindByEmailAsync(model.Email);
 
             var result = await SignInManager.PasswordSignInAsync(user.Name, model.Password, model.RememberMe, shouldLockout: false);
@@ -524,41 +510,6 @@ namespace ComicStoreMVC.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //public async Task<ActionResult> Edit()
-        //{
-        //    ApplicationUser user = await UserManager.FindByEmailAsync(User.Identity.Name);
-        //    if (user != null)
-        //    {
-        //        EditModel model = new EditModel { Year = user.Year };
-        //        return View(model);
-        //    }
-        //    return RedirectToAction("Login", "Account");
-        //}
-
-        //[HttpPost]
-        //public async Task<ActionResult> Edit(EditModel model)
-        //{
-        //    ApplicationUser user = await UserManager.FindByEmailAsync(User.Identity.Name);
-        //    if (user != null)
-        //    {
-        //        user.Year = model.Year;
-        //        IdentityResult result = await UserManager.UpdateAsync(user);
-        //        if (result.Succeeded)
-        //        {
-        //            return RedirectToAction("Index", "Home");
-        //        }
-        //        else
-        //        {
-        //            ModelState.AddModelError("", "Что-то пошло не так");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        ModelState.AddModelError("", "Пользователь не найден");
-        //    }
-
-        //    return View(model);
-        //}
 
     }
 }

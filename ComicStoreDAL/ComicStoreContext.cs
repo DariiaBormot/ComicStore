@@ -1,4 +1,5 @@
 ﻿using ComicStoreDAL.Entities;
+using ComicStoreDAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace ComicStoreDAL
 {
-    public class ComicStoreContext : DbContext 
+    public class ComicStoreContext : DbContext
     {
-        public ComicStoreContext() : base(@"Data Source=.\MSSQLSERVER1;Initial Catalog=ComicStore;Integrated Security=True")
+        public ComicStoreContext() : base(@"Data Source=.\MSSQLSERVER1;Initial Catalog=ComicStoreDB;Integrated Security=True")
         {
             Database.SetInitializer<ComicStoreContext>(new StoreInitializer());
         }

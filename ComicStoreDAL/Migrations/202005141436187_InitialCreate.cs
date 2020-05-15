@@ -45,27 +45,34 @@
                         TotalPrice = c.Double(nullable: false),
                         OrderDate = c.DateTime(nullable: false),
                         OrderStatus = c.Int(nullable: false),
-                        UserId = c.Int(nullable: false),
+                        Name = c.String(),
+                        LastName = c.String(),
+                        Country = c.String(),
+                        City = c.String(),
+                        Street = c.String(),
+                        Appartment = c.String(),
+                        ZipCode = c.String(),
+                        PhoneNumber = c.Int(nullable: false),
+                        UserId = c.String(),
+                        ComicBook_Id = c.Int(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.ComicBooks", t => t.ComicBook_Id)
+                .Index(t => t.ComicBook_Id);
             
             CreateTable(
                 "dbo.OrderDetails",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        LastName = c.String(),
-                        Country = c.String(),
-                        City = c.String(),
-                        Street = c.String(),
-                        Appartment = c.Int(nullable: false),
-                        ZipCode = c.String(),
-                        PhoneNumber = c.Int(nullable: false),
+                        ComicBookId = c.Int(nullable: false),
                         OrderId = c.Int(nullable: false),
+                        BookPrice = c.Double(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.ComicBooks", t => t.ComicBookId, cascadeDelete: true)
                 .ForeignKey("dbo.Orders", t => t.OrderId, cascadeDelete: true)
+                .Index(t => t.ComicBookId)
                 .Index(t => t.OrderId);
             
             CreateTable(
@@ -78,34 +85,20 @@
                     })
                 .PrimaryKey(t => t.Id);
             
-            CreateTable(
-                "dbo.OrderComicBooks",
-                c => new
-                    {
-                        Order_Id = c.Int(nullable: false),
-                        ComicBook_Id = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.Order_Id, t.ComicBook_Id })
-                .ForeignKey("dbo.Orders", t => t.Order_Id, cascadeDelete: true)
-                .ForeignKey("dbo.ComicBooks", t => t.ComicBook_Id, cascadeDelete: true)
-                .Index(t => t.Order_Id)
-                .Index(t => t.ComicBook_Id);
-            
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.ComicBooks", "PublisherId", "dbo.Publishers");
+            DropForeignKey("dbo.Orders", "ComicBook_Id", "dbo.ComicBooks");
             DropForeignKey("dbo.OrderDetails", "OrderId", "dbo.Orders");
-            DropForeignKey("dbo.OrderComicBooks", "ComicBook_Id", "dbo.ComicBooks");
-            DropForeignKey("dbo.OrderComicBooks", "Order_Id", "dbo.Orders");
+            DropForeignKey("dbo.OrderDetails", "ComicBookId", "dbo.ComicBooks");
             DropForeignKey("dbo.ComicBooks", "CategoryId", "dbo.Categories");
-            DropIndex("dbo.OrderComicBooks", new[] { "ComicBook_Id" });
-            DropIndex("dbo.OrderComicBooks", new[] { "Order_Id" });
             DropIndex("dbo.OrderDetails", new[] { "OrderId" });
+            DropIndex("dbo.OrderDetails", new[] { "ComicBookId" });
+            DropIndex("dbo.Orders", new[] { "ComicBook_Id" });
             DropIndex("dbo.ComicBooks", new[] { "PublisherId" });
             DropIndex("dbo.ComicBooks", new[] { "CategoryId" });
-            DropTable("dbo.OrderComicBooks");
             DropTable("dbo.Publishers");
             DropTable("dbo.OrderDetails");
             DropTable("dbo.Orders");
