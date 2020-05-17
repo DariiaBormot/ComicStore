@@ -68,6 +68,8 @@
                         ComicBookId = c.Int(nullable: false),
                         OrderId = c.Int(nullable: false),
                         BookPrice = c.Double(nullable: false),
+                        BookName = c.String(),
+                        Quantity = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.ComicBooks", t => t.ComicBookId, cascadeDelete: true)

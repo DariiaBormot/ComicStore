@@ -11,5 +11,6 @@ namespace ComicStoreBL.Interfaces
     public interface IComicBookService : IGenericService<ComicBookBL>
     {
         IEnumerable<ComicBookBL> GetListByFilter(FilterInputBL filter);
+        int CountFilteredItems(FilterInputBL filter);
     }
 }

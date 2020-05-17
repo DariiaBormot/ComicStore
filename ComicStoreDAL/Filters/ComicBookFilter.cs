@@ -18,7 +18,7 @@ namespace ComicStoreDAL.Filters
             AddInclude(x => x.Category);
             AddInclude(x => x.Publisher);
             AddOrderBy(x => x.Name);
-            ApplyPaging(filter.PageSize * (filter.PageIndex - 1), filter.PageSize);
+            ApplyPaging(filter.PageSize * (filter.Page - 1), filter.PageSize);
 
             if (!string.IsNullOrEmpty(filter.Sort))
             {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComicStoreDAL.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ComicStoreDAL.Entities
 {
-    public class Publisher
+    public class Publisher 
     {
         public Publisher()
         {

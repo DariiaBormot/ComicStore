@@ -98,7 +98,7 @@ namespace ComicStoreMVC.Controllers
                 }
 
                 var orderBL = _mapper.Map<OrderBL>(order);
-                var model = _orderService.CreateAndReturnItem(orderBL);
+                var model = _orderService.CreateGetCreatedItem(orderBL);
                 cart.CreateOrderDetails(model);
                 var shippingDet = _mapper.Map<ShippingDetailsBL>(shippingDetails);
                 _orderProcessor.SendEmail(cart, shippingDet);

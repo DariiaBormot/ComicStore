@@ -71,8 +71,8 @@ namespace ComicStoreBL.Services
                     ComicBookId = item.ComicBookBL.Id,
                     BookPrice = item.ComicBookBL.Price,
                     OrderId = order.Id,
-                    BookName = item.ComicBookBL.Name
-
+                    BookName = item.ComicBookBL.Name,
+                    Quantity = item.Quantity
                 };
 
                 _orderDetailsRepository.Create(orderDetail);

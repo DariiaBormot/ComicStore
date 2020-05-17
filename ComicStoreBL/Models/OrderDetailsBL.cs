@@ -13,6 +13,7 @@ namespace ComicStoreBL.Models
         public double BookPrice { get; set; }
         public string BookName { get; set; }
         public int OrderId { get; set; }
+        public int Quantity { get; set; }
 
     }
 }

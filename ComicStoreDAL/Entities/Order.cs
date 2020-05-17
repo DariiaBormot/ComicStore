@@ -1,4 +1,5 @@
-﻿using Common.Enums;
+﻿using ComicStoreDAL.Interfaces;
+using Common.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -8,7 +8,7 @@ namespace ComicStoreMVC.Models
     public class FilterModel
     {
         private int MaxPageSize = 50;
-        public int PageIndex { get; set; } = 1;
+        //public int? Page { get; set; }
 
         private int _pageSize = 8;
         public int PageSize
@@ -19,7 +19,7 @@ namespace ComicStoreMVC.Models
         public string Sort { get; set; }
         public int? PublisherId { get; set; }
         public int? CategoryId { get; set; }
-        public int? Page { get; set; }
+        public int Page { get; set; } = 1; 
         private string _search;
         public string Search 
         {

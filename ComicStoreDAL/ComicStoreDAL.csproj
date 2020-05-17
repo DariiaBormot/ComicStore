@@ -73,17 +73,14 @@
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\OrderDetails.cs" />
     <Compile Include="Entities\Publisher.cs" />
+    <Compile Include="Filters\FilterForCount.cs" />
     <Compile Include="Filters\FilterInputDAL.cs" />
     <Compile Include="Interfaces\IComicStoreContext.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
     <Compile Include="Interfaces\IOrderRepository.cs" />
-    <Compile Include="Migrations\202005141436187_InitialCreate.cs" />
-    <Compile Include="Migrations\202005141436187_InitialCreate.designer.cs">
-      <DependentUpon>202005141436187_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005151013125_UpdatedOrderDetails.cs" />
-    <Compile Include="Migrations\202005151013125_UpdatedOrderDetails.designer.cs">
-      <DependentUpon>202005151013125_UpdatedOrderDetails.cs</DependentUpon>
+    <Compile Include="Migrations\202005170805382_InitialCreate.cs" />
+    <Compile Include="Migrations\202005170805382_InitialCreate.designer.cs">
+      <DependentUpon>202005170805382_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,11 +108,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005141436187_InitialCreate.resx">
-      <DependentUpon>202005141436187_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005151013125_UpdatedOrderDetails.resx">
-      <DependentUpon>202005151013125_UpdatedOrderDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005170805382_InitialCreate.resx">
+      <DependentUpon>202005170805382_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

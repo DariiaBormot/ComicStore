@@ -24,6 +24,12 @@
 
         </th>
         <th>
+            User Name
+        </th>
+        <th>
+            User Last Name
+        </th>
+        <th>
             Get Order Details
         </th>
         <th>
@@ -47,7 +53,13 @@
         @Html.DisplayFor(modelItem => item.OrderStatus)
     </td>
     <td>
-        @Html.ActionLink("Details", "GetOrderDetailsByOrderId", "Orders", new { id = item.Id }, null) 
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LastName)
+    </td>
+    <td>
+        @Html.ActionLink("Details", "GetOrderDetailsByOrderId", "Orders", new { id = item.Id }, null)
     </td>
     <td>
         @Html.ActionLink("Edit", "Edit", "Orders", new { id = item.Id }, null) |

@@ -35,6 +35,16 @@ namespace ComicStoreBL.Services
 
             return booksBL;
         }
+        public int CountFilteredItems(FilterInputBL filter)
+        {
+            var filterDAL = _mapper.Map<FilterInputDAL>(filter);
+            //var filterImp = new ComicBookFilter(filterDAL);
+            var coutFilter = new FilterForCount(filterDAL);
+
+            var count = _repository.Count(coutFilter);
+
+            return count;
+        }
 
         public override ComicBookBL Map(ComicBook entity)
         {

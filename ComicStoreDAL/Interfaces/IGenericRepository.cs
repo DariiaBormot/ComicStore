@@ -15,9 +15,9 @@ namespace ComicStoreDAL.Interfaces
         void Update(TEntity item);
         void Delete(int id);
         TEntity GetById(int id);
-        TEntity CreateAndReturnItem(TEntity item);
-        IEnumerable<TEntity> GetByFilter(IFilter<TEntity> specification);
-        IEnumerable<TEntity> GetPagedItems(int pageSize, int pageIndex);
+        TEntity CreateGetCreatedItem(TEntity item); 
+        IEnumerable<TEntity> GetByFilter(IFilter<TEntity> filter);
         IEnumerable<TEntity> GetWhere(Expression<Func<TEntity, bool>> predicate);
+        int Count(IFilter<TEntity> filter);
     }
 }

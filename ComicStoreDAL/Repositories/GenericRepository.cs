@@ -43,12 +43,6 @@ namespace ComicStoreDAL.Repositories
             return dbSet.AsNoTracking().ToList();
         }
 
-        public IEnumerable<TEntity> GetPagedItems(int pageSize, int pageIndex) 
-        {
-            var list = dbSet.Skip(pageSize * pageIndex).Take(pageSize).ToList();
-            return list;
-        }
-
         public TEntity GetById(int id)
         {
             return _context.Set<TEntity>().Find(id);
@@ -60,7 +54,7 @@ namespace ComicStoreDAL.Repositories
             _context.SaveChanges();
         }
 
-        public TEntity CreateAndReturnItem(TEntity item)
+        public TEntity CreateGetCreatedItem(TEntity item)
         {
             dbSet.Add(item);
             _context.SaveChanges();
@@ -72,16 +66,22 @@ namespace ComicStoreDAL.Repositories
             return dbSet.Where(predicate).ToList();
         }
 
-
         public IEnumerable<TEntity> GetByFilter(IFilter<TEntity> expression)
         {
             return ApplyFilters(expression).ToList();
+        }
+
+        public int Count(IFilter<TEntity> filter)
+        {
+            return ApplyFilters(filter).Count();
         }
 
         private IQueryable<TEntity> ApplyFilters(IFilter<TEntity> expression)
         {
             return FilterEvaluator<TEntity>.GetQuery(_context.Set<TEntity>().AsQueryable(), expression);
         }
+
+
 
     }
 }
