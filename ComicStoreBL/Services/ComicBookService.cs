@@ -23,9 +23,9 @@ namespace ComicStoreBL.Services
             _repository = repository;
         }
 
-        public IEnumerable<ComicBookBL> GetListByFilter(FilterInputBL filter)
+        public IEnumerable<ComicBookBL> GetListByFilter(ComicBookFilterModelBL filter)
         {
-            var filterDAL = _mapper.Map<FilterInputDAL>(filter);
+            var filterDAL = _mapper.Map<ComicBookFilterModel>(filter);
 
             var filterImp = new ComicBookFilter(filterDAL);
 
@@ -35,10 +35,10 @@ namespace ComicStoreBL.Services
 
             return booksBL;
         }
-        public int CountFilteredItems(FilterInputBL filter)
+        public int CountFilteredItems(ComicBookFilterModelBL filter)
         {
-            var filterDAL = _mapper.Map<FilterInputDAL>(filter);
-            //var filterImp = new ComicBookFilter(filterDAL);
+            var filterDAL = _mapper.Map<ComicBookFilterModel>(filter);
+           
             var coutFilter = new FilterForCount(filterDAL);
 
             var count = _repository.Count(coutFilter);

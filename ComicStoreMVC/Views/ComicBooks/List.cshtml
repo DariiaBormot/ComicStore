@@ -1,4 +1,4 @@
-﻿@*@model PagedList.IPagedList<ComicStoreMVC.Models.ComicBookViewModel>*@
+﻿
 @model PagedList.StaticPagedList<ComicStoreMVC.Models.ComicBookViewModel>
 
     @using PagedList.Mvc;
@@ -25,6 +25,5 @@
 
     @Html.PagedListPager(Model, page => Url.Action("List", new { page }))
 
-    @*class="row mt-5 mb-2*@
 
 

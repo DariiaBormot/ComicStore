@@ -5,10 +5,9 @@ using System.Web;
 
 namespace ComicStoreMVC.Models
 {
-    public class FilterModel
+    public class ComicBookFilterModel
     {
         private int MaxPageSize = 50;
-        //public int? Page { get; set; }
 
         private int _pageSize = 8;
         public int PageSize
@@ -20,6 +19,7 @@ namespace ComicStoreMVC.Models
         public int? PublisherId { get; set; }
         public int? CategoryId { get; set; }
         public int Page { get; set; } = 1; 
+
         private string _search;
         public string Search 
         {

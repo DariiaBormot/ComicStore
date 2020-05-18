@@ -9,5 +9,6 @@ namespace ComicStoreDAL.Repositories
 {
     public class PublisherRepository : GenericRepository<Publisher>
     {
+        public PublisherRepository(ComicStoreContext context) : base(context) { } 
     }
 }

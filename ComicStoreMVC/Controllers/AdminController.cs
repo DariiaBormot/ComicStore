@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ComicStoreBL.Interfaces;
+using ComicStoreBL.Models;
 using ComicStoreMVC.Models;
 using PagedList;
 using System;
@@ -26,14 +27,21 @@ namespace ComicStoreMVC.Controllers
             _context = new ApplicationDbContext();
         }
 
-        public ActionResult ComicBooks(int? page)
+        public ActionResult ComicBooks(ComicBookFilterModel filter)
         {
             int pageSize = 8;
-            int pageNumber = (page ?? 1);
+            int page = filter.Page;
 
-            var comicBooksBL = _booksService.GetAll();
-            var comicBooksPL = _mapper.Map<IEnumerable<ComicBookViewModel>>(comicBooksBL);
-            return View(comicBooksPL.ToPagedList(pageNumber, pageSize));
+            var filterBL = _mapper.Map<ComicBookFilterModelBL>(filter);
+            var filteredBooksBL = _booksService.GetListByFilter(filterBL);
+
+            var filteredBooksPL = _mapper.Map<IEnumerable<ComicBookIncludeNavPropViewModel>>(filteredBooksBL);
+            var count = _booksService.CountFilteredItems(filterBL);
+
+            var resultAsPagedList = new StaticPagedList<ComicBookIncludeNavPropViewModel>(filteredBooksPL, page, pageSize, count);
+
+            return View(resultAsPagedList);
+
         }
 
         public ActionResult Orders()

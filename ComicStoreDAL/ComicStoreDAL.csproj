@@ -74,13 +74,19 @@
     <Compile Include="Entities\OrderDetails.cs" />
     <Compile Include="Entities\Publisher.cs" />
     <Compile Include="Filters\FilterForCount.cs" />
-    <Compile Include="Filters\FilterInputDAL.cs" />
+    <Compile Include="Filters\ComicBookFilterModel.cs" />
+    <Compile Include="Filters\OrderFilter.cs" />
+    <Compile Include="Filters\OrderFilterModel.cs" />
     <Compile Include="Interfaces\IComicStoreContext.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
     <Compile Include="Interfaces\IOrderRepository.cs" />
     <Compile Include="Migrations\202005170805382_InitialCreate.cs" />
     <Compile Include="Migrations\202005170805382_InitialCreate.designer.cs">
       <DependentUpon>202005170805382_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005180717065_AddedEmailToOrder.cs" />
+    <Compile Include="Migrations\202005180717065_AddedEmailToOrder.designer.cs">
+      <DependentUpon>202005180717065_AddedEmailToOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,6 +116,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202005170805382_InitialCreate.resx">
       <DependentUpon>202005170805382_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005180717065_AddedEmailToOrder.resx">
+      <DependentUpon>202005180717065_AddedEmailToOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

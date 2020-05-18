@@ -10,6 +10,6 @@ namespace ComicStoreDAL.Repositories
 {
     public class OrderRepository : GenericRepository<Order>, IOrderRepository
     {
-        //public OrderRepository(ComicStoreContext context) : base(context) { }
+        public OrderRepository(ComicStoreContext context) : base(context) { }
     }
 }

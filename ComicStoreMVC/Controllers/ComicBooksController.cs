@@ -25,13 +25,14 @@ namespace ComicStoreMVC.Controllers
         }
 
 
-        public ViewResult List(FilterModel filter)
+        public ViewResult List(Models.ComicBookFilterModel filter)
         {
             int pageSize = 8;
             int page = filter.Page;
 
-            var filterBL = _mapper.Map<FilterInputBL>(filter);
+            var filterBL = _mapper.Map<ComicBookFilterModelBL>(filter);
             var filteredBooksBL = _service.GetListByFilter(filterBL);
+
             var filteredBooksPL = _mapper.Map<IEnumerable<ComicBookViewModel>>(filteredBooksBL);
             var count = _service.CountFilteredItems(filterBL);
 
@@ -40,20 +41,6 @@ namespace ComicStoreMVC.Controllers
             return View(resultAsPagedList);
 
         }
-
-
-        public PartialViewResult ComicBooksList(FilterModel filter)
-        {
-            int pageSize = 8;
-            int pageNumber = filter.Page;
-
-            var filterBL = _mapper.Map<FilterInputBL>(filter);
-            var filteredBooksBL = _service.GetListByFilter(filterBL);
-            var filteredBooksPL = _mapper.Map<IEnumerable<ComicBookViewModel>>(filteredBooksBL);
-   
-            return PartialView(filteredBooksPL.ToPagedList(pageNumber, pageSize));
-        }
-
 
         public ActionResult Details(int id)
         {

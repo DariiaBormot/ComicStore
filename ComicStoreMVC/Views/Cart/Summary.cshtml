@@ -8,7 +8,7 @@
 
 <div class="navbar-text navbar-right">
     <b>Your Card:</b>
-    @Model.GetAllProducts.Sum(x => x.Quantity) books,
+    @Model.GetAllProducts().Sum(x => x.Quantity) books,
     @Model.GetTotalPrice().ToString("# USD")
 </div>
 

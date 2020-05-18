@@ -55,11 +55,11 @@ namespace ComicStoreDAL
             context.Publishers.Add(publisher4);
 
 
-            var order1 = new Order { Name = NameFaker.FirstName(), LastName = NameFaker.LastName(), OrderDate = DateTime.Now, City = LocationFaker.City(), Country = LocationFaker.Country(), Appartment = LocationFaker.StreetNumber().ToString(), Street = LocationFaker.Street(), PhoneNumber = NumberFaker.Number(), ZipCode = LocationFaker.ZipCode(), TotalPrice = NumberFaker.Number(5, 10), OrderStatus = OrderStatus.Completed, UserId = "" };
-            var order2 = new Order { Name = NameFaker.FirstName(), LastName = NameFaker.LastName(), OrderDate = DateTime.Now, City = LocationFaker.City(), Country = LocationFaker.Country(), Appartment = LocationFaker.StreetNumber().ToString(), Street = LocationFaker.Street(), PhoneNumber = NumberFaker.Number(), ZipCode = LocationFaker.ZipCode(), TotalPrice = NumberFaker.Number(5, 10), OrderStatus = OrderStatus.Completed, UserId = "" };
-            var order3 = new Order { Name = NameFaker.FirstName(), LastName = NameFaker.LastName(), OrderDate = DateTime.Now, City = LocationFaker.City(), Country = LocationFaker.Country(), Appartment = LocationFaker.StreetNumber().ToString(), Street = LocationFaker.Street(), PhoneNumber = NumberFaker.Number(), ZipCode = LocationFaker.ZipCode(), TotalPrice = NumberFaker.Number(5, 10), OrderStatus = OrderStatus.Completed, UserId = "" };
-            var order4 = new Order { Name = NameFaker.FirstName(), LastName = NameFaker.LastName(), OrderDate = DateTime.Now, City = LocationFaker.City(), Country = LocationFaker.Country(), Appartment = LocationFaker.StreetNumber().ToString(), Street = LocationFaker.Street(), PhoneNumber = NumberFaker.Number(), ZipCode = LocationFaker.ZipCode(), TotalPrice = NumberFaker.Number(5, 10), OrderStatus = OrderStatus.Completed, UserId = "" };
-            var order5 = new Order { Name = NameFaker.FirstName(), LastName = NameFaker.LastName(), OrderDate = DateTime.Now, City = LocationFaker.City(), Country = LocationFaker.Country(), Appartment = LocationFaker.StreetNumber().ToString(), Street = LocationFaker.Street(), PhoneNumber = NumberFaker.Number(), ZipCode = LocationFaker.ZipCode(), TotalPrice = NumberFaker.Number(5, 10), OrderStatus = OrderStatus.Completed, UserId = "" };
+            var order1 = new Order { Name = NameFaker.FirstName(), LastName = NameFaker.LastName(), OrderDate = DateTime.Now, City = LocationFaker.City(), Country = LocationFaker.Country(), Appartment = LocationFaker.StreetNumber().ToString(), Street = LocationFaker.Street(), PhoneNumber = NumberFaker.Number(), ZipCode = LocationFaker.ZipCode(), TotalPrice = NumberFaker.Number(5, 10), OrderStatus = OrderStatus.Completed, UserId = "", Email = "bart@gmail.com" };
+            var order2 = new Order { Name = NameFaker.FirstName(), LastName = NameFaker.LastName(), OrderDate = DateTime.Now, City = LocationFaker.City(), Country = LocationFaker.Country(), Appartment = LocationFaker.StreetNumber().ToString(), Street = LocationFaker.Street(), PhoneNumber = NumberFaker.Number(), ZipCode = LocationFaker.ZipCode(), TotalPrice = NumberFaker.Number(5, 10), OrderStatus = OrderStatus.Completed, UserId = "", Email = "lisa@gmail.com" };
+            var order3 = new Order { Name = NameFaker.FirstName(), LastName = NameFaker.LastName(), OrderDate = DateTime.Now, City = LocationFaker.City(), Country = LocationFaker.Country(), Appartment = LocationFaker.StreetNumber().ToString(), Street = LocationFaker.Street(), PhoneNumber = NumberFaker.Number(), ZipCode = LocationFaker.ZipCode(), TotalPrice = NumberFaker.Number(5, 10), OrderStatus = OrderStatus.Completed, UserId = "", Email = "homer@gmail.com" };
+            var order4 = new Order { Name = NameFaker.FirstName(), LastName = NameFaker.LastName(), OrderDate = DateTime.Now, City = LocationFaker.City(), Country = LocationFaker.Country(), Appartment = LocationFaker.StreetNumber().ToString(), Street = LocationFaker.Street(), PhoneNumber = NumberFaker.Number(), ZipCode = LocationFaker.ZipCode(), TotalPrice = NumberFaker.Number(5, 10), OrderStatus = OrderStatus.Completed, UserId = "", Email = "marge@gmail.com" };
+            var order5 = new Order { Name = NameFaker.FirstName(), LastName = NameFaker.LastName(), OrderDate = DateTime.Now, City = LocationFaker.City(), Country = LocationFaker.Country(), Appartment = LocationFaker.StreetNumber().ToString(), Street = LocationFaker.Street(), PhoneNumber = NumberFaker.Number(), ZipCode = LocationFaker.ZipCode(), TotalPrice = NumberFaker.Number(5, 10), OrderStatus = OrderStatus.Completed, UserId = "", Email = "maggie@gamil.com" };
 
 
             context.Orders.Add(order1);
@@ -270,16 +270,16 @@ namespace ComicStoreDAL
             context.SaveChanges();
 
 
-            var orderDetails1 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 1, OrderId = 1, BookName = "SPIDER-VERSE" };
-            var orderDetails2 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 2, OrderId = 2, BookName = "WONDER WOMAN" };
-            var orderDetails3 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 3, OrderId = 3, BookName = "DEADPOOL" };
-            var orderDetails4 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 4, OrderId = 4, BookName = "BIRDS OF PREY" };
-            var orderDetails5 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 5, OrderId = 5, BookName = "THE IMMORTAL HULK" };
-            var orderDetails6 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 6, OrderId = 1, BookName = "HELLBOY" };
-            var orderDetails7 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 7, OrderId = 2, BookName = "GRAVITY FALLS" };
-            var orderDetails8 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 8, OrderId = 3, BookName = "SUPERMAN VS DOOMSDAY" };
-            var orderDetails9 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 9, OrderId = 4, BookName = "BATMAN" };
-            var orderDetails10 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 10, OrderId = 5, BookName = "IRON MAN" };
+            var orderDetails1 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 1, OrderId = 1, BookName = "SPIDER-VERSE", Quantity = 1 };
+            var orderDetails2 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 2, OrderId = 2, BookName = "WONDER WOMAN", Quantity = 1 };
+            var orderDetails3 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 3, OrderId = 3, BookName = "DEADPOOL", Quantity = 1 };
+            var orderDetails4 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 4, OrderId = 4, BookName = "BIRDS OF PREY", Quantity = 1 };
+            var orderDetails5 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 5, OrderId = 5, BookName = "THE IMMORTAL HULK", Quantity = 1 };
+            var orderDetails6 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 6, OrderId = 1, BookName = "HELLBOY", Quantity = 1 };
+            var orderDetails7 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 7, OrderId = 2, BookName = "GRAVITY FALLS", Quantity = 1 };
+            var orderDetails8 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 8, OrderId = 3, BookName = "SUPERMAN VS DOOMSDAY", Quantity = 1 };
+            var orderDetails9 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 9, OrderId = 4, BookName = "BATMAN", Quantity = 1 };
+            var orderDetails10 = new OrderDetails { BookPrice = NumberFaker.Number(1, 10), ComicBookId = 10, OrderId = 5, BookName = "IRON MAN", Quantity = 1 };
 
 
             context.OrderDetails.Add(orderDetails1);

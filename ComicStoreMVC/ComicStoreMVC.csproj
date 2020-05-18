@@ -221,9 +221,10 @@
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PublishersController.cs" />
-    <Compile Include="Models\ComickBookListViewModel.cs" />
-    <Compile Include="Models\FilterModel.cs" />
+    <Compile Include="Models\ComicBookIncludeNavPropViewModel.cs" />
+    <Compile Include="Models\ComicBookFilterModel.cs" />
     <Compile Include="Models\OrderDetailsViewModel.cs" />
+    <Compile Include="Models\OrderFilterViewModel.cs" />
     <Compile Include="Models\ShippingDetailsViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -250,7 +251,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
     <Compile Include="Models\PublisherViewModel.cs" />
-    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -294,11 +294,17 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="wwwroot\assets\img\portfolio\bestrealeses.png" />
+    <Content Include="wwwroot\assets\img\portfolio\dclogo.png" />
     <Content Include="wwwroot\assets\img\dragoncartoon.png" />
     <Content Include="wwwroot\assets\img\portfolio\cabin.png" />
     <Content Include="wwwroot\assets\img\portfolio\cake.png" />
     <Content Include="wwwroot\assets\img\portfolio\circus.png" />
+    <Content Include="wwwroot\assets\img\portfolio\darkhorse.png" />
     <Content Include="wwwroot\assets\img\portfolio\game.png" />
+    <Content Include="wwwroot\assets\img\portfolio\marvel.png" />
+    <Content Include="wwwroot\assets\img\portfolio\monthlytop10.png" />
+    <Content Include="wwwroot\assets\img\portfolio\newcomirealeases.png" />
     <Content Include="wwwroot\assets\img\portfolio\safe.png" />
     <Content Include="wwwroot\assets\img\portfolio\submarine.png" />
     <Content Include="wwwroot\css\adminlte.min.css" />
@@ -373,10 +379,8 @@
     <Content Include="Views\Navigation\MenuByPublisher.cshtml" />
     <Content Include="Views\ComicBooks\ComicBooksList.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\Admin\ComicBooks.cshtml" />
     <Content Include="Views\ComicBooks\Edit.cshtml" />
     <Content Include="Views\ComicBooks\Delete.cshtml" />
-    <Content Include="Views\ComicBooks\Test.cshtml" />
     <Content Include="Views\Admin\_AdminMaster.cshtml" />
     <Content Include="wwwroot\webfonts\fa-brands-400.eot" />
     <Content Include="wwwroot\webfonts\fa-brands-400.ttf" />
@@ -397,6 +401,8 @@
     <Content Include="Views\Orders\Delete.cshtml" />
     <Content Include="Views\Orders\GetOrderDetailsByOrderId.cshtml" />
     <Content Include="Views\Admin\GetUsers.cshtml" />
+    <Content Include="Views\Orders\GetOrdersByEmail.cshtml" />
+    <Content Include="Views\Admin\ComicBooks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

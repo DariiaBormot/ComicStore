@@ -18,8 +18,9 @@ namespace ComicStoreBL.Config
             CreateMap<ComicBookBL, ComicBook>().ReverseMap();
             CreateMap<OrderBL, Order>().ReverseMap();
             CreateMap<PublisherBL, Publisher>().ReverseMap();
-            CreateMap<FilterInputBL, FilterInputDAL>().ReverseMap();
+            CreateMap<ComicBookFilterModelBL, ComicBookFilterModel>().ReverseMap();
             CreateMap<OrderDetailsBL, OrderDetails>().ReverseMap();
+            CreateMap<OrderFilterModelBL, OrderFilterModel>().ReverseMap();
 
         }
     }

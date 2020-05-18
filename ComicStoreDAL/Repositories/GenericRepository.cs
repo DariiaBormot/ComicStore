@@ -12,12 +12,12 @@ namespace ComicStoreDAL.Repositories
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        private readonly DbContext _context;
+        private readonly ComicStoreContext _context;
         public readonly DbSet<TEntity> dbSet;
 
-        public GenericRepository()
+        public GenericRepository(ComicStoreContext context)
         {
-            _context = new ComicStoreContext();
+            _context = context;
             dbSet = _context.Set<TEntity>();
         }
         public void Create(TEntity item)
@@ -40,7 +40,7 @@ namespace ComicStoreDAL.Repositories
 
         public IEnumerable<TEntity> GetAll()
         {
-            return dbSet.AsNoTracking().ToList();
+            return dbSet.ToList();
         }
 
         public TEntity GetById(int id)
@@ -80,8 +80,6 @@ namespace ComicStoreDAL.Repositories
         {
             return FilterEvaluator<TEntity>.GetQuery(_context.Set<TEntity>().AsQueryable(), expression);
         }
-
-
 
     }
 }

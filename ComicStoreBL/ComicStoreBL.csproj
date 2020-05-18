@@ -109,8 +109,9 @@
     <Compile Include="Models\CategoryBL.cs" />
     <Compile Include="Models\ComicBookBL.cs" />
     <Compile Include="Models\EmailSettingsBL.cs" />
-    <Compile Include="Models\FilterInputBL.cs" />
+    <Compile Include="Models\ComicBookFilterModelBL.cs" />
     <Compile Include="Models\OrderBL.cs" />
+    <Compile Include="Models\OrderFilterModelBL.cs" />
     <Compile Include="Models\PublisherBL.cs" />
     <Compile Include="Models\OrderDetailsBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

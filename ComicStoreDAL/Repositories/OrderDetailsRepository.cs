@@ -9,5 +9,6 @@ namespace ComicStoreDAL.Repositories
 {
     public class OrderDetailsRepository : GenericRepository<OrderDetails>
     {
+        public OrderDetailsRepository(ComicStoreContext context) : base(context) { }
     }
 }

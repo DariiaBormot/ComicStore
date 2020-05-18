@@ -18,7 +18,7 @@ namespace ComicStoreBL.Services
         public Cart()
         {
             CartCollection = new List<CartLine>();
-            _orderDetailsRepository = new OrderDetailsRepository();
+            _orderDetailsRepository = new OrderDetailsRepository( new ComicStoreDAL.ComicStoreContext());
         }
         public void AddToCart(ComicBookBL book, int quantity)
         {
@@ -74,7 +74,6 @@ namespace ComicStoreBL.Services
                     BookName = item.ComicBookBL.Name,
                     Quantity = item.Quantity
                 };
-
                 _orderDetailsRepository.Create(orderDetail);
 
             }

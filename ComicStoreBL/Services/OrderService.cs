@@ -15,12 +15,40 @@ namespace ComicStoreBL.Services
     public class OrderService : GenericService<OrderBL, Order>, IOrderService
     {
         private readonly IMapper _mapper;
+        private readonly IGenericRepository<Order> _repository;
 
         public OrderService(IGenericRepository<Order> repository, IMapper mapper) : base(repository)
         {
             _mapper = mapper;
-
+            _repository = repository;
         }
+
+
+        public IEnumerable<OrderBL> GetListByFilter(OrderFilterModelBL filter)
+        {
+            var filterDAL = _mapper.Map<OrderFilterModel>(filter);
+
+            var filterImp = new OrderFilter(filterDAL);
+
+            var ordersDal = _repository.GetByFilter(filterImp);
+
+            var ordersBL = _mapper.Map<IEnumerable<OrderBL>>(ordersDal);
+
+            return ordersBL;
+        }
+
+        public int CountFilteredItems(OrderFilterModelBL filter)
+        {
+            var filterDAL = _mapper.Map<OrderFilterModel>(filter);
+
+            var coutFilter = new OrderFilter(filterDAL);
+
+            var count = _repository.Count(coutFilter);
+
+            return count;
+        }
+
+
         public override OrderBL Map(Order entity)
         {
             return _mapper.Map<OrderBL>(entity);

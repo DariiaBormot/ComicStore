@@ -9,7 +9,7 @@ namespace ComicStoreDAL.Filters
 {
     public class ComicBookFilter : BaseFilter<ComicBook>
     {
-        public ComicBookFilter(FilterInputDAL filter)
+        public ComicBookFilter(ComicBookFilterModel filter)
             : base(x =>
             (string.IsNullOrEmpty(filter.Search) || x.Name.ToLower().Contains(filter.Search)) &&
             (!filter.PublisherId.HasValue || x.PublisherId == filter.PublisherId) &&

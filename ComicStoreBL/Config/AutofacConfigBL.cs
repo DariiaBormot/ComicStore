@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using ComicStoreBL.Models;
+using ComicStoreDAL;
 using ComicStoreDAL.Entities;
 using ComicStoreDAL.Filters;
 using ComicStoreDAL.Interfaces;
@@ -18,6 +19,7 @@ namespace ComicStoreBL.Config
         {
 
             builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>));
+            builder.RegisterType<ComicStoreContext>().InstancePerRequest();
 
 
             //builder.RegisterType<FilterImplementation>()

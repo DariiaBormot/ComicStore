@@ -10,5 +10,6 @@ namespace ComicStoreDAL.Repositories
 {
     public class ComicBookRepository : GenericRepository<ComicBook>
     {
+        public ComicBookRepository(ComicStoreContext context) : base(context) { }
     }
 }

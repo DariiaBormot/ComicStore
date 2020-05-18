@@ -2,15 +2,13 @@
 @model IEnumerable<CategoryViewModel>
 
 
-
-    <ul @*style="list-style: none;"*@>
+    <ul>
 
         @{
             foreach (var item in Model)
             {
                 <li>
-                    @Html.ActionLink(item.Name, "ComicBooksList", "ComicBooks", new { page = 1, categoryId = item.Id }, null
-                    /*new { @class = "btn btn-block btn-link btn-lg" }*/)
+                    @Html.ActionLink(item.Name, "List", "ComicBooks", new { page = 1, categoryId = item.Id }, null)
                 </li>
             }
         }

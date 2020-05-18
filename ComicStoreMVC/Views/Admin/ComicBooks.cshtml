@@ -1,4 +1,4 @@
-﻿@model PagedList.IPagedList<ComicStoreMVC.Models.ComicBookViewModel>
+﻿@model PagedList.StaticPagedList<ComicStoreMVC.Models.ComicBookIncludeNavPropViewModel>
 @using PagedList.Mvc;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
@@ -6,13 +6,29 @@
     Layout = "~/Views/Admin/_AdminMaster.cshtml";
 }
 
-<div class="panel-footer">
-    @Html.ActionLink("Add Comic Book", "Create", "ComicBooks", null,
-        new { @class = "btn btn-default" })
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <div>
+                @using (Html.BeginForm("ComicBooks", "Admin", FormMethod.Get))
+                {
+                    @Html.TextBox("Search", null, new { @class = "SearchBox" })
+                    <input type="submit" value="Search" />
+                }
+            </div>
+        </div>
+        <div class="col-sm">
+
+        </div>
+        <div class="col-sm">
+            <div>
+
+            </div>
+        </div>
+    </div>
 </div>
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
+
 <table class="table table-hover">
     <tr>
 
@@ -53,10 +69,10 @@
                 @Html.DisplayFor(modelItem => item.Quantity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CategoryId)
+                @Html.DisplayFor(modelItem => item.Category.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PublisherId)
+                @Html.DisplayFor(modelItem => item.Publisher.Name)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", "ComicBooks", new { id = item.Id }, null) |
@@ -68,52 +84,11 @@
 
 </table>
 
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) from @Model.PageCount
+<div class="panel-footer">
+    @Html.ActionLink("Add Comic Book", "Create", "ComicBooks", null,
+        new { @class = "btn btn-default" })
+</div>
 
-@Html.PagedListPager(Model, page => Url.Action("ComicBooks", new { page }))
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) from @Model.PageCount
 
-
-
-
-@*@model IEnumerable<ComicStoreMVC.Models.ComicBookViewModel>
-
-    @{
-        Layout = "~/Views/Admin/_AdminMaster.cshtml";
-    }
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3>Comic Books List</h3>
-        </div>
-        <div class="panel-body">
-            <table class="table table-striped table-condensed table-bordered">
-                <tr>
-                    <th class="text-right">ID</th>
-                    <th>Name</th>
-                    <th class="text-right">Price</th>
-                    <th class="text-center">Actions</th>
-                </tr>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td class="text-right">@item.Id</td>
-                        <td>@Html.ActionLink(item.Name, "Edit", "ComicBooks", new { item.Id }, null)</td>
-                        <td class="text-right">@item.Price.ToString("# USD")</td>
-                        <td class="text-center">
-                            @using (Html.BeginForm("Delete", "ComicBooks"))
-                            {
-                                @Html.Hidden("Id", item.Id)
-                                <input type="submit"
-                                       class="btn btn-default btn-xs"
-                                       value="Delete" />
-                            }
-                        </td>
-                    </tr>
-                }
-            </table>
-        </div>
-        <div class="panel-footer">
-            @Html.ActionLink("Add Comic Book", "Create", "ComicBooks", null,
-                new { @class = "btn btn-default" })
-        </div>
-    </div>*@
+    @Html.PagedListPager(Model, page => Url.Action("ComicBooks", new { page }))

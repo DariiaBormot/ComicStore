@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ComicStoreBL.Interfaces;
 using ComicStoreBL.Models;
+using ComicStoreDAL.Filters;
 using ComicStoreMVC.Models;
 using PagedList;
 using System;
@@ -43,11 +44,20 @@ namespace ComicStoreMVC.Controllers
         }
 
 
-        public ActionResult GetOrdersByUserId(string id)
+        public ViewResult GetOrdersByEmail(OrderFilterViewModel filter)
         {
+            int pageSize = 8;
+            int page = filter.Page;
 
+            var filterBL = _mapper.Map<OrderFilterModelBL>(filter);
+            var ordersBL = _service.GetListByFilter(filterBL);
 
-            return View();
+            var filteredOrders = _mapper.Map<IEnumerable<OrderViewModel>>(ordersBL);
+            var count = _service.CountFilteredItems(filterBL);
+
+            var resultAsPagedList = new StaticPagedList<OrderViewModel>(filteredOrders, page, pageSize, count);
+
+            return View(resultAsPagedList);
         }
 
 

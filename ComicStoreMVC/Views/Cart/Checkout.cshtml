@@ -44,8 +44,10 @@
         <label>Phone number:</label>
         @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
     </div>
-
-
+    <div class="form-group">
+        <label>Email:</label>
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    </div>
 
     <div class="text-center">
         <input class="btn btn-primary" type="submit" value="Continue" />

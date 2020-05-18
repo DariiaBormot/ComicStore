@@ -49,13 +49,7 @@ namespace ComicStoreBL.Services
             var model = Map(item);
             _repository.Update(model);
         }
-        //public IEnumerable<BLModel> GetPagedItems(int pageSize, int pageIndex)
-        //{
-        //    var entities = _repository.GetPagedItems(pageSize, pageIndex).ToList();
-        //    var modelsBL = Map(entities);
-        //    return modelsBL;
 
-        //}
         public BLModel CreateGetCreatedItem(BLModel item) 
         {
             var model = Map(item);

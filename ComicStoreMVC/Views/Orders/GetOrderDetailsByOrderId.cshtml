@@ -1,28 +1,17 @@
 ﻿@model IEnumerable<ComicStoreMVC.Models.OrderDetailsViewModel>
 
-@{
-    ViewBag.Title = "GetOrderDetailsByOrderId";
-}
+
 
 @{
     Layout = "~/Views/Admin/_AdminMaster.cshtml";
 }
 
-<h2>GetOrderDetailsByOrderId</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ComicBookId)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.BookPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderId)
         </th>
         <th>
             Comic Book
@@ -37,13 +26,7 @@
     {
 <tr>
     <td>
-        @Html.DisplayFor(modelItem => item.ComicBookId)
-    </td>
-    <td>
         @Html.DisplayFor(modelItem => item.BookPrice)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.OrderId)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.BookName)

@@ -46,7 +46,7 @@
                     </div>
                 </form>*@
 
-            @using (Html.BeginForm("ComicBooksList", "ComicBooks", FormMethod.Get))
+            @using (Html.BeginForm("List", "ComicBooks", FormMethod.Get))
             {
                 @Html.TextBox("Search", null, new { @class = "SearchBox" })
                 <input type="submit" value="Search" />
@@ -56,7 +56,6 @@
             <!-- Right navbar links -->
 
             <ul class="navbar-nav ml-auto">
-                <!-- Messages Dropdown Menu -->
                 <li class="nav-item ">
                     <a class="nav-link" href="@Url.Action("Index", "Cart")">
                         <i class="fas fa-shopping-cart"></i>
@@ -139,10 +138,7 @@
 
         </div>
 
-        <!-- /.content-wrapper -->
-        <!-- Control Sidebar -->
-        <!-- /.control-sidebar -->
-        <!-- Main Footer -->
+
         <footer class="main-footer">
             <!-- To the right -->
             <div class="float-right d-none d-sm-inline">

@@ -17,6 +17,8 @@ namespace ComicStoreBL.Models
         public IEnumerable<OrderBL> Orders { get; set; }
         public int CategoryId { get; set; }
         public int PublisherId { get; set; }
+        public  CategoryBL Category { get; set; }
+        public  PublisherBL Publisher { get; set; }
 
     }
 }

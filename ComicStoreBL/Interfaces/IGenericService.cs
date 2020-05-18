@@ -15,7 +15,6 @@ namespace ComicStoreBL.Interfaces
         void Delete(int id);
         Model GetById(int id);
         Model CreateGetCreatedItem(Model item);
-        //IEnumerable<Model> GetPagedItems(int pageSize, int pageIndex);
 
     }
 }
