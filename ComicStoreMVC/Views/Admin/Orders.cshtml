@@ -28,32 +28,32 @@
 
 <table class="table table-striped table-condensed table-bordered">
     <tr>
-        <th>
+        <th class="text-center">
             Email
 
         </th>
-        <th>
+        <th class="text-center">
             Price
 
         </th>
-        <th>
+        <th class="text-center">
             Order Date
 
         </th>
-        <th>
+        <th class="text-center">
             Order Status
 
         </th>
-        <th>
+        <th class="text-center">
             Name
         </th>
-        <th>
+        <th class="text-center">
             Last Name
         </th>
-        <th>
+        <th class="text-center">
             Phone Number
         </th>
-        <th>
+        <th class="text-center">
             Order Details
         </th>
         <th>
@@ -64,31 +64,31 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.TotalPrice)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.OrderDate)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.OrderStatus)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.PhoneNumber)
             </td>
             <td>
                 @Html.ActionLink("Details", "GetOrderDetailsByOrderId", "Orders", new { id = item.Id }, null)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.ActionLink("Edit", "Edit", "Orders", new { id = item.Id }, null) |
 
                 @Html.ActionLink("Delete", "Delete", "Orders", new { id = item.Id }, null)

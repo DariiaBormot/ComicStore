@@ -23,7 +23,7 @@ namespace ComicStoreBL.Services
             _repository = repository;
         }
 
-        public IEnumerable<ComicBookBL> GetListByFilter(ComicBookFilterModelBL filter)
+        public IEnumerable<ComicBookBL> GetBooksByFilter(ComicBookFilterModelBL filter) 
         {
             var filterDAL = _mapper.Map<ComicBookFilterModel>(filter);
 
@@ -35,7 +35,7 @@ namespace ComicStoreBL.Services
 
             return booksBL;
         }
-        public int CountFilteredItems(ComicBookFilterModelBL filter)
+        public int CountPageItems(ComicBookFilterModelBL filter) 
         {
             var filterDAL = _mapper.Map<ComicBookFilterModel>(filter);
            

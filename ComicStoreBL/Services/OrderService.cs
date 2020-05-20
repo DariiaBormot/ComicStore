@@ -24,7 +24,7 @@ namespace ComicStoreBL.Services
         }
 
 
-        public IEnumerable<OrderBL> GetListByFilter(OrderFilterModelBL filter)
+        public IEnumerable<OrderBL> GetOrdersByFilter(OrderFilterModelBL filter) 
         {
             var filterDAL = _mapper.Map<OrderFilterModel>(filter);
 
@@ -37,7 +37,7 @@ namespace ComicStoreBL.Services
             return ordersBL;
         }
 
-        public int CountFilteredItems(OrderFilterModelBL filter)
+        public int CountPageItems(OrderFilterModelBL filter) 
         {
             var filterDAL = _mapper.Map<OrderFilterModel>(filter);
 
@@ -47,7 +47,6 @@ namespace ComicStoreBL.Services
 
             return count;
         }
-
 
         public override OrderBL Map(Order entity)
         {

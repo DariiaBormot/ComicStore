@@ -10,13 +10,13 @@
 <table class="table">
     <tr>
 
-        <th>
-            @Html.DisplayNameFor(model => model.BookPrice)
+        <th class="text-center">
+            Price
         </th>
-        <th>
+        <th class="text-center">
             Comic Book
         </th>
-        <th>
+        <th class="text-center">
             Quantity
         </th>
         <th></th>
@@ -24,22 +24,21 @@
 
     @foreach (var item in Model)
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.BookPrice)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.BookName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Quantity)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-    </td>
-</tr>
+        <tr>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.BookPrice)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.BookName)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+        </tr>
     }
 
 </table>
+
+<div>
+    @Html.ActionLink("Back to Orders", "Orders", "Admin")
+</div>

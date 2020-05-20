@@ -9,7 +9,7 @@ namespace ComicStoreBL.Interfaces
 {
     public interface IOrderService : IGenericService<OrderBL>
     {
-        IEnumerable<OrderBL> GetListByFilter(OrderFilterModelBL filter);
-        int CountFilteredItems(OrderFilterModelBL filter);
+        IEnumerable<OrderBL> GetOrdersByFilter(OrderFilterModelBL filter); 
+        int CountPageItems(OrderFilterModelBL filter); 
     }
 }

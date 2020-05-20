@@ -19,7 +19,7 @@ namespace ComicStoreBL.Services
             emailSettings = settings;
         }
 
-        public void SendEmail(Cart cart, ShippingDetailsBL shippingInfo)
+        public void SendEmail( ShippingDetailsBL shippingInfo, CartService cartService)
         {
             using (var smtpClient = new SmtpClient())
             {
@@ -43,14 +43,15 @@ namespace ComicStoreBL.Services
                     .AppendLine("---")
                     .AppendLine("Products:");
 
-                foreach (var item in cart.GetAllProducts())
+
+                foreach (var item in cartService.GetCartItems())
                 {
-                    var subtotal = item.ComicBookBL.Price * item.Quantity;
+                    var subtotal = item.ComicBook.Price * item.Count;
                     body.AppendFormat("{0} x {1} (total: {2:c}",
-                        item.Quantity, item.ComicBookBL.Name, subtotal);
+                        item.Count, item.ComicBook.Name, subtotal);
                 }
 
-                body.AppendFormat("Total Price: {0:c}", cart.GetTotalPrice())
+                body.AppendFormat("Total Price: {0:c}", cartService.GetTotalPrice())
                     .AppendLine("---")
                     .AppendLine("Shipping details:")
                     .AppendLine(shippingInfo.Name)

@@ -33,10 +33,12 @@ namespace ComicStoreMVC.Controllers
             int page = filter.Page;
 
             var filterBL = _mapper.Map<ComicBookFilterModelBL>(filter);
-            var filteredBooksBL = _booksService.GetListByFilter(filterBL);
+
+            var filteredBooksBL = _booksService.GetBooksByFilter(filterBL);
 
             var filteredBooksPL = _mapper.Map<IEnumerable<ComicBookIncludeNavPropViewModel>>(filteredBooksBL);
-            var count = _booksService.CountFilteredItems(filterBL);
+
+            var count = _booksService.CountPageItems(filterBL);
 
             var resultAsPagedList = new StaticPagedList<ComicBookIncludeNavPropViewModel>(filteredBooksPL, page, pageSize, count);
 

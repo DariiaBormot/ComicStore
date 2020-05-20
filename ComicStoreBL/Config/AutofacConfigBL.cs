@@ -20,11 +20,7 @@ namespace ComicStoreBL.Config
 
             builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>));
             builder.RegisterType<ComicStoreContext>().InstancePerRequest();
-
-
-            //builder.RegisterType<FilterImplementation>()
-            //        .As<IFilter<ComicBook>>()
-            //        .WithParameter(new TypedParameter(typeof(FilterInputBL), "filter"));
+            builder.RegisterType<CartRepository>().As<ICartRepository>();
 
         }
     }

@@ -30,6 +30,8 @@ namespace ComicStoreMVC.App_Start
             builder.RegisterType<ComicBookService>().As<IComicBookService>();
             builder.RegisterType<OrderService>().As<IOrderService>();
             builder.RegisterType<PublisherService>().As<IPublisherService>();
+            builder.RegisterType<CartService>().As<ICartService>();
+
             builder.RegisterType<OrderDetailsService>().As<IOrderDetailsService>();
 
             var emailSettings = new EmailSettingsBL

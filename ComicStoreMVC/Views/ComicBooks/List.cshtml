@@ -21,7 +21,7 @@
         }
     </div>
 
-    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) from @Model.PageCount
+    @*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) from @Model.PageCount*@
 
     @Html.PagedListPager(Model, page => Url.Action("List", new { page }))
 

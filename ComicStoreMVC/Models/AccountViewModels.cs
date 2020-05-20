@@ -50,7 +50,6 @@ namespace ComicStoreMVC.Models
     public class LoginViewModel
     {
         [Required]
-        //[Display(Name = "Email")]
         [EmailAddress]
         public string Email { get; set; }
 
@@ -67,7 +66,6 @@ namespace ComicStoreMVC.Models
     {
         [Required]
         [EmailAddress]
-        //[Display(Name = "Email")]
         public string Email { get; set; }
 
         [Required]
@@ -85,10 +83,6 @@ namespace ComicStoreMVC.Models
         [Display(Name = "Name")]
         public string Name { get; set; }
 
-
-        //[Required]
-        //[DataType(DataType.Date)]
-        //public DateTime Birthday { get; set; }
 
     }
 

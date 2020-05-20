@@ -13,18 +13,19 @@
                 <h2>@Model.Price $</h2>
                 <h2>@Model.Name</h2>
 
-                @using (Html.BeginForm("AddToCart", "Cart"))
-                {
+                @using (Html.BeginForm("AddToCart", "ShoppingCart"))
+                 {
                     <div>
                         @Html.HiddenFor(x => x.Id)
-                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+
                         <input type="submit" class="btn btn-default btn-sm" value="Add To Cart" />
                         <i class="glyphicon glyphicon-shopping-cart"></i>
+
                     </div>
-                }
- 
+                 }
 
             </div>
+
             <button type="button" class="btn btn-link"></button>
 
         </div>

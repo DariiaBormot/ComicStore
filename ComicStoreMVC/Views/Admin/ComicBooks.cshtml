@@ -32,22 +32,22 @@
 <table class="table table-hover">
     <tr>
 
-        <th>
+        <th class="text-center">
             Name
         </th>
-        <th>
+        <th >
             Cover
         </th>
-        <th>
+        <th class="text-center">
             Price
         </th>
-        <th>
+        <th class="text-center">
             Quantity
         </th>
-        <th>
+        <th class="text-center">
             Category
         </th>
-        <th>
+        <th class="text-center">
             Publisher
         </th>
         <th></th>
@@ -56,22 +56,22 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
                 <image src="@Url.Content(item.Image)" alt="" height="90" width="60" />
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.Quantity)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.Category.Name)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.Publisher.Name)
             </td>
             <td>
@@ -89,6 +89,6 @@
         new { @class = "btn btn-default" })
 </div>
 
-    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) from @Model.PageCount
+    @*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) from @Model.PageCount*@
 
     @Html.PagedListPager(Model, page => Url.Action("ComicBooks", new { page }))

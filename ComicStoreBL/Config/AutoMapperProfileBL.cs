@@ -21,6 +21,7 @@ namespace ComicStoreBL.Config
             CreateMap<ComicBookFilterModelBL, ComicBookFilterModel>().ReverseMap();
             CreateMap<OrderDetailsBL, OrderDetails>().ReverseMap();
             CreateMap<OrderFilterModelBL, OrderFilterModel>().ReverseMap();
+            CreateMap<CartBL, Cart>().ReverseMap();
 
         }
     }

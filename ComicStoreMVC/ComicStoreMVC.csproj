@@ -213,14 +213,15 @@
     <Compile Include="App_Start\WebAutomapperProfile.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\ComicBooksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PublishersController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Models\ComicBookIncludeNavPropViewModel.cs" />
     <Compile Include="Models\ComicBookFilterModel.cs" />
     <Compile Include="Models\OrderDetailsViewModel.cs" />
@@ -229,7 +230,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\CartModelBinder.cs" />
     <Compile Include="Migrations\202004231053425_InitialCreate.cs" />
     <Compile Include="Migrations\202004231053425_InitialCreate.designer.cs">
       <DependentUpon>202004231053425_InitialCreate.cs</DependentUpon>
@@ -244,13 +244,14 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\CartIndexViewModel.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\ComicBookViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
     <Compile Include="Models\PublisherViewModel.cs" />
+    <Compile Include="Models\ShoppingCartRemoveViewModel.cs" />
+    <Compile Include="Models\ShoppingCartViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -365,17 +366,12 @@
     <Content Include="Views\Publishers\Index.cshtml" />
     <Content Include="Views\ComicBooks\Details.cshtml" />
     <Content Include="Views\ComicBooks\Create.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Account\Delete.cshtml" />
     <Content Include="Views\ComicBooks\List.cshtml" />
     <Content Include="Views\ComicBooks\_MasterComicBook.cshtml" />
     <Content Include="Views\Partials\ComicSummary.cshtml" />
     <Content Include="Views\Categories\List.cshtml" />
     <Content Include="Views\Navigation\MenuByCategorie.cshtml" />
-    <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\Cart\Summary.cshtml" />
-    <Content Include="Views\Cart\Checkout.cshtml" />
-    <Content Include="Views\Cart\Completed.cshtml" />
     <Content Include="Views\Navigation\MenuByPublisher.cshtml" />
     <Content Include="Views\ComicBooks\ComicBooksList.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
@@ -403,6 +399,9 @@
     <Content Include="Views\Admin\GetUsers.cshtml" />
     <Content Include="Views\Orders\GetOrdersByEmail.cshtml" />
     <Content Include="Views\Admin\ComicBooks.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Checkout\AddressAndPayment.cshtml" />
+    <Content Include="Views\Checkout\Complete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

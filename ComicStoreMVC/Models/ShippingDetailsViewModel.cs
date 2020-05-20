@@ -24,6 +24,7 @@ namespace ComicStoreMVC.Models
         public string Street { get; set; }
         [Required]
         public string Appartment { get; set; }
+        [Required]
         public string ZipCode { get; set; }
         [Required(ErrorMessage = "Please enter your phone number")]
         public int PhoneNumber { get; set; }

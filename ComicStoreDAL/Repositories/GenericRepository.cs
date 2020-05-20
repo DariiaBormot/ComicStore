@@ -13,7 +13,7 @@ namespace ComicStoreDAL.Repositories
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         private readonly ComicStoreContext _context;
-        public readonly DbSet<TEntity> dbSet;
+        private readonly DbSet<TEntity> dbSet;
 
         public GenericRepository(ComicStoreContext context)
         {

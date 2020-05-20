@@ -11,8 +11,8 @@ namespace ComicStoreMVC.Controllers
 {
     public class CategoriesController : Controller
     {
-        private ICategoryService _service;
-        private IMapper _mapper;
+        private readonly ICategoryService _service;
+        private readonly IMapper _mapper;
         public CategoriesController(ICategoryService service, IMapper mapper)
         {
             _service = service;

@@ -12,11 +12,13 @@ using System.Web.Mvc;
 
 namespace ComicStoreMVC.Controllers
 {
+    //[Authorize(Roles = "Admin")]
     public class OrdersController : Controller
     {
         private readonly IOrderService _service;
         private readonly IMapper _mapper;
         private readonly IOrderDetailsService _orderDetailsService;
+
         public OrdersController(IOrderService service, IMapper mapper, IOrderDetailsService orderDetailsService)
         {
             _service = service;
@@ -50,16 +52,15 @@ namespace ComicStoreMVC.Controllers
             int page = filter.Page;
 
             var filterBL = _mapper.Map<OrderFilterModelBL>(filter);
-            var ordersBL = _service.GetListByFilter(filterBL);
+            var ordersBL = _service.GetOrdersByFilter(filterBL);
 
             var filteredOrders = _mapper.Map<IEnumerable<OrderViewModel>>(ordersBL);
-            var count = _service.CountFilteredItems(filterBL);
+            var count = _service.CountPageItems(filterBL);
 
             var resultAsPagedList = new StaticPagedList<OrderViewModel>(filteredOrders, page, pageSize, count);
 
             return View(resultAsPagedList);
         }
-
 
         public ActionResult Details(int id)
         {
@@ -68,13 +69,11 @@ namespace ComicStoreMVC.Controllers
             return View(ordersPL);
         }
 
-        //[Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
         }
 
-        //[Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Create(OrderViewModel newOrder)
         {
@@ -91,13 +90,12 @@ namespace ComicStoreMVC.Controllers
             }
 
         }
-        //[Authorize(Roles = "Admin")]
+
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        //[Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Edit(int id, OrderViewModel orderToUpdate)
         {
@@ -113,13 +111,11 @@ namespace ComicStoreMVC.Controllers
                 return View(orderToUpdate);
             }
         }
-        //[Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        //[Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Delete(int id, FormCollection fcNotUsed)
         {
