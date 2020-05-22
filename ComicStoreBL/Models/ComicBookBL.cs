@@ -10,7 +10,7 @@ namespace ComicStoreBL.Models
     {
         public ComicBookBL()
         {
-            Orders = new List<OrderBL>();
+            Orders = new List<OrderDetailsBL>();
         }
         public int Id { get; set; }
         public string Name { get; set; }
@@ -20,11 +20,10 @@ namespace ComicStoreBL.Models
         public int Quantity { get; set; }
         public int CategoryId { get; set; }
         public int PublisherId { get; set; }
-        public IEnumerable<OrderBL> Orders { get; set; }
 
-        public  CategoryBL Category { get; set; }
-        public  PublisherBL Publisher { get; set; }
-
+        public CategoryBL Category { get; set; }
+        public PublisherBL Publisher { get; set; }
+        public IEnumerable<OrderDetailsBL> Orders { get; set; }
 
     }
 }

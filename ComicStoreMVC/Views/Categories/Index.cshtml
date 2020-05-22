@@ -1,20 +1,18 @@
 ﻿@model IEnumerable<ComicStoreMVC.Models.CategoryViewModel>
 
+
 @{
-    ViewBag.Title = "List";
+    Layout = "~/Views/Admin/_AdminMaster.cshtml";
 }
 
-<h2>List</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
-        <th>
+        <th class="text-center">
             @Html.DisplayNameFor(model => model.Name)
         </th>
-        <th>
+        <th class="text-center">
             @Html.DisplayNameFor(model => model.Description)
         </th>
 
@@ -24,10 +22,10 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>
+            <td class="text-center"> 
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
 
@@ -40,3 +38,8 @@
     }
 
 </table>
+
+<div>
+    @Html.ActionLink("Add New Category", "Create", "Categories", null,
+        new { @class = "btn btn-default" })
+</div>

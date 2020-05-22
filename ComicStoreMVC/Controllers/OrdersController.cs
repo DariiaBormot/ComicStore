@@ -69,31 +69,11 @@ namespace ComicStoreMVC.Controllers
             return View(ordersPL);
         }
 
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Create(OrderViewModel newOrder)
-        {
-            if (ModelState.IsValid)
-            {
-                var orderPL = _mapper.Map<OrderBL>(newOrder);
-                _service.Create(orderPL);
-
-                return RedirectToAction("Orders", "Admin");
-            }
-            else
-            {
-                return View(newOrder);
-            }
-
-        }
-
         public ActionResult Edit(int id)
         {
-            return View();
+            var orderBL = _service.GetById(id);
+            var orderPL = _mapper.Map<OrderViewModel>(orderBL);
+            return View(orderPL);
         }
 
         [HttpPost]
@@ -113,7 +93,9 @@ namespace ComicStoreMVC.Controllers
         }
         public ActionResult Delete(int id)
         {
-            return View();
+            var orderBL = _service.GetById(id);
+            var orderPL = _mapper.Map<OrderViewModel>(orderBL);
+            return View(orderPL);
         }
 
         [HttpPost]

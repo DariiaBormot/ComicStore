@@ -33,34 +33,42 @@ namespace ComicStoreMVC.Controllers
             int page = filter.Page;
 
             var filterBL = _mapper.Map<ComicBookFilterModelBL>(filter);
-
             var filteredBooksBL = _booksService.GetBooksByFilter(filterBL);
-
             var filteredBooksPL = _mapper.Map<IEnumerable<ComicBookIncludeNavPropViewModel>>(filteredBooksBL);
 
             var count = _booksService.CountPageItems(filterBL);
-
             var resultAsPagedList = new StaticPagedList<ComicBookIncludeNavPropViewModel>(filteredBooksPL, page, pageSize, count);
 
             return View(resultAsPagedList);
 
         }
 
-        public ActionResult Orders()
+        public ActionResult Orders(OrderFilterViewModel filter)
         {
-            var oordersBL = _orderService.GetAll();
-            var oordersPL = _mapper.Map<IEnumerable<OrderViewModel>>(oordersBL);
+            int pageSize = 8;
+            int page = filter.Page;
 
-            return View(oordersPL);
+            var filterBL = _mapper.Map<OrderFilterModelBL>(filter);
+            var ordersBL = _orderService.GetOrdersByFilter(filterBL);
+
+            var filteredOrders = _mapper.Map<IEnumerable<OrderViewModel>>(ordersBL);
+            var count = _orderService.CountPageItems(filterBL);
+
+            var resultAsPagedList = new StaticPagedList<OrderViewModel>(filteredOrders, page, pageSize, count);
+
+            return View(resultAsPagedList);
+
         }
 
-        public ActionResult GetUsers()
+        public ActionResult GetUsers(int? page)
         {
+
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
             var users = _context.Users.ToList();
-            return View(users);
+            return View(users.ToPagedList(pageNumber, pageSize));
+
         }
-
-
 
     }
 }

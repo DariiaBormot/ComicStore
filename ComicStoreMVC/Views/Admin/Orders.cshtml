@@ -1,4 +1,7 @@
-﻿@model IEnumerable<ComicStoreMVC.Models.OrderViewModel>
+﻿@model PagedList.StaticPagedList<ComicStoreMVC.Models.OrderViewModel>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
 
 @{
     Layout = "~/Views/Admin/_AdminMaster.cshtml";
@@ -98,8 +101,6 @@
 
 </table>
 
-<div class="panel-footer">
-    @Html.ActionLink("Add new order", "Create", "Orders", null,
-        new { @class = "btn btn-default" })
-</div>
+
+@Html.PagedListPager(Model, page => Url.Action("Orders", new { page }))
 

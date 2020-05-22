@@ -26,7 +26,7 @@ namespace ComicStoreBL.Models
         public string Appartment { get; set; }
         public string ZipCode { get; set; }
         public int PhoneNumber { get; set; }
-        public string UserId { get; set; }
+
         public IEnumerable<OrderDetailsBL> OrderDetails { get; set; }
 
     }

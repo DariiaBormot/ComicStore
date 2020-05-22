@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ComicStoreBL.Interfaces;
+using ComicStoreBL.Models;
 using ComicStoreMVC.Models;
 using System;
 using System.Collections.Generic;
@@ -20,83 +21,83 @@ namespace ComicStoreMVC.Controllers
         }
 
 
-        public ActionResult List()
+        public ActionResult Index()
         {
             var categoriesBL = _service.GetAll();
             var categoriesPL = _mapper.Map<IEnumerable<CategoryViewModel>>(categoriesBL);
             return View(categoriesPL);
         }
 
-        // GET: Categories/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var categoryBL = _service.GetById(id);
+            var categoryPL = _mapper.Map<CategoryViewModel>(categoryBL);
+            return View(categoryPL);
         }
 
-        // GET: Categories/Create
+        //[Authorize(Roles = "Admin")]
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Categories/Create
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(CategoryViewModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                var categoryPL = _mapper.Map<CategoryBL>(model);
+                _service.Create(categoryPL);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Categories");
             }
-            catch
+            else
             {
-                return View();
+                return View(model);
             }
         }
 
-        // GET: Categories/Edit/5
+        //[Authorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
-            return View();
+            var categoryBL = _service.GetById(id);
+            var categoryPL = _mapper.Map<CategoryViewModel>(categoryBL);
+            return View(categoryPL);
         }
 
-        // POST: Categories/Edit/5
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, CategoryViewModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                var categoryPL = _mapper.Map<CategoryBL>(model);
+                _service.Update(categoryPL);
+                return RedirectToAction("Index", "Categories");
             }
-            catch
+            else
             {
-                return View();
+                return View(model);
             }
         }
 
-        // GET: Categories/Delete/5
+        //[Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
-            return View();
+            var categoryBL = _service.GetById(id);
+            var categoryPL = _mapper.Map<CategoryViewModel>(categoryBL);
+            return View(categoryPL);
         }
 
-        // POST: Categories/Delete/5
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, FormCollection fcNotUsed)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            _service.Delete(id);
+            TempData["message"] = string.Format("successfully deleted");
+            return RedirectToAction("Index", "Categories");
         }
     }
 }

@@ -15,6 +15,7 @@ namespace ComicStoreDAL.Entities
         public int ComicBookId { get; set; }
         public int Count { get; set; }
         public DateTime DateCreated { get; set; }
+
         public virtual ComicBook ComicBook { get; set; }
     }
 }

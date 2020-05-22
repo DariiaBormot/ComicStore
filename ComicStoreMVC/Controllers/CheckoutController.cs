@@ -46,7 +46,6 @@ namespace ComicStoreMVC.Controllers
 
             var order = new OrderViewModel();
             TryUpdateModel(order);
-            var userID = User.Identity.GetUserId();
 
             if (ModelState.IsValid)
             {
@@ -54,7 +53,6 @@ namespace ComicStoreMVC.Controllers
                 order.OrderDate = DateTime.Now;
                 order.OrderStatus = Common.Enums.OrderStatus.Processing;
                 order.TotalPrice = cart.GetTotalPrice();
-                order.UserId = userID;
 
                 var orderBL = _mapper.Map<OrderBL>(order);
                 var orderToCreate =  _orderService.CreateGetCreatedItem(orderBL);

@@ -222,8 +222,10 @@
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PublishersController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Models\ComicBookCreateViewModel.cs" />
     <Compile Include="Models\ComicBookIncludeNavPropViewModel.cs" />
     <Compile Include="Models\ComicBookFilterModel.cs" />
+    <Compile Include="Models\EmailFormModel.cs" />
     <Compile Include="Models\OrderDetailsViewModel.cs" />
     <Compile Include="Models\OrderFilterViewModel.cs" />
     <Compile Include="Models\ShippingDetailsViewModel.cs" />
@@ -362,20 +364,17 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Views\Publishers\Index.cshtml" />
     <Content Include="Views\ComicBooks\Details.cshtml" />
-    <Content Include="Views\ComicBooks\Create.cshtml" />
     <Content Include="Views\Account\Delete.cshtml" />
     <Content Include="Views\ComicBooks\List.cshtml" />
     <Content Include="Views\ComicBooks\_MasterComicBook.cshtml" />
     <Content Include="Views\Partials\ComicSummary.cshtml" />
-    <Content Include="Views\Categories\List.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\Navigation\MenuByCategorie.cshtml" />
     <Content Include="Views\Navigation\MenuByPublisher.cshtml" />
     <Content Include="Views\ComicBooks\ComicBooksList.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\ComicBooks\Edit.cshtml" />
     <Content Include="Views\ComicBooks\Delete.cshtml" />
     <Content Include="Views\Admin\_AdminMaster.cshtml" />
     <Content Include="wwwroot\webfonts\fa-brands-400.eot" />
@@ -392,9 +391,6 @@
     <Content Include="wwwroot\webfonts\fa-solid-900.woff2" />
     <Content Include="Views\Admin\Orders.cshtml" />
     <Content Include="Views\Orders\Details.cshtml" />
-    <Content Include="Views\Orders\Create.cshtml" />
-    <Content Include="Views\Orders\Edit.cshtml" />
-    <Content Include="Views\Orders\Delete.cshtml" />
     <Content Include="Views\Orders\GetOrderDetailsByOrderId.cshtml" />
     <Content Include="Views\Admin\GetUsers.cshtml" />
     <Content Include="Views\Orders\GetOrdersByEmail.cshtml" />
@@ -402,6 +398,20 @@
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Checkout\AddressAndPayment.cshtml" />
     <Content Include="Views\Checkout\Complete.cshtml" />
+    <Content Include="Views\ComicBooks\Create.cshtml" />
+    <Content Include="Views\ComicBooks\Edit.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Publishers\Details.cshtml" />
+    <Content Include="Views\Publishers\Create.cshtml" />
+    <Content Include="Views\Publishers\Edit.cshtml" />
+    <Content Include="Views\Publishers\Delete.cshtml" />
+    <Content Include="Views\Home\Sent.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

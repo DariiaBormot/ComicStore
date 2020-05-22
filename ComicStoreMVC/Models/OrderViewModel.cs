@@ -12,19 +12,31 @@ namespace ComicStoreMVC.Models
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
+        [Required]
         public double TotalPrice { get; set; }
+        [DataType(DataType.Date)]
+        [Required]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime OrderDate { get; set; }
+        [Required]
         public OrderStatus OrderStatus { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string LastName { get; set; }
+        [Required]
         public string Country { get; set; }
+        [Required]
         public string City { get; set; }
+        [Required]
         public string Street { get; set; }
+        [Required]
         public string Appartment { get; set; }
+        [Required]
         public string ZipCode { get; set; }
+        [Required]
         public int PhoneNumber { get; set; }
-        public string UserId { get; set; }
+        [Required]
         public string Email { get; set; }
     }
 }

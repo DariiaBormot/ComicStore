@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ComicStoreBL.Interfaces;
+using ComicStoreBL.Models;
 using ComicStoreMVC.Models;
 using System;
 using System.Collections.Generic;
@@ -18,84 +19,79 @@ namespace ComicStoreMVC.Controllers
             _service = service;
             _mapper = mapper;
         }
-        // GET: Publishers
+
         public ActionResult Index()
         {
             var publishersBL = _service.GetAll();
             var publishersPL = _mapper.Map<IEnumerable<PublisherViewModel>>(publishersBL);
             return View(publishersPL);
+
         }
 
-        // GET: Publishers/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var publisherBL = _service.GetById(id);
+            var publisherPL = _mapper.Map<PublisherViewModel>(publisherBL);
+            return View(publisherPL);
         }
-
-        // GET: Publishers/Create
+        //[Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
         }
-
-        // POST: Publishers/Create
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(PublisherViewModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                var publisherPL = _mapper.Map<PublisherBL>(model);
+                _service.Create(publisherPL);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Publishers");
             }
-            catch
+            else
             {
-                return View();
+                return View(model);
             }
         }
-
-        // GET: Publishers/Edit/5
+        //[Authorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
-            return View();
+            var publisherBL = _service.GetById(id);
+            var publisherPL = _mapper.Map<PublisherViewModel>(publisherBL);
+            return View(publisherPL);
         }
-
-        // POST: Publishers/Edit/5
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, PublisherViewModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                var publisherBL = _mapper.Map<PublisherBL>(model);
+                _service.Update(publisherBL);
+                return RedirectToAction("Index", "Publishers");
             }
-            catch
+            else
             {
-                return View();
+                return View(model);
             }
         }
 
-        // GET: Publishers/Delete/5
+        //[Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
-            return View();
+            var publisherBL = _service.GetById(id);
+            var publisherPL = _mapper.Map<PublisherViewModel>(publisherBL);
+            return View(publisherPL);
         }
-
-        // POST: Publishers/Delete/5
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, FormCollection notUsed)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            _service.Delete(id);
+            TempData["message"] = string.Format("successfully deleted");
+            return RedirectToAction("Index", "Publishers");
         }
     }
 }

@@ -18,12 +18,15 @@ namespace ComicStoreMVC.Controllers
     {
         private readonly IComicBookService _service;
         private readonly IMapper _mapper;
-        public ComicBooksController(IComicBookService service, IMapper mapper)
+        private readonly ICategoryService _categoryService;
+        private readonly IPublisherService _publisherService;
+        public ComicBooksController(IComicBookService service, IMapper mapper, ICategoryService categoryService, IPublisherService publisherService)
         {
             _service = service;
             _mapper = mapper;
+            _categoryService = categoryService;
+            _publisherService = publisherService;
         }
-
 
         public ViewResult List(Models.ComicBookFilterModel filter)
         {
@@ -53,15 +56,29 @@ namespace ComicStoreMVC.Controllers
         }
 
         //[Authorize(Roles = "Admin")]
+        [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            var categories = _categoryService.GetAll();
+            var categoriesPL = _mapper.Map<IEnumerable<CategoryViewModel>>(categories);
+
+            var publishers = _publisherService.GetAll();
+            var publishersPL = _mapper.Map<IEnumerable<PublisherViewModel>>(publishers);
+
+            var comicBook = new ComicBookCreateViewModel
+            {
+                Categories = categoriesPL.ToList(),
+                Publishers = publishersPL.ToList()
+            };
+
+            return View(comicBook);
         }
 
         //[Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult Create(ComicBookViewModel newBook)
+        public ActionResult Create(ComicBookCreateViewModel newBook)
         {
+            
             if (ModelState.IsValid)
             {
                 var comicBookBL = _mapper.Map<ComicBookBL>(newBook);
@@ -73,18 +90,31 @@ namespace ComicStoreMVC.Controllers
             {
                 return View(newBook);
             }
-
         }
 
         //[Authorize(Roles = "Admin")]
+        [HttpGet]
         public ActionResult Edit(int id)
         {
-            return View();
+            var comicBL = _service.GetById(id);
+            var comicBook = _mapper.Map<ComicBookCreateViewModel>(comicBL);
+
+            var categories = _categoryService.GetAll();
+            var categoriesPL = _mapper.Map<IEnumerable<CategoryViewModel>>(categories);
+
+            var publishers = _publisherService.GetAll();
+            var publishersPL = _mapper.Map<IEnumerable<PublisherViewModel>>(publishers);
+
+            comicBook.Categories = categoriesPL.ToList();
+            comicBook.Publishers = publishersPL.ToList();
+
+            return View(comicBook);
+
         }
 
         //[Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult Edit(int id, ComicBookViewModel modelToUpdate)
+        public ActionResult Edit(int id, ComicBookCreateViewModel modelToUpdate)
         {
             if (ModelState.IsValid)
             {

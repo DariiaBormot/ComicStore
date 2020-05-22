@@ -4,8 +4,8 @@
     <Position X="3.75" Y="1.5" Width="1.5" />
     <AssociationLine Name="Category" Type="ComicStoreDAL.Entities.Category" FixedFromPoint="true">
       <Path>
-        <Point X="3.75" Y="2.08" />
-        <Point X="2.25" Y="2.08" />
+        <Point X="3.75" Y="2.046" />
+        <Point X="2.25" Y="2.046" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.285" Y="0.068" />
@@ -13,16 +13,11 @@
     </AssociationLine>
     <AssociationLine Name="Publisher" Type="ComicStoreDAL.Entities.Publisher" FixedFromPoint="true">
       <Path>
-        <Point X="3.75" Y="3.812" />
-        <Point X="2.25" Y="3.812" />
+        <Point X="3.75" Y="3.677" />
+        <Point X="2.25" Y="3.677" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.293" Y="0.052" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <AssociationLine Name="Orders" Type="ComicStoreDAL.Entities.Order">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.635" Y="0.052" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
@@ -33,27 +28,16 @@
       <Property Name="Category" />
       <Property Name="Publisher" />
     </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Property Name="Orders" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ComicStoreDAL.Entities.Order">
     <Position X="7" Y="0.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
-    <AssociationLine Name="ComicBooks" Type="ComicStoreDAL.Entities.ComicBook">
-      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
-        <Position X="0.302" Y="0.102" Height="0.182" Width="1.097" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>CAACAAAAAAACAAAAgBACAAgAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>SAACAAAAACACAAAIABAAQAQAAAIAQAABAAIAAAAAAAg=</HashCode>
       <FileName>Entities\Order.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="ComicBooks" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ComicStoreDAL.Entities.Publisher">
     <Position X="0.75" Y="3.25" Width="1.5" />

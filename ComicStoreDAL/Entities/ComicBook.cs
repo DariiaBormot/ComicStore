@@ -11,7 +11,8 @@ namespace ComicStoreDAL.Entities
     {
         public ComicBook()
         {
-            Orders = new List<Order>();
+            Orders = new List<OrderDetails>();
+            //Carts = new List<Cart>();
         }
         public int Id { get; set; }
         public string Name { get; set; }
@@ -24,6 +25,7 @@ namespace ComicStoreDAL.Entities
 
         public virtual Category Category { get; set; }
         public virtual Publisher Publisher { get; set; }
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<OrderDetails> Orders { get; set; }
+        //public virtual ICollection<Cart> Carts { get; set; } 
     }
 }

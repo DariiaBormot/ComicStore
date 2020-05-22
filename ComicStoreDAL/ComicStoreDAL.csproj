@@ -82,21 +82,9 @@
     <Compile Include="Interfaces\IComicStoreContext.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
     <Compile Include="Interfaces\IOrderRepository.cs" />
-    <Compile Include="Migrations\202005170805382_InitialCreate.cs" />
-    <Compile Include="Migrations\202005170805382_InitialCreate.designer.cs">
-      <DependentUpon>202005170805382_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005180717065_AddedEmailToOrder.cs" />
-    <Compile Include="Migrations\202005180717065_AddedEmailToOrder.designer.cs">
-      <DependentUpon>202005180717065_AddedEmailToOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005191123188_AddedShoppingCart.cs" />
-    <Compile Include="Migrations\202005191123188_AddedShoppingCart.designer.cs">
-      <DependentUpon>202005191123188_AddedShoppingCart.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005201400488_UpdatedCartName.cs" />
-    <Compile Include="Migrations\202005201400488_UpdatedCartName.designer.cs">
-      <DependentUpon>202005201400488_UpdatedCartName.cs</DependentUpon>
+    <Compile Include="Migrations\202005210906257_InitialCreate.cs" />
+    <Compile Include="Migrations\202005210906257_InitialCreate.designer.cs">
+      <DependentUpon>202005210906257_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,17 +113,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005170805382_InitialCreate.resx">
-      <DependentUpon>202005170805382_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005180717065_AddedEmailToOrder.resx">
-      <DependentUpon>202005180717065_AddedEmailToOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005191123188_AddedShoppingCart.resx">
-      <DependentUpon>202005191123188_AddedShoppingCart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005201400488_UpdatedCartName.resx">
-      <DependentUpon>202005201400488_UpdatedCartName.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005210906257_InitialCreate.resx">
+      <DependentUpon>202005210906257_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
