@@ -261,7 +261,9 @@
     <Content Include="Assets\images\about.jpg" />
     <Content Include="Assets\images\books\batman.png" />
     <Content Include="Assets\images\books\blackwood.png" />
+    <Content Include="Assets\images\books\dackwing.png" />
     <Content Include="Assets\images\books\deadpoolcarn.png" />
+    <Content Include="Assets\images\books\flash.png" />
     <Content Include="Assets\images\books\giantdisney.png" />
     <Content Include="Assets\images\books\gravity.png" />
     <Content Include="Assets\images\books\gravityfalls.png" />
@@ -274,7 +276,9 @@
     <Content Include="Assets\images\books\starwars.png" />
     <Content Include="Assets\images\books\strangerthings.png" />
     <Content Include="Assets\images\books\superman.png" />
+    <Content Include="Assets\images\books\thor.png" />
     <Content Include="Assets\images\books\wonder.png" />
+    <Content Include="Assets\images\books\xreyrobot.png" />
     <Content Include="Assets\images\users\bruce.png" />
     <Content Include="Assets\images\users\nat.png" />
     <Content Include="Assets\images\users\peter.png" />
@@ -391,9 +395,9 @@
     <Content Include="wwwroot\webfonts\fa-solid-900.woff2" />
     <Content Include="Views\Admin\Orders.cshtml" />
     <Content Include="Views\Orders\Details.cshtml" />
-    <Content Include="Views\Orders\GetOrderDetailsByOrderId.cshtml" />
-    <Content Include="Views\Admin\GetUsers.cshtml" />
-    <Content Include="Views\Orders\GetOrdersByEmail.cshtml" />
+    <Content Include="Views\Orders\OrderDetails.cshtml" />
+    <Content Include="Views\Admin\Users.cshtml" />
+    <Content Include="Views\Orders\Orders.cshtml" />
     <Content Include="Views\Admin\ComicBooks.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Checkout\AddressAndPayment.cshtml" />
@@ -412,6 +416,7 @@
     <Content Include="Views\Publishers\Delete.cshtml" />
     <Content Include="Views\Home\Sent.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\ShoppingCart\CartSummary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

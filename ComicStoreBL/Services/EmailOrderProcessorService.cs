@@ -19,12 +19,12 @@ namespace ComicStoreBL.Services
             emailSettings = settings;
         }
 
-        public void SendEmail( ShippingDetailsBL shippingInfo, CartService cartService)
+        public void SendEmail(ShippingDetailsBL shippingInfo, CartService cartService)
         {
             using (var smtpClient = new SmtpClient())
             {
                 smtpClient.EnableSsl = emailSettings.UseSsl;
-                smtpClient.Host = emailSettings.ServerName;
+                smtpClient.Host = emailSettings.Host;
                 smtpClient.Port = emailSettings.ServerPort;
                 smtpClient.UseDefaultCredentials = false;
                 smtpClient.Credentials
@@ -32,15 +32,14 @@ namespace ComicStoreBL.Services
 
                 if (emailSettings.WriteAsFile)
                 {
-                    smtpClient.DeliveryMethod
-                        = SmtpDeliveryMethod.SpecifiedPickupDirectory;
+                    smtpClient.DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory;
                     smtpClient.PickupDirectoryLocation = emailSettings.FileLocation;
                     smtpClient.EnableSsl = false;
                 }
 
                 StringBuilder body = new StringBuilder()
-                    .AppendLine("New order is processed")
-                    .AppendLine("---")
+                    .AppendLine("We've received your order and will contact you as soon as your package is shipped. You can find purchase information below:")
+                    .AppendLine("----------")
                     .AppendLine("Products:");
 
 
@@ -65,8 +64,8 @@ namespace ComicStoreBL.Services
 
                 MailMessage mailMessage = new MailMessage(
                                        emailSettings.MailFromAddress,	// from
-                                       emailSettings.MailToAddress,		// to 
-                                       "New order is shipped!",		    // theme
+                                       shippingInfo.Email,	            // to 
+                                       "Thank you for your order",		// theme
                                        body.ToString()); 				// body
 
                 if (emailSettings.WriteAsFile)

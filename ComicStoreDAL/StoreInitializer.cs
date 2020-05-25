@@ -249,6 +249,51 @@ namespace ComicStoreDAL
                 Image = "~/Assets/images/books/starwars.png"
             };
 
+            var book17 = new ComicBook
+            {
+                Name = "FLASH",
+                Description = TextFaker.Sentence(),
+                Price = 4,
+                Quantity = 150,
+                CategoryId = 1,
+                PublisherId = 1,
+                Image = "~/Assets/images/books/flash.png"
+            };
+
+            var book18 = new ComicBook
+            {
+                Name = "THOR",
+                Description = TextFaker.Sentence(),
+                Price = 7,
+                Quantity = 100,
+                CategoryId = 2,
+                PublisherId = 2,
+                Image = "~/Assets/images/books/thor.png"
+            };
+
+            var book19 = new ComicBook
+            {
+                Name = "X-REY ROBOT",
+                Description = TextFaker.Sentence(),
+                Price = 8,
+                Quantity = 50,
+                CategoryId = 3,
+                PublisherId = 3,
+                Image = "~/Assets/images/books/xreyrobot.png"
+            };
+
+            var book20 = new ComicBook
+            {
+                Name = "DACKWING",
+                Description = TextFaker.Sentence(),
+                Price = 7,
+                Quantity = 80,
+                CategoryId = 1,
+                PublisherId = 4,
+                Image = "~/Assets/images/books/dackwing.png"
+            };
+
+
 
             context.ComicBooks.Add(book1);
             context.ComicBooks.Add(book2);
@@ -266,6 +311,10 @@ namespace ComicStoreDAL
             context.ComicBooks.Add(book14);
             context.ComicBooks.Add(book15);
             context.ComicBooks.Add(book16);
+            context.ComicBooks.Add(book17);
+            context.ComicBooks.Add(book18);
+            context.ComicBooks.Add(book19);
+            context.ComicBooks.Add(book20);
 
             context.SaveChanges();
 

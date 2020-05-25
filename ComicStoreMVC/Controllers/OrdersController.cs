@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace ComicStoreMVC.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class OrdersController : Controller
     {
         private readonly IOrderService _service;
@@ -34,7 +34,7 @@ namespace ComicStoreMVC.Controllers
 
         }
 
-        public ActionResult GetOrderDetailsByOrderId(int? page, int? id)
+        public ActionResult OrderDetails(int? page, int? id) 
         {
             int pageSize = 8;
             int pageNumber = (page ?? 1);
@@ -46,7 +46,7 @@ namespace ComicStoreMVC.Controllers
         }
 
 
-        public ViewResult GetOrdersByEmail(OrderFilterViewModel filter)
+        public ViewResult Orders(OrderFilterViewModel filter) 
         {
             int pageSize = 8;
             int page = filter.Page;
@@ -60,13 +60,6 @@ namespace ComicStoreMVC.Controllers
             var resultAsPagedList = new StaticPagedList<OrderViewModel>(filteredOrders, page, pageSize, count);
 
             return View(resultAsPagedList);
-        }
-
-        public ActionResult Details(int id)
-        {
-            var ordersBL = _service.GetById(id);
-            var ordersPL = _mapper.Map<OrderViewModel>(ordersBL);
-            return View(ordersPL);
         }
 
         public ActionResult Edit(int id)

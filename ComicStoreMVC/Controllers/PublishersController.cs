@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace ComicStoreMVC.Controllers
-{
+{ 
     public class PublishersController : Controller
     {
         private readonly IPublisherService _service;
@@ -34,12 +34,12 @@ namespace ComicStoreMVC.Controllers
             var publisherPL = _mapper.Map<PublisherViewModel>(publisherBL);
             return View(publisherPL);
         }
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
         }
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Create(PublisherViewModel model)
         {
@@ -55,14 +55,14 @@ namespace ComicStoreMVC.Controllers
                 return View(model);
             }
         }
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
             var publisherBL = _service.GetById(id);
             var publisherPL = _mapper.Map<PublisherViewModel>(publisherBL);
             return View(publisherPL);
         }
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Edit(int id, PublisherViewModel model)
         {
@@ -78,14 +78,14 @@ namespace ComicStoreMVC.Controllers
             }
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             var publisherBL = _service.GetById(id);
             var publisherPL = _mapper.Map<PublisherViewModel>(publisherBL);
             return View(publisherPL);
         }
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Delete(int id, FormCollection notUsed)
         {

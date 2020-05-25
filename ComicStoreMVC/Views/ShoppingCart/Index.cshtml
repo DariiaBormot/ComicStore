@@ -8,16 +8,15 @@
         type="text/javascript"></script>
 <script type="text/javascript">
     $(function () {
-        // Document.ready -> link up remove event handler
+        
         $(".RemoveLink").click(function () {
-            // Get the id from the link
+        
             var recordToDelete = $(this).attr("data-id");
             if (recordToDelete != '') {
-                // Perform the ajax post
+             
                 $.post("/ShoppingCart/RemoveFromCart", { "id": recordToDelete },
                     function (data) {
-                        // Successful requests get here
-                        // Update the page elements
+
                         if (data.ItemCount == 0) {
                             $('#row-' + data.DeleteId).fadeOut('slow');
                         } else {
@@ -33,9 +32,9 @@
 </script>
 
 <h3>Shopping Cart</h3>
+<hr />
 
-@Html.ActionLink("Checkout", "AddressAndPayment", "Checkout", null, new { @class = "btn btn-secondary" })
-
+@Html.ActionLink("Checkout", "AddressAndPayment", "Checkout", null, new { @class = "btn btn-success" })
 
 <div id="update-message"></div>
 

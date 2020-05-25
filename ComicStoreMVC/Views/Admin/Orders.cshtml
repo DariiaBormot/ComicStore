@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-sm">
             <div>
-                @using (Html.BeginForm("GetOrdersByEmail", "Orders", FormMethod.Get))
+                @using (Html.BeginForm("Orders", "Orders", FormMethod.Get))
                 {
                     @Html.TextBox("Search", null, new { @class = "SearchBox" })
                     <input type="submit" value="Search" />
@@ -89,7 +89,7 @@
                 @Html.DisplayFor(modelItem => item.PhoneNumber)
             </td>
             <td>
-                @Html.ActionLink("Details", "GetOrderDetailsByOrderId", "Orders", new { id = item.Id }, null)
+                @Html.ActionLink("Details", "OrderDetails", "Orders", new { id = item.Id }, null)
             </td>
             <td class="text-center">
                 @Html.ActionLink("Edit", "Edit", "Orders", new { id = item.Id }, null) |

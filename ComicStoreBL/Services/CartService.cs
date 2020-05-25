@@ -180,7 +180,6 @@ namespace ComicStoreBL.Services
             return context.Session[CartSessionKey].ToString();
         }
 
-        // When a user has logged in, migrate their shopping cart
         public void MigrateCart(string userName)
         {
             _cartRepository.MigrateCart(userName, ShoppingCartId);

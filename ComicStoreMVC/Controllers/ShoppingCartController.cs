@@ -43,10 +43,9 @@ namespace ComicStoreMVC.Controllers
             var cart = _cartService.GetCart(this.HttpContext);
             cart.AddToCart(comicBook);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("List", "ComicBooks");
 
         }
-
 
         [HttpPost]
         public ActionResult RemoveFromCart(int id)
@@ -69,6 +68,12 @@ namespace ComicStoreMVC.Controllers
             return Json(result);
         }
 
+        public ActionResult CartSummary()
+        {
+            var cart = _cartService.GetCart(this.HttpContext);
 
+            ViewData["CartCount"] = cart.GetCount();
+            return PartialView("CartSummary");
+        }
     }
 }

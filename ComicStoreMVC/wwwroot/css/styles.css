@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*!
 * Start Bootstrap - Freelancer v6.0.1 (https://startbootstrap.com/themes/freelancer)
 * Copyright 2013-2020 Start Bootstrap
@@ -158,11 +158,19 @@ sup {
   top: -0.5em;
 }
 
+
 a {
-  color: #1abc9c;
+  color: #fff;
   text-decoration: none;
   background-color: transparent;
 }
+
+/*a {
+    color: #1abc9c;
+    text-decoration: none;
+    background-color: transparent;
+}*/
+
 a:hover {
   color: #117964;
   text-decoration: underline;

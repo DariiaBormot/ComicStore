@@ -35,14 +35,14 @@ namespace ComicStoreMVC.Controllers
             return View(categoryPL);
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Create(CategoryViewModel model)
         {
@@ -59,7 +59,7 @@ namespace ComicStoreMVC.Controllers
             }
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
             var categoryBL = _service.GetById(id);
@@ -67,7 +67,7 @@ namespace ComicStoreMVC.Controllers
             return View(categoryPL);
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Edit(int id, CategoryViewModel model)
         {
@@ -83,7 +83,7 @@ namespace ComicStoreMVC.Controllers
             }
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             var categoryBL = _service.GetById(id);
@@ -91,7 +91,7 @@ namespace ComicStoreMVC.Controllers
             return View(categoryPL);
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Delete(int id, FormCollection fcNotUsed)
         {

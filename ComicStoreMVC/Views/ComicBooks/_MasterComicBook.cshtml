@@ -1,5 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -34,18 +35,6 @@
                 </li>
             </ul>
 
-            <!-- SEARCH FORM -->
-            @*<form class="form-inline ml-3">
-                    <div class="input-group input-group-sm">
-                        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-navbar" type="submit">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>*@
-
             @using (Html.BeginForm("List", "ComicBooks", FormMethod.Get))
             {
                 @Html.TextBox("Search", null, new { @class = "SearchBox" })
@@ -56,20 +45,58 @@
             <!-- Right navbar links -->
 
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item ">
-                <a class="nav-link" href="@Url.Action("Index", "ShoppingCart")">
+
+            <li class="nav-link">
+                <a href="@Url.Action("Index", "ShoppingCart")">
+                    @{Html.RenderAction("CartSummary", "ShoppingCart");}
                     <i class="fas fa-shopping-cart"></i>
                 </a>
             </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="@Url.Action("Login", "Account")" class="nav-link">Login</a>
 
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="@Url.Action("Register", "Account")" class="nav-link">Register</a>
-            </li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "nav navbar-nav navbar-right" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <li class="nav-link">
+                        <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                    </li>
+                }
+
+                <li class="nav-link">
+                    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+
+            }
+            else
+            {
+
+                <li class="nav-link">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li class="nav-link">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+
+            }
 
         </ul>
+
+            @*<ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="@Url.Action("Index", "ShoppingCart")">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="@Url.Action("Login", "Account")" class="nav-link">Login</a>
+
+                    </li>
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="@Url.Action("Register", "Account")" class="nav-link">Register</a>
+                    </li>
+
+                </ul>*@
+
+            @*@Html.Partial("_LoginPartial")*@
 
         </nav>
         <!-- Main Sidebar Container -->

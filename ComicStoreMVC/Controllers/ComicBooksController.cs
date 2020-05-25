@@ -34,11 +34,8 @@ namespace ComicStoreMVC.Controllers
             int page = filter.Page;
 
             var filterBL = _mapper.Map<ComicBookFilterModelBL>(filter);
-
             var filteredBooksBL = _service.GetBooksByFilter(filterBL);
-
             var filteredBooksPL = _mapper.Map<IEnumerable<ComicBookViewModel>>(filteredBooksBL);
-
             var count = _service.CountPageItems(filterBL);
 
             var resultAsPagedList = new StaticPagedList<ComicBookViewModel>(filteredBooksPL, page, pageSize, count);
@@ -55,7 +52,7 @@ namespace ComicStoreMVC.Controllers
 
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult Create()
         {
@@ -74,7 +71,7 @@ namespace ComicStoreMVC.Controllers
             return View(comicBook);
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Create(ComicBookCreateViewModel newBook)
         {
@@ -92,7 +89,7 @@ namespace ComicStoreMVC.Controllers
             }
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -112,7 +109,7 @@ namespace ComicStoreMVC.Controllers
 
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Edit(int id, ComicBookCreateViewModel modelToUpdate)
         {
@@ -129,7 +126,7 @@ namespace ComicStoreMVC.Controllers
             }
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             var comicBL = _service.GetById(id);
@@ -137,7 +134,7 @@ namespace ComicStoreMVC.Controllers
             return View(comicPL);
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Delete(int id, FormCollection fcNotUsed)
         {

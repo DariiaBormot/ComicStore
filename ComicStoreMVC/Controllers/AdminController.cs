@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace ComicStoreMVC.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private readonly IComicBookService _booksService;
@@ -60,7 +60,7 @@ namespace ComicStoreMVC.Controllers
 
         }
 
-        public ActionResult GetUsers(int? page)
+        public ActionResult Users(int? page) 
         {
 
             int pageSize = 10;
