@@ -76,7 +76,7 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", "ComicBooks", new { id = item.Id }, null) |
-                @Html.ActionLink("Details", "Details", "ComicBooks", new { id = item.Id }, null) |
+                @Html.ActionLink("Details", "ComicBookDetails", "Admin", new { id = item.Id }, null) |
                 @Html.ActionLink("Delete", "Delete", "ComicBooks", new { id = item.Id }, null)
             </td>
         </tr>
@@ -88,7 +88,5 @@
     @Html.ActionLink("Add Comic Book", "Create", "ComicBooks", null,
         new { @class = "btn btn-default" })
 </div>
-
-    @*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) from @Model.PageCount*@
 
     @Html.PagedListPager(Model, page => Url.Action("ComicBooks", new { page }))

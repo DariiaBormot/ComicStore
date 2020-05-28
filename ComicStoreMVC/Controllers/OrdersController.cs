@@ -2,6 +2,7 @@
 using ComicStoreBL.Interfaces;
 using ComicStoreBL.Models;
 using ComicStoreDAL.Filters;
+using ComicStoreMVC.Filters;
 using ComicStoreMVC.Models;
 using PagedList;
 using System;
@@ -12,7 +13,9 @@ using System.Web.Mvc;
 
 namespace ComicStoreMVC.Controllers
 {
+    [HandleError]
     [Authorize(Roles = "Admin")]
+    [LogErrors]
     public class OrdersController : Controller
     {
         private readonly IOrderService _service;
@@ -48,8 +51,6 @@ namespace ComicStoreMVC.Controllers
 
         public ViewResult Orders(OrderFilterViewModel filter) 
         {
-            int pageSize = 8;
-            int page = filter.Page;
 
             var filterBL = _mapper.Map<OrderFilterModelBL>(filter);
             var ordersBL = _service.GetOrdersByFilter(filterBL);
@@ -57,7 +58,7 @@ namespace ComicStoreMVC.Controllers
             var filteredOrders = _mapper.Map<IEnumerable<OrderViewModel>>(ordersBL);
             var count = _service.CountPageItems(filterBL);
 
-            var resultAsPagedList = new StaticPagedList<OrderViewModel>(filteredOrders, page, pageSize, count);
+            var resultAsPagedList = new StaticPagedList<OrderViewModel>(filteredOrders, filter.Page, filter.PageSize, count);
 
             return View(resultAsPagedList);
         }

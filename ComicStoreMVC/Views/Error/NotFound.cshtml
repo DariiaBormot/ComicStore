@@ -1,7 +1,7 @@
 ﻿@model System.Web.Mvc.HandleErrorInfo
 
 @{
-    ViewBag.Title = "Error";
+    ViewBag.Title = "NotFound";
 }
 
 <div style="background-color: #00cc99; color: White; height: 10px;">
@@ -12,7 +12,7 @@
             Application Error:
         </h3>
         <h4>
-            Sorry, an error occurred while processing your request.
+            Opps, an unexpected error has occurred :(
         </h4>
         <h6>@Html.ActionLink("Go Back To Home Page", "Index", "Home")</h6>
         <br />
@@ -21,5 +21,3 @@
 </div>
 <div style="background-color: #00cc99; color: White; height: 20px;">
 </div>
-
-

@@ -31,6 +31,7 @@ namespace ComicStoreMVC.App_Start
             builder.RegisterType<OrderService>().As<IOrderService>();
             builder.RegisterType<PublisherService>().As<IPublisherService>();
             builder.RegisterType<CartService>().As<ICartService>();
+            builder.RegisterType<ContactUsService>().As<IContactUs>();
 
             builder.RegisterType<OrderDetailsService>().As<IOrderDetailsService>();
 

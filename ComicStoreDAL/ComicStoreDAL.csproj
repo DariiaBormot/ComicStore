@@ -74,10 +74,11 @@
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\OrderDetails.cs" />
     <Compile Include="Entities\Publisher.cs" />
-    <Compile Include="Filters\FilterForCount.cs" />
-    <Compile Include="Filters\ComicBookFilterModel.cs" />
+    <Compile Include="Filters\CountOrdersFilter.cs" />
+    <Compile Include="Filters\CountComicsFilter.cs" />
+    <Compile Include="Filters\FilterModels\ComicBookFilterModel.cs" />
     <Compile Include="Filters\OrderFilter.cs" />
-    <Compile Include="Filters\OrderFilterModel.cs" />
+    <Compile Include="Filters\FilterModels\OrderFilterModel.cs" />
     <Compile Include="Interfaces\ICartRepository.cs" />
     <Compile Include="Interfaces\IComicStoreContext.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
@@ -97,7 +98,7 @@
     <Compile Include="Repositories\PublisherRepository.cs" />
     <Compile Include="Filters\BaseFilter.cs" />
     <Compile Include="Filters\ComicBookFilter.cs" />
-    <Compile Include="Filters\IFilter.cs" />
+    <Compile Include="Filters\Interfaces\IFilter.cs" />
     <Compile Include="Filters\FilterEvaluator.cs" />
     <Compile Include="StoreInitializer.cs" />
   </ItemGroup>
@@ -117,6 +118,7 @@
       <DependentUpon>202005210906257_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

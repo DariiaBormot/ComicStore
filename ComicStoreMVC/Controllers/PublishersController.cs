@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ComicStoreBL.Interfaces;
 using ComicStoreBL.Models;
+using ComicStoreMVC.Filters;
 using ComicStoreMVC.Models;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,9 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace ComicStoreMVC.Controllers
-{ 
+{
+    [HandleError]
+    [LogErrors]
     public class PublishersController : Controller
     {
         private readonly IPublisherService _service;

@@ -39,7 +39,7 @@ namespace ComicStoreBL.Services
         {
             var filterDAL = _mapper.Map<ComicBookFilterModel>(filter);
            
-            var coutFilter = new FilterForCount(filterDAL);
+            var coutFilter = new CountComicsFilter(filterDAL);
 
             var count = _repository.Count(coutFilter);
 

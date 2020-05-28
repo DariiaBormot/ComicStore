@@ -3,6 +3,7 @@ using ComicStoreBL.Interfaces;
 using ComicStoreBL.Services;
 using ComicStoreDAL.Entities;
 using ComicStoreDAL.Interfaces;
+using ComicStoreMVC.Filters;
 using ComicStoreMVC.Models;
 using System;
 using System.Collections.Generic;
@@ -12,14 +13,18 @@ using System.Web.Mvc;
 
 namespace ComicStoreMVC.Controllers
 {
+    [HandleError]
+    [LogErrors]
     public class ShoppingCartController : Controller
     {
         private readonly IComicBookService _bookService;
         private readonly ICartService _cartService;
-        public ShoppingCartController(IComicBookService bookService, ICartService cartService)
+        private readonly IMapper _mapper;
+        public ShoppingCartController(IComicBookService bookService, ICartService cartService, IMapper mapper)
         {
             _cartService = cartService;
             _bookService = bookService;
+            _mapper = mapper;
 
         }
 
@@ -27,9 +32,12 @@ namespace ComicStoreMVC.Controllers
         {
             var cart = _cartService.GetCart(this.HttpContext);
 
+            var cartsBL = cart.GetCartItems();
+            var cartsPL = _mapper.Map<IEnumerable<CartViewModel>>(cartsBL);
+
             var viewModel = new ShoppingCartViewModel
             {
-                CartItems = cart.GetCartItems(),
+                CartItems = cartsPL,
                 CartTotal = cart.GetTotalPrice()
             };
 
@@ -68,6 +76,7 @@ namespace ComicStoreMVC.Controllers
             return Json(result);
         }
 
+        [ChildActionOnly]
         public ActionResult CartSummary()
         {
             var cart = _cartService.GetCart(this.HttpContext);

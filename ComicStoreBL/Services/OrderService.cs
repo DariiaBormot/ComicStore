@@ -41,7 +41,7 @@ namespace ComicStoreBL.Services
         {
             var filterDAL = _mapper.Map<OrderFilterModel>(filter);
 
-            var coutFilter = new OrderFilter(filterDAL);
+            var coutFilter = new CountOrdersFilter(filterDAL);
 
             var count = _repository.Count(coutFilter);
 

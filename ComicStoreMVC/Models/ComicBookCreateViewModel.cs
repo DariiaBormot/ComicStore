@@ -18,6 +18,7 @@ namespace ComicStoreMVC.Models
         public string Description { get; set; }
         public string Image { get; set; }
         [Required]
+        [DisplayFormat(DataFormatString = "{0:0.00}")]
         public double Price { get; set; }
         [Required]
         public int Quantity { get; set; }

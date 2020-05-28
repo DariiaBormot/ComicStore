@@ -102,6 +102,7 @@
     <Compile Include="Config\AutoMapperProfileBL.cs" />
     <Compile Include="Interfaces\ICategoryService.cs" />
     <Compile Include="Interfaces\IComicBookService.cs" />
+    <Compile Include="Interfaces\IContactUs.cs" />
     <Compile Include="Interfaces\IGenericService.cs" />
     <Compile Include="Interfaces\IMailOrderProcessor.cs" />
     <Compile Include="Interfaces\IOrderDetailsService.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Models\ComicBookBL.cs" />
     <Compile Include="Models\EmailSettingsBL.cs" />
     <Compile Include="Models\ComicBookFilterModelBL.cs" />
+    <Compile Include="Models\MailFormBL.cs" />
     <Compile Include="Models\OrderBL.cs" />
     <Compile Include="Models\OrderFilterModelBL.cs" />
     <Compile Include="Models\PublisherBL.cs" />
@@ -120,6 +122,7 @@
     <Compile Include="Services\CartService.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\ComicBookService.cs" />
+    <Compile Include="Services\ContactUsService.cs" />
     <Compile Include="Services\EmailOrderProcessorService.cs" />
     <Compile Include="Services\GenericService.cs" />
     <Compile Include="Interfaces\ICartService.cs" />

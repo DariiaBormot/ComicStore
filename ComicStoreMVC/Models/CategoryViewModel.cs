@@ -9,7 +9,7 @@ namespace ComicStoreMVC.Models
 {
     public class CategoryViewModel
     {
-        //[HiddenInput(DisplayValue = false)]
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }

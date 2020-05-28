@@ -4,6 +4,7 @@ using ComicStoreBL.Models;
 using ComicStoreBL.Services;
 using ComicStoreDAL.Entities;
 using ComicStoreDAL.Interfaces;
+using ComicStoreMVC.Filters;
 using ComicStoreMVC.Models;
 using Microsoft.AspNet.Identity;
 using System;
@@ -14,6 +15,8 @@ using System.Web.Mvc;
 
 namespace ComicStoreMVC.Controllers
 {
+    [HandleError]
+    [LogErrors]
     public class CheckoutController : Controller
     {
         private readonly IOrderService _orderService;

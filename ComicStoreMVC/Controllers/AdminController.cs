@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ComicStoreBL.Interfaces;
 using ComicStoreBL.Models;
+using ComicStoreMVC.Filters;
 using ComicStoreMVC.Models;
 using PagedList;
 using System;
@@ -12,6 +13,8 @@ using System.Web.Mvc;
 namespace ComicStoreMVC.Controllers
 {
     [Authorize(Roles = "Admin")]
+    [HandleError]
+    [LogErrors]
     public class AdminController : Controller
     {
         private readonly IComicBookService _booksService;
@@ -29,24 +32,26 @@ namespace ComicStoreMVC.Controllers
 
         public ActionResult ComicBooks(ComicBookFilterModel filter)
         {
-            int pageSize = 8;
-            int page = filter.Page;
-
             var filterBL = _mapper.Map<ComicBookFilterModelBL>(filter);
             var filteredBooksBL = _booksService.GetBooksByFilter(filterBL);
             var filteredBooksPL = _mapper.Map<IEnumerable<ComicBookIncludeNavPropViewModel>>(filteredBooksBL);
 
             var count = _booksService.CountPageItems(filterBL);
-            var resultAsPagedList = new StaticPagedList<ComicBookIncludeNavPropViewModel>(filteredBooksPL, page, pageSize, count);
+            var resultAsPagedList = new StaticPagedList<ComicBookIncludeNavPropViewModel>(filteredBooksPL, filter.Page, filter.PageSize, count);
 
             return View(resultAsPagedList);
 
         }
 
+        public ActionResult ComicBookDetails(int id)
+        {
+            var comicBL = _booksService.GetById(id);
+            var comicPL = _mapper.Map<ComicBookIncludeNavPropViewModel>(comicBL);
+            return View(comicPL);
+        }
+
         public ActionResult Orders(OrderFilterViewModel filter)
         {
-            int pageSize = 8;
-            int page = filter.Page;
 
             var filterBL = _mapper.Map<OrderFilterModelBL>(filter);
             var ordersBL = _orderService.GetOrdersByFilter(filterBL);
@@ -54,7 +59,7 @@ namespace ComicStoreMVC.Controllers
             var filteredOrders = _mapper.Map<IEnumerable<OrderViewModel>>(ordersBL);
             var count = _orderService.CountPageItems(filterBL);
 
-            var resultAsPagedList = new StaticPagedList<OrderViewModel>(filteredOrders, page, pageSize, count);
+            var resultAsPagedList = new StaticPagedList<OrderViewModel>(filteredOrders, filter.Page, filter.PageSize, count);
 
             return View(resultAsPagedList);
 

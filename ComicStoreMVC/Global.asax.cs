@@ -20,5 +20,7 @@ namespace ComicStoreMVC
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutofacConfigMVC.ConfigureContainer();
         }
+
+
     }
 }

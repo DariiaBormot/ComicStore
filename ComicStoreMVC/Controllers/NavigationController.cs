@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ComicStoreBL.Interfaces;
+using ComicStoreMVC.Filters;
 using ComicStoreMVC.Models;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace ComicStoreMVC.Controllers
 {
+    [LogErrors]
     public class NavigationController : Controller
     {
         private readonly ICategoryService _categoryService;

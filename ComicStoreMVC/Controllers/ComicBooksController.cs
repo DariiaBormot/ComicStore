@@ -11,11 +11,17 @@ using PagedList.Mvc;
 using PagedList;
 using ComicStoreDAL.Filters;
 using ComicStoreDAL.Repositories;
+using System.Web.UI.WebControls;
+using NLog;
+using ComicStoreMVC.Filters;
 
 namespace ComicStoreMVC.Controllers
 {
+    [HandleError]
+    [LogErrors]
     public class ComicBooksController : Controller
     {
+
         private readonly IComicBookService _service;
         private readonly IMapper _mapper;
         private readonly ICategoryService _categoryService;
@@ -30,15 +36,13 @@ namespace ComicStoreMVC.Controllers
 
         public ViewResult List(Models.ComicBookFilterModel filter)
         {
-            int pageSize = 8;
-            int page = filter.Page;
 
             var filterBL = _mapper.Map<ComicBookFilterModelBL>(filter);
             var filteredBooksBL = _service.GetBooksByFilter(filterBL);
             var filteredBooksPL = _mapper.Map<IEnumerable<ComicBookViewModel>>(filteredBooksBL);
             var count = _service.CountPageItems(filterBL);
 
-            var resultAsPagedList = new StaticPagedList<ComicBookViewModel>(filteredBooksPL, page, pageSize, count);
+            var resultAsPagedList = new StaticPagedList<ComicBookViewModel>(filteredBooksPL, filter.Page, filter.PageSize, count);
 
             return View(resultAsPagedList);
 

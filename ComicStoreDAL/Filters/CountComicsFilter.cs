@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 
 namespace ComicStoreDAL.Filters
 {
-    public class FilterForCount : BaseFilter<ComicBook>
+    public class CountComicsFilter : BaseFilter<ComicBook>
     {
-        public FilterForCount(ComicBookFilterModel filter)
+        public CountComicsFilter(ComicBookFilterModel filter)
              : base(x =>
             (string.IsNullOrEmpty(filter.Search) || x.Name.ToLower().Contains(filter.Search)) &&
             (!filter.PublisherId.HasValue || x.PublisherId == filter.PublisherId) &&
             (!filter.CategoryId.HasValue || x.CategoryId == filter.CategoryId))
-        {
+        { }
 
-        }
     }
 }

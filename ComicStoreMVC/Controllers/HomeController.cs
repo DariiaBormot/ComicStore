@@ -7,11 +7,25 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using ComicStoreMVC.Models;
+using ComicStoreMVC.Filters;
+using ComicStoreBL.Interfaces;
+using AutoMapper;
+using ComicStoreBL.Models;
 
 namespace ComicStoreMVC.Controllers
 {
+    [HandleError]
+    [LogErrors]
     public class HomeController : Controller
     {
+        private readonly IContactUs _contactUs;
+        private readonly IMapper _mapper;
+        public HomeController(IContactUs contactUs, IMapper mapper)
+        {
+            _contactUs = contactUs;
+            _mapper = mapper;
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -24,28 +38,10 @@ namespace ComicStoreMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                var body = "<p>Email From: {0} ({1})</p><p>Message:</p><p>{2}</p>";
-                var message = new MailMessage();
-                message.To.Add(new MailAddress("dariiabormot@gmail.com"));  
-                message.From = new MailAddress("dariiabormot@outlook.com");  
-                message.Subject = "Your email subject";
-                message.Body = string.Format(body, model.FromName, model.FromEmail, model.Message);
-                message.IsBodyHtml = true;
+                var mailFormBL = _mapper.Map<MailFormBL>(model);
+                await _contactUs.SendMailAsync(mailFormBL);
 
-                using (var smtp = new SmtpClient())
-                {
-                    var credential = new NetworkCredential
-                    {
-                        UserName = "dariiabormot@outlook.com", 
-                        Password = ""  // replace with valid value
-                    };
-                    smtp.Credentials = credential;
-                    smtp.Host = "smtp-mail.outlook.com";
-                    smtp.Port = 587;
-                    smtp.EnableSsl = true;
-                    await smtp.SendMailAsync(message);
-                    return RedirectToAction("Sent");
-                }
+                return RedirectToAction("Sent");
             }
             return View(model);
         }

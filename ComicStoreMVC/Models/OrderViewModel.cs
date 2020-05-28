@@ -13,6 +13,7 @@ namespace ComicStoreMVC.Models
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
         [Required]
+        [DisplayFormat(DataFormatString = "{0:0.00}")]
         public double TotalPrice { get; set; }
         [DataType(DataType.Date)]
         [Required]

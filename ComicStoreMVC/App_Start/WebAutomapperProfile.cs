@@ -23,6 +23,8 @@ namespace ComicStoreMVC.App_Start
             CreateMap<ComicBookBL, ComicBookIncludeNavPropViewModel>().ReverseMap();
             CreateMap<OrderFilterModelBL, OrderFilterViewModel>().ReverseMap();
             CreateMap<ComicBookBL, ComicBookCreateViewModel>().ReverseMap();
+            CreateMap<CartBL, CartViewModel>().ReverseMap();
+            CreateMap<MailFormBL, EmailFormModel>().ReverseMap();
 
         }
     }
