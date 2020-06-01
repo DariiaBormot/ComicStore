@@ -46,6 +46,7 @@ namespace ComicStoreBL.Services
             return count;
         }
 
+
         public override ComicBookBL Map(ComicBook entity)
         {
             return _mapper.Map<ComicBookBL>(entity);

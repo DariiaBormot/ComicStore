@@ -38,6 +38,13 @@ namespace ComicStoreMVC.Controllers
             return View(categoryPL);
         }
 
+        public PartialViewResult MenuByCategorie()
+        {
+            var categoriesBL = _service.GetAll();
+            var categoriesPL = _mapper.Map<IEnumerable<CategoryViewModel>>(categoriesBL);
+            return PartialView(categoriesPL);
+        }
+
         [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult Create()

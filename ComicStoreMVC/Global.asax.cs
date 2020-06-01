@@ -21,6 +21,5 @@ namespace ComicStoreMVC
             AutofacConfigMVC.ConfigureContainer();
         }
 
-
     }
 }

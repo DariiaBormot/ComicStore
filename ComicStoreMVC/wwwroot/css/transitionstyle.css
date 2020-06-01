@@ -1,10 +1,31 @@
+.popOver {
+
+    -webkit-animation: bummer 2s;
+    animation: bummer 2s;
+    -webkit-transform: scale(0,0);
+    transform: scale(0,0);
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes bummer {
+    100% {
+        -webkit-transform: scale(1,1);
+    }
+}
+
+@keyframes bummer {
+    100% {
+        transform: scale(1,1);
+    }
+}
 
 .masthead{
-    animation: transitionIn 0.75s;
+    animation: transitionIn 1s;
 }
 
 .content-wrapper {
-    animation: transitionIn 0.75s;
+    animation: transitionIn 1s;
 }
 
 @keyframes transitionIn {
@@ -18,3 +39,6 @@
     }
 
 }
+
+
+

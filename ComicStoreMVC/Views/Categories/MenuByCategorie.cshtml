@@ -1,0 +1,15 @@
+﻿@using ComicStoreMVC.Models
+@model IEnumerable<CategoryViewModel>
+
+
+<ul>
+
+    @{
+        foreach (var item in Model)
+        {
+            <li>
+                @Html.ActionLink(item.Name, "List", "ComicBooks", new { page = 1, categoryId = item.Id }, null)
+            </li>
+        }
+    }
+</ul>

@@ -10,11 +10,12 @@
             <image src="@Url.Content(@Model.Image)" class="img-responsive" alt="smaple image" height="300" width="200" />
 
             <div class="overlay">
-                <h2>@Model.Price $</h2>
+
+                <h2>@Model.Price USD</h2>
                 <h2>@Model.Name</h2>
 
                 @using (Html.BeginForm("AddToCart", "ShoppingCart"))
-                 {
+                {
                     <div>
                         @Html.HiddenFor(x => x.Id)
 
@@ -22,7 +23,7 @@
                         <i class="glyphicon glyphicon-shopping-cart"></i>
 
                     </div>
-                 }
+                }
 
             </div>
 

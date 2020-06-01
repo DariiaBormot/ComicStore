@@ -38,11 +38,5 @@ namespace ComicStoreDAL.Filters
 
         }
 
-        public ComicBookFilter(int id) : base(x => x.Id == id)
-        {
-            AddInclude(x => x.Category);
-            AddInclude(x => x.Publisher);
-        }
-
     }
 }

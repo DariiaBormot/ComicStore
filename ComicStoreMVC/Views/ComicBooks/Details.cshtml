@@ -1,53 +1,54 @@
 ﻿@model ComicStoreMVC.Models.ComicBookIncludeNavPropViewModel
 
-    <div>
-        <hr />
-        <h4>Comic Book</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Name)
-            </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Name)
-            </dd>
+<div>
+    <hr />
+    <h4>Comic Book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Description)
-            </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Price)
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Price)
-            </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
 
-            <dt>
-                Category
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Category.Name)
-            </dd>
+        <dt>
+            Category
+        </dt>
 
-            <dt>
-                Publisher
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Category.Name)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Publisher.Name)
-            </dd>
+        <dt>
+            Publisher
+        </dt>
 
-        </dl>
-    </div>
-    <div>
-        @Html.ActionLink("Back to Store", "List", "ComicBooks")
-    </div>
+        <dd>
+            @Html.DisplayFor(model => model.Publisher.Name)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Back to Store", "List", "ComicBooks")
+</div>
 

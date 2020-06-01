@@ -37,6 +37,14 @@ namespace ComicStoreMVC.Controllers
             var publisherPL = _mapper.Map<PublisherViewModel>(publisherBL);
             return View(publisherPL);
         }
+
+        public PartialViewResult MenuByPublisher()
+        {
+            var publishersBL = _service.GetAll();
+            var publishersPL = _mapper.Map<IEnumerable<PublisherViewModel>>(publishersBL);
+            return PartialView(publishersPL);
+        }
+
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {

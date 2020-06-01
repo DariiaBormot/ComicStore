@@ -1,19 +1,19 @@
 ﻿@model ComicStoreMVC.Models.ShoppingCartViewModel
 
-@{
-    ViewBag.Title = "Shopping Cart";
-}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <script src="~/Scripts/jquery-3.4.1.min.js"
         type="text/javascript"></script>
 <script type="text/javascript">
     $(function () {
-        
+
         $(".RemoveLink").click(function () {
-        
+
             var recordToDelete = $(this).attr("data-id");
             if (recordToDelete != '') {
-             
+
                 $.post("/ShoppingCart/RemoveFromCart", { "id": recordToDelete },
                     function (data) {
 
@@ -31,10 +31,10 @@
     });
 </script>
 
+
 <h3>Shopping Cart</h3>
 <hr />
 
-@Html.ActionLink("Checkout", "AddressAndPayment", "Checkout", null, new { @class = "btn btn-success" })
 
 <div id="update-message"></div>
 
@@ -44,7 +44,7 @@
         <tr>
 
             <th>
-                Name
+                Product
             </th>
 
             <th>
@@ -63,6 +63,8 @@
         <tr id="row-@item.RecordId">
 
             <td>
+                <image src="@Url.Content(item.ComicBook.Image)" class="img-responsive" alt="smaple image" height="90" width="60" />
+
                 @Html.ActionLink(item.ComicBook.Name, "Details", "ComicBooks", new { id = item.ComicBookId }, null)
             </td>
 
@@ -78,23 +80,239 @@
                 <a href="#" class="RemoveLink"
                    data-id="@item.RecordId">
                     Remove
-                    from cart
                 </a>
             </td>
         </tr>
     }
     <tr>
         <td>
-            Total
+                Total
         </td>
 
         <td id="cart-total">
-            @Model.CartTotal
+
+                @Model.CartTotal
         </td>
 
     </tr>
 </table>
 
+<tr>
 
-@Html.ActionLink("Back To Store", "List", "ComicBooks", null, new { @class = "btn btn-primary" })
+    <td>   </td>
+    <td>   </td>
+    <td>   </td>
+
+    <td>
+
+        <button type="button" class="btn btn-default">
+
+            @Html.ActionLink("Continue Shopping", "List", "ComicBooks")
+            <span class="glyphicon glyphicon-shopping-cart"></span>
+        </button>
+
+    </td>
+    <td>
+        @Html.ActionLink("Checkout", "AddressAndPayment", "Checkout", null, new { @class = "btn btn-success" })
+
+    </td>
+</tr>
+
+
+
+
+@*<div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-md-offset-1">
+                <table class="table table-hover">
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Product
+                            </th>
+
+                            <th>
+                                Quantity
+                            </th>
+
+                            <th>
+                                Price
+                            </th>
+
+                        </tr>
+                    </thead>
+
+                    @foreach (var item in Model.CartItems)
+                    {
+                        <tr id="row-@item.RecordId">
+
+
+                            <td>
+                                <image src="@Url.Content(item.ComicBook.Image)" class="img-responsive" alt="smaple image" height="90" width="60" />
+
+                                @Html.ActionLink(item.ComicBook.Name, "Details", "ComicBooks", new { id = item.ComicBookId }, null)
+                            </td>
+
+                            <td id="item-count-@item.RecordId" class="text-center">
+                                @item.Count
+                            </td>
+
+                            <td>
+                                @item.ComicBook.Price
+                            </td>
+
+                            <td>
+
+                                <a href="#" class="RemoveLink"
+                                   data-id="@item.RecordId">
+                                    Remove
+                                </a>
+
+                            </td>
+                        </tr>
+                    }
+
+
+
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h3>Total</h3></td>
+
+                        <td id="cart-total" class="text-center">
+                                <h3>
+                                    <strong>
+                                        @Model.CartTotal
+                                    </strong>
+                                </h3>
+                            </td>
+
+                    </tr>
+                    <tr>
+
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+
+                        <td>
+
+                            <button type="button" class="btn btn-default">
+
+                                @Html.ActionLink("Continue Shopping", "List", "ComicBooks")
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                            </button>
+
+                        </td>
+                        <td>
+                            @Html.ActionLink("Checkout", "AddressAndPayment", "Checkout", null, new { @class = "btn btn-success" })
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>*@
+
+
+@*@{
+        ViewBag.Title = "Shopping Cart";
+    }
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $(".RemoveLink").click(function () {
+
+                var recordToDelete = $(this).attr("data-id");
+                if (recordToDelete != '') {
+
+                    $.post("/ShoppingCart/RemoveFromCart", { "id": recordToDelete },
+                        function (data) {
+
+                            if (data.ItemCount == 0) {
+                                $('#row-' + data.DeleteId).fadeOut('slow');
+                            } else {
+                                $('#item-count-' + data.DeleteId).text(data.ItemCount);
+                            }
+                            $('#cart-total').text(data.CartTotal);
+                            $('#update-message').text(data.Message);
+                            $('#cart-status').text('Cart (' + data.CartCount + ')');
+                        });
+                }
+            });
+        });
+    </script>
+
+    <h3>Shopping Cart</h3>
+    <hr />
+
+    @Html.ActionLink("Checkout", "AddressAndPayment", "Checkout", null, new { @class = "btn btn-success" })
+
+    <div id="update-message"></div>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    Name
+                </th>
+
+                <th>
+                    Price
+                </th>
+
+                <th class="text-center">
+                    Quantity
+                </th>
+
+            </tr>
+        </thead>
+
+        @foreach (var item in Model.CartItems)
+        {
+            <tr id="row-@item.RecordId">
+
+                <td>
+                    @Html.ActionLink(item.ComicBook.Name, "Details", "ComicBooks", new { id = item.ComicBookId }, null)
+                </td>
+
+                <td>
+                    @item.ComicBook.Price
+                </td>
+
+                <td id="item-count-@item.RecordId" class="text-center">
+                    @item.Count
+                </td>
+
+                <td>
+                    <a href="#" class="RemoveLink"
+                       data-id="@item.RecordId">
+                        Remove
+                        from cart
+                    </a>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td>
+                Total
+            </td>
+
+            <td id="cart-total">
+                @Model.CartTotal
+            </td>
+
+        </tr>
+    </table>
+
+
+    @Html.ActionLink("Back To Store", "List", "ComicBooks", null, new { @class = "btn btn-primary" })*@
+
 

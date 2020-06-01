@@ -226,7 +226,6 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PublishersController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
@@ -392,8 +391,6 @@
     <Content Include="Views\ComicBooks\_MasterComicBook.cshtml" />
     <Content Include="Views\Partials\ComicSummary.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
-    <Content Include="Views\Navigation\MenuByCategorie.cshtml" />
-    <Content Include="Views\Navigation\MenuByPublisher.cshtml" />
     <Content Include="Views\ComicBooks\ComicBooksList.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\ComicBooks\Delete.cshtml" />
@@ -437,6 +434,8 @@
     <Content Include="Views\Error\Error.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Admin\ComicBookDetails.cshtml" />
+    <Content Include="Views\Categories\MenuByCategorie.cshtml" />
+    <Content Include="Views\Publishers\MenuByPublisher.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
