@@ -25,6 +25,7 @@ namespace ComicStoreMVC.Models
         [Required(ErrorMessage = "Please enter your zip code")]
         public string ZipCode { get; set; }
         [Required(ErrorMessage = "Please enter your phone number")]
+        [Display(Name = "Phone Number")]
         public int PhoneNumber { get; set; }
         [EmailAddress]
         [Required(ErrorMessage = "Please enter your email address")]

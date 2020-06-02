@@ -13,7 +13,7 @@ namespace ComicStoreDAL
     {
         public ComicStoreContext() : base(@"Data Source=.\MSSQLSERVER1;Initial Catalog=ComicStoreDB;Integrated Security=True")
         {
-           //Database.SetInitializer<ComicStoreContext>(new StoreInitializer());
+          // Database.SetInitializer<ComicStoreContext>(new StoreInitializer());
         }
 
         public DbSet<Category> Categories { get; set; }

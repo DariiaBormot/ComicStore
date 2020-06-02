@@ -27,6 +27,7 @@ namespace ComicStoreDAL.Entities
         public string Appartment { get; set; }
         public string ZipCode { get; set; }
         public int PhoneNumber { get; set; }
+        public PaymentMethod PaymentMethod { get; set; }
 
         public virtual ICollection<OrderDetails> OrderDetails { get; set; }
     }

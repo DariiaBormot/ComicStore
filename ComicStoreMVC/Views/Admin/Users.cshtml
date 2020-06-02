@@ -11,9 +11,9 @@
     <div class="row">
         <div class="col-sm">
             <div>
-                @using (Html.BeginForm("GetOrdersByEmail", "Orders", FormMethod.Get))
+                @using (Html.BeginForm("Users", "Admin", FormMethod.Get))
                 {
-                    @Html.TextBox("Search", null, new { @class = "SearchBox" })
+                    @Html.TextBox("search", null, new { @class = "SearchBox" })
                     <input type="submit" value="Search" />
                 }
             </div>

@@ -85,6 +85,7 @@
                         Appartment = c.String(),
                         ZipCode = c.String(),
                         PhoneNumber = c.Int(nullable: false),
+                        PaymentMethod = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -102,11 +103,11 @@
         
         public override void Down()
         {
+            DropForeignKey("dbo.Carts", "ComicBookId", "dbo.ComicBooks");
             DropForeignKey("dbo.ComicBooks", "PublisherId", "dbo.Publishers");
             DropForeignKey("dbo.OrderDetails", "OrderId", "dbo.Orders");
             DropForeignKey("dbo.OrderDetails", "ComicBookId", "dbo.ComicBooks");
             DropForeignKey("dbo.ComicBooks", "CategoryId", "dbo.Categories");
-            DropForeignKey("dbo.Carts", "ComicBookId", "dbo.ComicBooks");
             DropIndex("dbo.OrderDetails", new[] { "OrderId" });
             DropIndex("dbo.OrderDetails", new[] { "ComicBookId" });
             DropIndex("dbo.ComicBooks", new[] { "PublisherId" });

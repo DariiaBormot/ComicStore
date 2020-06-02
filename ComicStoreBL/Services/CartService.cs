@@ -158,7 +158,7 @@ namespace ComicStoreBL.Services
 
             order.TotalPrice = orderTotal;
 
-            EmptyCart();
+            //EmptyCart();
 
         }
 

@@ -48,6 +48,10 @@
 
         </th>
         <th class="text-center">
+            Payment Method
+
+        </th>
+        <th class="text-center">
             Name
         </th>
         <th class="text-center">
@@ -78,6 +82,9 @@
             </td>
             <td class="text-center">
                 @Html.DisplayFor(modelItem => item.OrderStatus)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.PaymentMethod)
             </td>
             <td class="text-center">
                 @Html.DisplayFor(modelItem => item.Name)

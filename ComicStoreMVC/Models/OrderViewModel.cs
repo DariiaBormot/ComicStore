@@ -39,5 +39,6 @@ namespace ComicStoreMVC.Models
         public int PhoneNumber { get; set; }
         [Required]
         public string Email { get; set; }
+        public PaymentMethod PaymentMethod { get; set; }
     }
 }

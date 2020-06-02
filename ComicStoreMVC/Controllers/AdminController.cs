@@ -65,12 +65,18 @@ namespace ComicStoreMVC.Controllers
 
         }
 
-        public ActionResult Users(int? page) 
+        public ActionResult Users(int? page, string search) 
         {
 
             int pageSize = 10;
             int pageNumber = (page ?? 1);
             var users = _context.Users.ToList();
+
+            if (!String.IsNullOrEmpty(search))
+            {
+                users = users.Where(u => u.Email.Contains(search)).ToList();
+            }
+
             return View(users.ToPagedList(pageNumber, pageSize));
 
         }
