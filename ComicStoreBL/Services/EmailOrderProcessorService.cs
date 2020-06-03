@@ -63,10 +63,10 @@ namespace ComicStoreBL.Services
                     .AppendLine("---");
 
                 MailMessage mailMessage = new MailMessage(
-                                       emailSettings.MailFromAddress,	// from
-                                       shippingInfo.Email,	            // to 
-                                       "Thank you for your order",		// theme
-                                       body.ToString()); 				// body
+                                       emailSettings.MailFromAddress,	
+                                       shippingInfo.Email,	            
+                                       "Thank you for your order",		
+                                       body.ToString()); 				
 
                 if (emailSettings.WriteAsFile)
                 {

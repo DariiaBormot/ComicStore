@@ -115,7 +115,6 @@ namespace ComicStoreMVC.Controllers
                 });
             }
 
-
             var payer = new Payer()
             {
                 payment_method = "paypal"
@@ -146,7 +145,6 @@ namespace ComicStoreMVC.Controllers
             var rnd = new Random();
             transactionList.Add(new Transaction()
             {
-
                 description = "Transaction description",
                 invoice_number = rnd.Next(1000, 9000).ToString(),
                 amount = amount,

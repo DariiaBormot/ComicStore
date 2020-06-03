@@ -46,13 +46,11 @@ namespace ComicStoreMVC.Controllers
 
         public ActionResult AddToCart(int id)
         {
-
             var comicBook = _bookService.GetById(id);
             var cart = _cartService.GetCart(this.HttpContext);
             cart.AddToCart(comicBook);
 
             return RedirectToAction("List", "ComicBooks");
-
         }
 
         [HttpPost]

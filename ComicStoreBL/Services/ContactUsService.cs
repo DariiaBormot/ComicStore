@@ -28,7 +28,7 @@ namespace ComicStoreBL.Services
                 var credential = new NetworkCredential
                 {
                     UserName = "dariiabormot@outlook.com",
-                    Password = "Loktankiko25"  // replace with valid value
+                    Password = ""  // replace with valid value
                 };
                 smtp.Credentials = credential;
                 smtp.Host = "smtp-mail.outlook.com";

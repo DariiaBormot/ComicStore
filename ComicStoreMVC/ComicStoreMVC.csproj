@@ -331,10 +331,13 @@
     <Content Include="wwwroot\assets\img\portfolio\submarine.png" />
     <Content Include="wwwroot\css\adminlte.min.css" />
     <Content Include="wwwroot\css\all.min.css" />
+    <Content Include="wwwroot\css\customerror.css" />
     <Content Include="wwwroot\css\styles.css" />
+    <Content Include="wwwroot\css\404errorstyle.css" />
     <Content Include="wwwroot\css\transitionstyle.css" />
     <Content Include="wwwroot\js\adminlte.min.js" />
     <Content Include="wwwroot\js\bootstrap.bundle.min.js" />
+    <Content Include="wwwroot\js\customerrorjs.js" />
     <Content Include="wwwroot\js\jquery.min.js" />
     <Content Include="wwwroot\js\scripts.js" />
     <Content Include="wwwroot\webfonts\fa-brands-400.svg" />
@@ -438,7 +441,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\ShoppingCart\CartSummary.cshtml" />
     <Content Include="Views\Error\Error.cshtml" />
-    <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Admin\ComicBookDetails.cshtml" />
     <Content Include="Views\Categories\MenuByCategorie.cshtml" />
     <Content Include="Views\Publishers\MenuByPublisher.cshtml" />
@@ -446,6 +448,7 @@
     <Content Include="Views\PayPal\SuccessView.cshtml" />
     <Content Include="Views\PayPal\FailureView.cshtml" />
     <Content Include="Views\Checkout\CheckoutWithPayPal.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
