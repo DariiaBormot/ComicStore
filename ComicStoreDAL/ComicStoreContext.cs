@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace ComicStoreDAL
 {
-    public class ComicStoreContext : DbContext, IComicStoreContext
+    public class ComicStoreContext : DbContext
     {
-        public ComicStoreContext() : base(@"Data Source=.\MSSQLSERVER1;Initial Catalog=ComicStoreDB;Integrated Security=True")
+        public ComicStoreContext() 
         {
           // Database.SetInitializer<ComicStoreContext>(new StoreInitializer());
         }
